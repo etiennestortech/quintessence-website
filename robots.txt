@@ -1,0 +1,11 @@
+# robots.txt for Quintessence Atelier Dentaire
+
+User-agent: *
+Allow: /
+
+# Disallow admin or sensitive areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://quintessence-ad.com/sitemap.xml

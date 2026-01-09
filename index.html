@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quintessence Atelier Dentaire à Montréal - Laboratoire dentaire d'excellence spécialisé en prothèse dentaire sur mesure, couronnes, facettes et réhabilitations complètes. Technologie numérique avancée et savoir-faire artisanal.">
+    <meta name="keywords" content="laboratoire dentaire, prothèse dentaire, couronne dentaire, facette dentaire, implant dentaire, Montréal, Québec, technologie numérique, zircone">
+    <meta name="author" content="Quintessence Atelier Dentaire">
+    <link rel="canonical" href="https://quintessence-ad.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quintessence-ad.com/">
+    <meta property="og:title" content="Quintessence Atelier Dentaire | L'excellence en prothèse dentaire">
+    <meta property="og:description" content="Laboratoire dentaire d'excellence à Montréal. Nous façonnons chaque sourire comme une création unique, alliant technologie numérique et savoir-faire artisanal.">
+    <meta property="og:image" content="https://quintessence-ad.com/images/og-image.jpg">
+    <meta property="og:locale" content="fr_CA">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://quintessence-ad.com/">
+    <meta name="twitter:title" content="Quintessence Atelier Dentaire | L'excellence en prothèse dentaire">
+    <meta name="twitter:description" content="Laboratoire dentaire d'excellence à Montréal. Nous façonnons chaque sourire comme une création unique.">
+    <meta name="twitter:image" content="https://quintessence-ad.com/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
     <title>Quintessence Atelier Dentaire | L'excellence en prothèse dentaire</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,23 +77,24 @@
         <!-- Content Layer -->
         <div class="hero__container">
             <div class="hero__content">
-                <div class="hero__tagline">
+                <h1 class="hero__tagline">
+                    <span class="label">Atelier de Prothèse Dentaire</span>
                     <span>La nature est unique.</span>
                     <span>Chaque patient l'est aussi.</span>
-                </div>
+                </h1>
 
                 <p class="hero__description">
-                    Nous façonnons chaque sourire comme une création unique, à la rencontre de l'ingénierie numérique et de l'esthétique dentaire la plus raffinée.
+                    Nous concevons et fabriquons chaque restauration dentaire comme une création unique, à la rencontre de l'ingénierie numérique et de l'esthétique dentaire la plus raffinée.
                 </p>
 
                 <div class="hero__buttons">
-                    <a href="#services" class="btn btn--primary">
+                    <a href="services.html" class="btn btn--primary">
                         <span>Découvrir nos services</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn--outline">
+                    <a href="contact.html" class="btn btn--outline">
                         <span>Nous contacter</span>
                     </a>
                 </div>
@@ -77,14 +103,14 @@
             <!-- Video positioned bottom-right -->
             <div class="hero__video">
                 <div class="hero__video-container">
-                    <div class="hero__video-placeholder">
+                    <button class="hero__video-placeholder" data-video-id="1152971776" aria-label="Voir la vidéo de présentation">
                         <img src="images/hero-video-placeholder.jpg" alt="Vidéo de présentation" class="hero__video-thumbnail">
-                        <button class="hero__play-btn">
+                        <div class="hero__play-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </button>
-                    </div>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -147,10 +173,9 @@
         <div class="pillars__grid">
             <div class="pillar pillar--large">
                 <div class="pillar__icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="24" cy="24" r="20"/>
-                        <path d="M24 8v32M8 24h32"/>
-                        <circle cx="24" cy="24" r="8"/>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"/>
+                        <path d="M5 3v4M3 5h4M19 17v4M17 19h4"/>
                     </svg>
                 </div>
                 <h3>Art Dentaire</h3>
@@ -160,10 +185,13 @@
 
             <div class="pillar">
                 <div class="pillar__icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="8" y="8" width="32" height="32" rx="4"/>
-                        <path d="M16 24h16M24 16v16"/>
-                        <circle cx="24" cy="24" r="4"/>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 18h8"/>
+                        <path d="M3 22h12"/>
+                        <path d="M14 22a7 7 0 1 0 0-14h-1"/>
+                        <path d="M9 14h2"/>
+                        <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/>
+                        <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
                     </svg>
                 </div>
                 <h3>Haute Technologie</h3>
@@ -173,8 +201,11 @@
 
             <div class="pillar">
                 <div class="pillar__icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M24 4l6 12 12 2-8 8 2 12-12-6-12 6 2-12-8-8 12-2z"/>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
                 </div>
                 <h3>Service Personnalisé</h3>
@@ -310,7 +341,7 @@
             <div class="solutions__grid">
                 <article class="solution-card">
                     <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.75">
                             <circle cx="24" cy="24" r="18"/>
                             <circle cx="24" cy="24" r="12"/>
                             <circle cx="24" cy="24" r="6"/>
@@ -328,7 +359,7 @@
 
                 <article class="solution-card">
                     <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.75">
                             <path d="M8 24 Q24 8, 40 24"/>
                             <path d="M8 24 Q24 32, 40 24"/>
                             <path d="M14 24 L14 32"/>
@@ -348,7 +379,7 @@
 
                 <article class="solution-card">
                     <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.75">
                             <rect x="8" y="16" width="32" height="16" rx="2"/>
                             <path d="M12 24 L36 24"/>
                             <circle cx="16" cy="24" r="2"/>
@@ -366,28 +397,10 @@
                     </a>
                 </article>
 
-                <article class="solution-card">
-                    <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M8 20 Q24 12, 40 20"/>
-                            <path d="M8 28 Q24 36, 40 28"/>
-                            <line x1="8" y1="20" x2="8" y2="28"/>
-                            <line x1="40" y1="20" x2="40" y2="28"/>
-                        </svg>
-                    </div>
-                    <h3>Plaques Occlusales</h3>
-                    <p>Imprimées pour la déprogrammation ATM ou usinées en Therapon Transpa pour troubles temporo-mandibulaires.</p>
-                    <a href="produits.html" class="solution-card__link">
-                        <span>Découvrir</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </article>
             </div>
 
             <div class="solutions__cta">
-                <a href="produits.html" class="btn btn--outline">
+                <a href="produits.html" class="btn btn--dark">
                     <span>Voir tous les produits</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -401,7 +414,7 @@
             <div class="solutions__grid">
                 <article class="solution-card">
                     <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.75">
                             <circle cx="24" cy="24" r="16"/>
                             <path d="M24 8 L24 24 L32 32"/>
                             <circle cx="24" cy="24" r="2" fill="currentColor"/>
@@ -419,26 +432,7 @@
 
                 <article class="solution-card">
                     <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="24" cy="24" r="16"/>
-                            <circle cx="18" cy="20" r="3"/>
-                            <circle cx="30" cy="20" r="3"/>
-                            <path d="M16 30 Q24 34, 32 30"/>
-                        </svg>
-                    </div>
-                    <h3>Prise de Couleur e-LAB</h3>
-                    <p>Rendez-vous au labo pour analyse chromatique précise, photos normalisées et digital try-in.</p>
-                    <a href="services.html" class="solution-card__link">
-                        <span>Découvrir</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </article>
-
-                <article class="solution-card">
-                    <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.75">
                             <rect x="8" y="12" width="32" height="24" rx="2"/>
                             <circle cx="24" cy="24" r="6"/>
                             <path d="M24 18 L24 30"/>
@@ -457,7 +451,7 @@
 
                 <article class="solution-card">
                     <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.75">
                             <circle cx="24" cy="20" r="12"/>
                             <path d="M14 28 Q24 32, 34 28"/>
                             <ellipse cx="24" cy="32" rx="10" ry="4"/>
@@ -472,28 +466,10 @@
                         </svg>
                     </a>
                 </article>
-
-                <article class="solution-card">
-                    <div class="solution-card__icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 20 L24 8 L36 20"/>
-                            <rect x="16" y="20" width="16" height="16"/>
-                            <path d="M22 28 L26 28 L26 36 L22 36 Z"/>
-                        </svg>
-                    </div>
-                    <h3>Prise en Charge Immédiate</h3>
-                    <p>Déplacement à la clinique le jour de la chirurgie avec imprimante 3D pour prothèse transitoire immédiate.</p>
-                    <a href="services.html" class="solution-card__link">
-                        <span>Découvrir</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </article>
             </div>
 
             <div class="solutions__cta">
-                <a href="services.html" class="btn btn--outline">
+                <a href="services.html" class="btn btn--dark">
                     <span>Voir tous les services</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -546,23 +522,19 @@
                 Prêt à offrir <span class="text-accent">l'excellence</span> à vos patients?
             </h2>
             <div class="cta__buttons">
-                <a href="#prescription" class="btn btn--primary">
+                <a href="prescription.html" class="btn btn--primary">
                     <span>Envoyer une prescription</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <a href="#contact" class="btn btn--outline">
+                <a href="contact.html" class="btn btn--outline">
                     <span>Nous contacter</span>
                 </a>
             </div>
         </div>
         <div class="cta__decoration" aria-hidden="true">
-            <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.5">
-                <circle cx="100" cy="100" r="80" opacity="0.3"/>
-                <circle cx="100" cy="100" r="60" opacity="0.2"/>
-                <circle cx="100" cy="100" r="40" opacity="0.1"/>
-            </svg>
+            <img src="images/q-icon.png" alt="">
         </div>
     </section>
 
@@ -640,6 +612,75 @@
             </svg>
         </div>
     </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" aria-hidden="true">
+        <div class="video-modal__overlay"></div>
+        <div class="video-modal__content">
+            <button class="video-modal__close" aria-label="Fermer la vidéo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="video-modal__player"></div>
+        </div>
+    </div>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DentalClinic",
+        "name": "Quintessence Atelier Dentaire",
+        "image": "https://quintessence-ad.com/images/web-logo-quintessence-white.png",
+        "@id": "https://quintessence-ad.com",
+        "url": "https://quintessence-ad.com",
+        "telephone": "+15148873075",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2700 rue Rachel E, Bureau 210",
+            "addressLocality": "Montréal",
+            "addressRegion": "QC",
+            "postalCode": "H2H 1S7",
+            "addressCountry": "CA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.5388,
+            "longitude": -73.5682
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/quintessence",
+            "https://www.instagram.com/quintessence",
+            "https://www.linkedin.com/company/quintessence"
+        ],
+        "priceRange": "$$$$",
+        "email": "info@quintessence-ad.com",
+        "description": "Laboratoire dentaire d'excellence à Montréal spécialisé en prothèse dentaire sur mesure, couronnes, facettes et réhabilitations complètes sur implants. Technologie numérique avancée et savoir-faire artisanal.",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 45.5388,
+                "longitude": -73.5682
+            },
+            "geoRadius": "100000"
+        }
+    }
+    </script>
 
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
