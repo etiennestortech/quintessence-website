@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quintessence Atelier Dentaire - Prescription</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+            <img src="images/web-logo-quintessencev2.png" alt="Quintessence Atelier Dentaire">
+        </a>
+
+        <ul class="nav__links">
+            <li><a href="produits.html">Produits</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="nav__dropdown">
+                <a href="#" class="nav__dropdown-trigger">
+                    L'Atelier
+                    <span class="nav__dropdown-arrow"></span>
+                </a>
+                <ul class="nav__dropdown-menu">
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="equipe.html">Notre équipe</a></li>
+                    <li><a href="carrieres.html">Carrières</a></li>
+                </ul>
+            </li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="prescription.html" class="nav__cta active">Prescription</a></li>
+        </ul>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav__mobile" id="navMobile">
+        <ul class="nav__mobile-links">
+            <li><a href="produits.html">Produits</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li>
+                <div class="nav__mobile-dropdown-trigger" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
+                    <span>L'Atelier</span>
+                    <div class="nav__mobile-arrow"></div>
+                </div>
+                <ul class="nav__mobile-submenu">
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="equipe.html">Notre équipe</a></li>
+                    <li><a href="carrieres.html">Carrières</a></li>
+                </ul>
+            </li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="prescription.html" class="nav__mobile-cta active">Prescription</a></li>
+        </ul>
+    </div>
+    <div class="nav__overlay" id="navOverlay"></div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <span class="section-header__label">Formulaire</span>
+        <h1>Envoyer une prescription</h1>
+        <p class="page-hero__description">Soumettez votre cas en quelques étapes simples</p>
+    </div>
+</section>
+
+<!-- Prescription Form -->
+<section class="section">
+    <div class="container container--narrow">
+        <div class="prescription-form">
+            <form>
+                <!-- Step 1: Dentist Info -->
+                <div class="form-section">
+                    <h3>1. Informations du dentiste</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dentist-name">Nom du dentiste *</label>
+                            <input type="text" id="dentist-name" name="dentist-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clinic-name">Nom de la clinique *</label>
+                            <input type="text" id="clinic-name" name="clinic-name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dentist-email">Courriel *</label>
+                            <input type="email" id="dentist-email" name="dentist-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dentist-phone">Téléphone *</label>
+                            <input type="tel" id="dentist-phone" name="dentist-phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Patient Info -->
+                <div class="form-section">
+                    <h3>2. Informations du patient</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-name">Nom du patient *</label>
+                            <input type="text" id="patient-name" name="patient-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-id">Numéro de dossier</label>
+                            <input type="text" id="patient-id" name="patient-id">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Case Details -->
+                <div class="form-section">
+                    <h3>3. Détails du cas</h3>
+                    <div class="form-group">
+                        <label for="product-type">Type de produit *</label>
+                        <select id="product-type" name="product-type" required>
+                            <option value="">Sélectionnez un type</option>
+                            <optgroup label="Couronnes et Ponts">
+                                <option value="zircone-mono">Zircone monolithique dispersive</option>
+                                <option value="zircone-micro">Zircone micro-stratifiée</option>
+                                <option value="zircone-strat">Zircone stratifiée</option>
+                            </optgroup>
+                            <optgroup label="Facettes">
+                                <option value="facette-feld">Facettes feldspathiques</option>
+                                <option value="facette-dili">Facettes en disilicate de lithium</option>
+                                <option value="facette-zirc">Facettes en zircone</option>
+                                <option value="facette-comp">Facettes en composite</option>
+                            </optgroup>
+                            <optgroup label="Plaques occlusales">
+                                <option value="plaque-imp">Plaque imprimée</option>
+                                <option value="plaque-usin">Plaque usinée</option>
+                            </optgroup>
+                            <optgroup label="Arches complètes">
+                                <option value="arch-titane">Structure Titane + Couronnes</option>
+                                <option value="arch-zirc-ti">Structure Zircone sur Ti-Bases</option>
+                                <option value="arch-zirc-cv">Structure Zircone contre-vissée</option>
+                                <option value="arch-zirc-coll">Structure Zircone collée sur Titane</option>
+                                <option value="arch-resine">Résine haute performance sur Titane</option>
+                                <option value="arch-tele">Prothèse télescopique</option>
+                            </optgroup>
+                            <option value="autre">Autre (préciser dans les notes)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="teeth">Dents concernées *</label>
+                        <input type="text" id="teeth" name="teeth" placeholder="Ex: 11, 12, 21, 22" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="shade">Teinte souhaitée</label>
+                        <input type="text" id="shade" name="shade" placeholder="Ex: A2, B1, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Date limite souhaitée</label>
+                        <input type="date" id="deadline" name="deadline">
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes et instructions spéciales</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Décrivez toute information supplémentaire pertinente pour ce cas..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 4: Files -->
+                <div class="form-section">
+                    <h3>4. Fichiers et empreintes</h3>
+                    <div class="form-group">
+                        <label>Téléverser les fichiers</label>
+                        <div class="file-upload">
+                            <div class="file-upload__zone">
+                                <div class="file-upload__icon">◇</div>
+                                <p>Glissez vos fichiers ici ou cliquez pour parcourir</p>
+                                <span>Formats acceptés: STL, PLY, OBJ, DCM, DICOM, ZIP (max 500MB)</span>
+                            </div>
+                            <input type="file" id="files" name="files" multiple accept=".stl,.ply,.obj,.dcm,.dicom,.zip" hidden>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="physical-impression">
+                            J'enverrai une empreinte physique par courrier
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 5: Services -->
+                <div class="form-section">
+                    <h3>5. Services additionnels</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="service-color">
+                            Prise de couleur au laboratoire
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="service-face">
+                            Scan facial (Face Hunter)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="service-icam">
+                            Photogrammétrie iCAM
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="service-guided">
+                            Chirurgie guidée
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="service-immediate">
+                            Mise en charge immédiate
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-section form-section--submit">
+                    <p class="form-disclaimer">En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe concernant votre cas.</p>
+                    <button type="submit" class="btn btn--primary btn--large">Soumettre la prescription</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Help Section -->
+<section class="section section--white">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-header__label">Assistance</span>
+            <h2>Besoin d'aide?</h2>
+        </div>
+        <div class="help-options">
+            <div class="help-card">
+                <h4>Par téléphone</h4>
+                <p>(514) 887-3075</p>
+                <p class="help-card__hours">Lun-Ven, 8h-17h</p>
+            </div>
+            <div class="help-card">
+                <h4>Par courriel</h4>
+                <p>info@quintessence-ad.com</p>
+                <p class="help-card__hours">Réponse sous 24h</p>
+            </div>
+            <div class="help-card">
+                <h4>En personne</h4>
+                <p>Visitez notre atelier</p>
+                <p class="help-card__hours">Sur rendez-vous</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <a href="index.html" class="footer__logo">
+                    <img src="images/q-footer-logo.png" alt="Quintessence Atelier Dentaire">
+                </a>
+                <p>2700 rue Rachel E, Bureau 210</p>
+                <p>Montréal, QC H2H 1S7</p>
+                <p class="footer__phone">(514) 887-3075</p>
+                <p>info@quintessence-ad.com</p>
+            </div>
+            <div>
+                <div class="footer__title">Navigation</div>
+                <ul class="footer__links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="produits.html">Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer__title">Plus</div>
+                <ul class="footer__links">
+                    <li><a href="academy.html">Academy</a></li>
+                    <li><a href="carrieres.html">Carrières</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="prescription.html">Prescription</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 Quintessence Atelier Dentaire. Tous droits réservés.</p>
+            <div class="footer__social">
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navMobile = document.getElementById('navMobile');
+const navOverlay = document.getElementById('navOverlay');
+const nav = document.getElementById('nav');
+
+function toggleMobileMenu() {
+    navToggle.classList.toggle('active');
+    navMobile.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+}
+
+navToggle.addEventListener('click', toggleMobileMenu);
+navOverlay.addEventListener('click', toggleMobileMenu);
+
+document.querySelectorAll('.nav__mobile-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMobile.classList.contains('active')) toggleMobileMenu();
+    });
+});
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        nav.classList.add('nav--scrolled');
+    } else {
+        nav.classList.remove('nav--scrolled');
+    }
+});
+
+// File upload zone interaction
+const fileUploadZone = document.querySelector('.file-upload__zone');
+const fileInput = document.getElementById('files');
+
+fileUploadZone.addEventListener('click', () => fileInput.click());
+fileUploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    fileUploadZone.classList.add('dragover');
+});
+fileUploadZone.addEventListener('dragleave', () => {
+    fileUploadZone.classList.remove('dragover');
+});
+fileUploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    fileUploadZone.classList.remove('dragover');
+    fileInput.files = e.dataTransfer.files;
+});
+</script>
+
+</body>
+</html>

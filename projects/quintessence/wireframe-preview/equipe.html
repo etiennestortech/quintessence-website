@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quintessence Atelier Dentaire - Équipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+            <img src="images/web-logo-quintessencev2.png" alt="Quintessence Atelier Dentaire">
+        </a>
+
+        <ul class="nav__links">
+            <li><a href="produits.html">Produits</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="nav__dropdown">
+                <a href="#" class="nav__dropdown-trigger active">
+                    L'Atelier
+                    <span class="nav__dropdown-arrow"></span>
+                </a>
+                <ul class="nav__dropdown-menu">
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="equipe.html" class="active">Notre équipe</a></li>
+                    <li><a href="carrieres.html">Carrières</a></li>
+                </ul>
+            </li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="prescription.html" class="nav__cta">Prescription</a></li>
+        </ul>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav__mobile" id="navMobile">
+        <ul class="nav__mobile-links">
+            <li><a href="produits.html">Produits</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li>
+                <div class="nav__mobile-dropdown-trigger active" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
+                    <span>L'Atelier</span>
+                    <div class="nav__mobile-arrow"></div>
+                </div>
+                <ul class="nav__mobile-submenu active">
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="equipe.html" class="active">Notre équipe</a></li>
+                    <li><a href="carrieres.html">Carrières</a></li>
+                </ul>
+            </li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="prescription.html" class="nav__mobile-cta">Prescription</a></li>
+        </ul>
+    </div>
+    <div class="nav__overlay" id="navOverlay"></div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <span class="section-header__label">Notre équipe</span>
+        <h1>Les artisans de Quintessence</h1>
+        <p class="page-hero__description">Derrière Quintessence Atelier Dentaire se trouve une équipe passionnée, unie par l'art dentaire, l'innovation et l'exigence de l'excellence.</p>
+    </div>
+</section>
+
+<!-- Team Grid -->
+<section class="section">
+    <div class="container">
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-member__photo">[PHOTO]</div>
+                <h4>Chérine Zarini</h4>
+                <p class="team-member__role">Technologue Dentaire</p>
+                <p class="team-member__title">Fondatrice & Associée</p>
+            </div>
+            <div class="team-member">
+                <div class="team-member__photo">[PHOTO]</div>
+                <h4>Sébastien Renois</h4>
+                <p class="team-member__role">Technologue Dentaire</p>
+                <p class="team-member__title">Associé</p>
+            </div>
+            <div class="team-member">
+                <div class="team-member__photo">[PHOTO]</div>
+                <h4>Damien Gousseau</h4>
+                <p class="team-member__role">Technologue Dentaire</p>
+                <p class="team-member__title">Expert CAD/CAM</p>
+            </div>
+            <div class="team-member">
+                <div class="team-member__photo">[PHOTO]</div>
+                <h4>Beldyne Lacoursière</h4>
+                <p class="team-member__role">Technologue Dentaire</p>
+                <p class="team-member__title">Céramiste</p>
+            </div>
+            <div class="team-member">
+                <div class="team-member__photo">[PHOTO]</div>
+                <h4>Padja Ly Boualong</h4>
+                <p class="team-member__role">Technologue Dentaire</p>
+                <p class="team-member__title">Expert CAD/CAM</p>
+            </div>
+            <div class="team-member">
+                <div class="team-member__photo">[PHOTO]</div>
+                <h4>Rima Barrimo</h4>
+                <p class="team-member__role">Comptable</p>
+                <p class="team-member__title">Administration</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section cta-section--white">
+    <div class="container">
+        <h2>Envie de rejoindre l'équipe?</h2>
+        <div class="cta-buttons">
+            <a href="carrieres.html" class="btn btn--primary">Voir les opportunités</a>
+            <a href="contact.html" class="btn btn--outline">Nous contacter</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <a href="index.html" class="footer__logo">
+                    <img src="images/q-footer-logo.png" alt="Quintessence Atelier Dentaire">
+                </a>
+                <p>2700 rue Rachel E, Bureau 210</p>
+                <p>Montréal, QC H2H 1S7</p>
+                <p class="footer__phone">(514) 887-3075</p>
+                <p>info@quintessence-ad.com</p>
+            </div>
+            <div>
+                <div class="footer__title">Navigation</div>
+                <ul class="footer__links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="produits.html">Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer__title">Plus</div>
+                <ul class="footer__links">
+                    <li><a href="academy.html">Academy</a></li>
+                    <li><a href="carrieres.html">Carrières</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="prescription.html">Prescription</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 Quintessence Atelier Dentaire. Tous droits réservés.</p>
+            <div class="footer__social">
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navMobile = document.getElementById('navMobile');
+const navOverlay = document.getElementById('navOverlay');
+const nav = document.getElementById('nav');
+
+function toggleMobileMenu() {
+    navToggle.classList.toggle('active');
+    navMobile.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+}
+
+navToggle.addEventListener('click', toggleMobileMenu);
+navOverlay.addEventListener('click', toggleMobileMenu);
+
+document.querySelectorAll('.nav__mobile-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMobile.classList.contains('active')) toggleMobileMenu();
+    });
+});
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        nav.classList.add('nav--scrolled');
+    } else {
+        nav.classList.remove('nav--scrolled');
+    }
+});
+</script>
+
+</body>
+</html>
