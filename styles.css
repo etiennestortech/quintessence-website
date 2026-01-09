@@ -2195,6 +2195,26 @@ h3 {
     align-self: flex-end;
 }
 
+/* Centered Variant */
+.page-hero--centered .page-hero__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-hero--centered .page-hero__left {
+    align-items: center;
+    max-width: 900px;
+}
+
+.page-hero--centered .page-hero__description {
+    align-self: center;
+    text-align: center;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
 /* Responsive - Tablet */
 @media (max-width: 1024px) {
     .page-hero {
@@ -2269,6 +2289,47 @@ h3 {
     background: var(--color-black);
 }
 
+/* Visual Separator - Full-width image section with padding and border radius */
+.visual-separator {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-cream);
+    box-sizing: border-box;
+}
+
+.visual-separator__image {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 800px;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.visual-separator__image img {
+    width: 100%;
+    height: 120%; /* Extra height for parallax movement */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: translateY(-10%); /* Start position offset */
+    will-change: transform; /* Performance optimization */
+}
+
+@media (max-width: 768px) {
+    .visual-separator {
+        padding: 0.75rem;
+    }
+
+    .visual-separator__image {
+        height: 40vh;
+        min-height: 300px;
+        border-radius: 16px;
+    }
+}
+
 /* Card backgrounds on cream sections */
 .section--cream .team-member,
 .section--cream .benefit-card,
@@ -2278,6 +2339,22 @@ h3 {
 .section--cream .event-card {
     background: var(--color-white);
     border-color: var(--color-border-dark);
+}
+
+.section--cream .job-card__header h3 {
+    color: var(--color-text-dark);
+}
+
+.section--cream .job-card p {
+    color: var(--color-text-dark-muted);
+}
+
+.section--cream .job-card__details span {
+    color: var(--color-text-dark-muted);
+}
+
+.section--cream .job-card__details strong {
+    color: var(--color-text-dark);
 }
 
 .section--cream .event-card__title {
@@ -2875,81 +2952,165 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   About Page - Timeline
+   About Page - Horizontal Timeline with Animated Progress Bar
    -------------------------------------------------------------------------- */
 .timeline {
     position: relative;
-    padding-left: 3rem;
+    padding: 2.5rem 0 0 0;
+    max-width: 100%;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
+/* Base horizontal line (subtle gray) */
 .timeline::before {
     content: '';
     position: absolute;
     left: 0;
+    right: 0;
     top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--color-accent), var(--color-border-light));
+    height: 2px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* Animated red progress bar */
+.timeline__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--color-accent);
+    z-index: 2;
 }
 
 .timeline__item {
     position: relative;
-    padding-bottom: 3rem;
+    padding-top: 3rem;
 }
 
-.timeline__item:last-child {
-    padding-bottom: 0;
-}
-
-.timeline__item::before {
-    content: '';
+/* Marker dots - distributed from 0% to 100% */
+.timeline__marker {
     position: absolute;
-    left: -3rem;
-    top: 0.25rem;
-    width: 12px;
-    height: 12px;
+    top: -3rem;
+    width: 16px;
+    height: 16px;
     background: var(--color-accent);
     border-radius: 50%;
-    transform: translateX(-5px);
+    border: 3px solid var(--color-cream);
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 0 0 0 rgba(254, 2, 36, 0.3);
+    animation: pulse-marker 2s ease-in-out infinite;
+}
+
+/* Position each marker at specific percentages */
+.timeline__item:nth-child(2) .timeline__marker {
+    left: 0;
+}
+
+.timeline__item:nth-child(3) .timeline__marker {
+    left: 33.33%;
+}
+
+.timeline__item:nth-child(4) .timeline__marker {
+    left: 66.66%;
+}
+
+.timeline__item:nth-child(5) .timeline__marker {
+    left: 100%;
+}
+
+@keyframes pulse-marker {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(254, 2, 36, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(254, 2, 36, 0);
+    }
+}
+
+.timeline__content {
+    position: relative;
 }
 
 .timeline__date {
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.7rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--color-accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
 }
 
 .timeline__title {
-    font-size: 1.5rem;
-    color: var(--color-white);
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
     margin-bottom: 0.75rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .timeline__item p {
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    max-width: 600px;
-}
-
-/* Timeline on cream sections */
-.section--cream .timeline::before {
-    background: linear-gradient(to bottom, var(--color-accent), rgba(0, 0, 0, 0.15));
-}
-
-.section--cream .timeline__title {
-    color: var(--color-text-dark);
-}
-
-.section--cream .timeline__item p {
     color: var(--color-text-dark-muted);
+    line-height: 1.7;
+    font-size: 0.9rem;
 }
 
-.section--cream .timeline__marker {
-    background: var(--color-accent);
+/* Responsive: 2 columns on tablets */
+@media (max-width: 1024px) {
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
+    }
+}
+
+/* Responsive: Revert to vertical on mobile */
+@media (max-width: 640px) {
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding-left: 2.5rem;
+        padding-top: 0;
+    }
+
+    .timeline::before {
+        left: 0;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: auto;
+    }
+
+    .timeline__progress {
+        left: 0;
+        right: auto;
+        top: 0;
+        width: 2px;
+        height: 0%;
+        background: var(--color-accent);
+    }
+
+    .timeline__marker {
+        left: -2.5rem;
+        top: 0.5rem;
+        transform: translateX(-7px);
+    }
+
+    .timeline__item {
+        padding-top: 0;
+        padding-bottom: 2.5rem;
+    }
+
+    .timeline__item:last-child {
+        padding-bottom: 0;
+    }
 }
 
 /* About - Mission/Vision Grid */
@@ -3019,8 +3180,12 @@ h3 {
 }
 
 .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 2.5rem;
+    padding: 3rem 2rem;
     background: var(--color-dark);
     border: 1px solid var(--color-border-light);
     border-radius: 16px;
@@ -3032,35 +3197,42 @@ h3 {
 }
 
 .stat__number {
+    display: block;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
     font-weight: 400;
-    color: var(--color-accent);
+    font-style: italic;
+    color: var(--color-white);
     line-height: 1;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .stat__label {
-    font-size: 0.9375rem;
+    display: block;
+    font-size: 0.875rem;
     color: var(--color-text-muted);
+    max-width: 180px;
+    line-height: 1.4;
 }
 
 .stats-footer {
     text-align: center;
-    padding: 2rem;
-    background: rgba(254, 2, 36, 0.05);
-    border: 1px solid rgba(254, 2, 36, 0.2);
-    border-radius: 12px;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border-light);
 }
 
-.stats-footer p {
+.stats-footer__highlight {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
     color: var(--color-white);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .stats-footer__tech {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
+    line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------
