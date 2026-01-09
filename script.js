@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lenis smooth scroll first
     initLenis();
 
+    // Initialize GSAP animations after Lenis
+    if (typeof initAnimations === 'function') {
+        initAnimations();
+    }
+
     // Initialize modules
     initNavigation();
     initAnchorLinks();

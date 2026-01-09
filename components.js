@@ -10,7 +10,6 @@ async function loadComponent(componentName, targetId) {
         if (!response.ok) throw new Error(`${response.status}`);
 
         target.innerHTML = await response.text();
-        target.classList.add('loaded');
         return true;
     } catch (error) {
         console.error(`Failed to load ${componentName}:`, error);

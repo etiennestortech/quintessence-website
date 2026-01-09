@@ -28,7 +28,7 @@
     /* Spacing */
     --section-padding: clamp(80px, 12vh, 160px);
     --container-padding: clamp(20px, 5vw, 80px);
-    --container-max: 1400px;
+    --container-max: 90rem;
 
     /* Animations */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

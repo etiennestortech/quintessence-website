@@ -38,7 +38,7 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero page-hero--centered">
         <div class="page-hero__background"></div>
         <div class="page-hero__container">
             <div class="page-hero__left">
@@ -57,6 +57,7 @@
                 <h2>Notre <span class="text-accent">évolution</span></h2>
             </div>
             <div class="timeline">
+                <div class="timeline__progress"></div>
                 <div class="timeline__item">
                     <div class="timeline__marker"></div>
                     <div class="timeline__content">
@@ -90,6 +91,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Visual Separator -->
+    <section class="visual-separator">
+        <div class="visual-separator__image">
+            <picture>
+                <source
+                    type="image/webp"
+                    data-srcset="images/pexels-photo-211816-480w.webp 480w,
+                                 images/pexels-photo-211816-768w.webp 768w,
+                                 images/pexels-photo-211816-1024w.webp 1024w,
+                                 images/pexels-photo-211816-1280w.webp 1280w,
+                                 images/pexels-photo-211816.webp 1920w"
+                    sizes="100vw">
+                <img
+                    data-src="images/pexels-photo-211816.jpeg"
+                    alt=""
+                    loading="lazy"
+                    width="1920"
+                    height="1080">
+            </picture>
         </div>
     </section>
 
@@ -139,21 +162,140 @@
         </div>
     </section>
 
-    <!-- Team Teaser -->
+    <!-- Team Grid -->
     <section class="section section--cream">
         <div class="container">
             <div class="section-header text-center">
                 <span class="label">Notre équipe</span>
                 <h2>Des passionnés au <span class="text-accent">service de votre art</span></h2>
-                <p>Rencontrez les artisans derrière chaque restauration.</p>
+                <p>Découvrez l'équipe passionnée qui transforme chaque cas en œuvre d'art.</p>
             </div>
-            <div class="section-action">
-                <a href="equipe.html" class="btn btn--primary">
-                    <span>Découvrir l'équipe</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member__photo">
+                        <div class="media-placeholder media-placeholder--portrait">
+                            <div class="media-placeholder__icon">◇</div>
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="team-member__info">
+                        <h4>Chérine Zarini</h4>
+                        <p class="team-member__role">Technologue Dentaire</p>
+                        <p class="team-member__title">Fondatrice & Associée</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member__photo">
+                        <div class="media-placeholder media-placeholder--portrait">
+                            <div class="media-placeholder__icon">◇</div>
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="team-member__info">
+                        <h4>Sébastien Renois</h4>
+                        <p class="team-member__role">Technologue Dentaire</p>
+                        <p class="team-member__title">Associé</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member__photo">
+                        <div class="media-placeholder media-placeholder--portrait">
+                            <div class="media-placeholder__icon">◇</div>
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="team-member__info">
+                        <h4>Damien Gousseau</h4>
+                        <p class="team-member__role">Technologue Dentaire</p>
+                        <p class="team-member__title">Expert CAD/CAM</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member__photo">
+                        <div class="media-placeholder media-placeholder--portrait">
+                            <div class="media-placeholder__icon">◇</div>
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="team-member__info">
+                        <h4>Beldyne Lacoursière</h4>
+                        <p class="team-member__role">Technologue Dentaire</p>
+                        <p class="team-member__title">Céramiste</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member__photo">
+                        <div class="media-placeholder media-placeholder--portrait">
+                            <div class="media-placeholder__icon">◇</div>
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="team-member__info">
+                        <h4>Padja Ly Boualong</h4>
+                        <p class="team-member__role">Technologue Dentaire</p>
+                        <p class="team-member__title">Expert CAD/CAM</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member__photo">
+                        <div class="media-placeholder media-placeholder--portrait">
+                            <div class="media-placeholder__icon">◇</div>
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="team-member__info">
+                        <h4>Rima Barrimo</h4>
+                        <p class="team-member__role">Comptable</p>
+                        <p class="team-member__title">Administration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section section--black">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="label">Nos valeurs</span>
+                <h2>Ce qui nous <span class="text-accent">rassemble</span></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </span>
+                    <h4>Excellence</h4>
+                    <p>Le « assez bien » n'existe pas. Chaque détail compte, chaque restauration est poussée jusqu'à sa forme la plus aboutie.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </span>
+                    <h4>Innovation</h4>
+                    <p>Le numérique amplifie notre savoir-faire artisanal. Nous adoptons les technologies qui élèvent notre art, jamais celles qui le remplacent.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </span>
+                    <h4>Collaboration</h4>
+                    <p>Nous travaillons main dans la main avec les dentistes. Leur expertise clinique et notre maîtrise technique forment un duo gagnant.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -162,11 +304,11 @@
     <section class="cta">
         <div class="cta__inner">
             <h2 class="cta__title">
-                Prêt à offrir <span class="text-accent">l'excellence</span> à vos patients?
+                Envie de rejoindre <span class="text-accent">l'équipe</span>?
             </h2>
             <div class="cta__buttons">
-                <a href="prescription.html" class="btn btn--primary">
-                    <span>Envoyer une prescription</span>
+                <a href="carrieres.html" class="btn btn--primary">
+                    <span>Voir les opportunités</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -193,6 +335,8 @@
 
     <!-- Component Loader (must load before script.js) -->
     <script src="components.js"></script>
+    <!-- GSAP Animations -->
+    <script src="animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

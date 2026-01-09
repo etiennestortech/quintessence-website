@@ -5,5 +5,11 @@
 *.md
 *.DS_Store
 
+# Node/build tools
+node_modules/
+package.json
+package-lock.json
+optimize-images.js
+
 # BUT allow website images
 !/images/

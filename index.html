@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -76,7 +77,21 @@
             <div class="hero__video">
                 <div class="hero__video-container">
                     <button class="hero__video-placeholder" data-video-id="1152971776" aria-label="Voir la vidéo de présentation">
-                        <img src="images/placeholder-video.jpg" alt="Vidéo de présentation" class="hero__video-thumbnail">
+                        <picture>
+                            <source
+                                type="image/webp"
+                                data-srcset="images/placeholder-video-640w.webp 640w,
+                                             images/placeholder-video-768w.webp 768w,
+                                             images/placeholder-video.webp 827w"
+                                sizes="(max-width: 768px) 90vw, 400px">
+                            <img
+                                data-src="images/placeholder-video.jpg"
+                                alt="Vidéo de présentation"
+                                class="hero__video-thumbnail"
+                                loading="lazy"
+                                width="827"
+                                height="465">
+                        </picture>
                         <div class="hero__play-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
@@ -115,7 +130,19 @@
             </div>
             <div class="identity__media">
                 <div class="identity__image">
-                    <img src="images/atelier-team.jpg" alt="L'équipe Quintessence en formation dans l'atelier">
+                    <picture>
+                        <source
+                            type="image/webp"
+                            data-srcset="images/atelier-team-480w.webp 480w,
+                                         images/atelier-team.webp 640w"
+                            sizes="(max-width: 768px) 100vw, 50vw">
+                        <img
+                            data-src="images/atelier-team.jpg"
+                            alt="L'équipe Quintessence en formation dans l'atelier"
+                            loading="lazy"
+                            width="640"
+                            height="1136">
+                    </picture>
                 </div>
                 <div class="identity__decoration"></div>
             </div>
@@ -130,7 +157,16 @@
                 <p class="vision__quote-text">Transformer l'innovation en émotions, la précision en harmonie, et l'art en sourire durable.</p>
             </blockquote>
             <div class="vision__image">
-                <img src="images/owner-portrait.jpg" alt="Chérine Zarini, CEO de Quintessence Atelier Dentaire">
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="images/owner-portrait.webp">
+                    <img
+                        src="images/owner-portrait.jpg"
+                        alt="Chérine Zarini, CEO de Quintessence Atelier Dentaire"
+                        width="409"
+                        height="649">
+                </picture>
             </div>
             <cite class="vision__author">
                 <span class="vision__author-name">Chérine Zarini</span>
@@ -512,7 +548,19 @@
             </div>
         </div>
         <div class="cta__decoration" aria-hidden="true">
-            <img src="images/q-icon.png" alt="">
+            <picture>
+                <source
+                    type="image/webp"
+                    srcset="images/q-icon-320w.webp 320w,
+                            images/q-icon-640w.webp 640w,
+                            images/q-icon.webp 1709w"
+                    sizes="200px">
+                <img
+                    src="images/q-icon.png"
+                    alt=""
+                    width="200"
+                    height="200">
+            </picture>
         </div>
     </section>
 
@@ -597,6 +645,8 @@
 
     <!-- Component Loader (must load before script.js) -->
     <script src="components.js"></script>
+    <!-- GSAP Animations -->
+    <script src="animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

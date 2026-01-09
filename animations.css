@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Animation Support Styles
+   Prevents FOUC and optimizes animation performance
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Performance Optimizations
+   -------------------------------------------------------------------------- */
+
+/* Elements that will be animated - optimize rendering */
+.hero__tagline,
+.hero__description,
+.hero__buttons,
+.hero__video,
+.page-hero__left,
+.page-hero__description,
+.section-header,
+.solution-card,
+.pillar,
+.testimonial,
+.service-item,
+.timeline__item,
+.identity__media,
+.vision__quote,
+.cta {
+    /* GPU acceleration for transform animations */
+    will-change: transform, opacity;
+}
+
+/* Remove will-change after animations complete (handled by GSAP) */
+.animated {
+    will-change: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Initial States (Prevent FOUC)
+   -------------------------------------------------------------------------- */
+
+/* Hide elements that will animate in */
+.hero__tagline .label,
+.hero__tagline span:not(.label),
+.hero__description,
+.hero__buttons .btn,
+.hero__video,
+.hero__scroll {
+    opacity: 1; /* Let GSAP handle initial opacity */
+}
+
+/* Smooth transitions for hover states */
+.solution-card,
+.pillar,
+.testimonial,
+.btn {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Text Split Styling - Preserve Line Breaks
+   -------------------------------------------------------------------------- */
+
+/* Overflow hidden on vision quote for character animation */
+.vision__quote-text {
+    overflow: hidden;
+}
+
+/* Character split styling for vision quote only */
+.vision__quote-text span {
+    display: inline-block;
+    white-space: pre-wrap;
+    vertical-align: baseline;
+}
+
+/* --------------------------------------------------------------------------
+   Animation Utilities
+   -------------------------------------------------------------------------- */
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fallback animations for no-JS users */
+.no-js .hero__content,
+.no-js .page-hero__content,
+.no-js .section-header,
+.no-js .solution-card,
+.no-js .pillar,
+.no-js .testimonial {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Support
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Disable GSAP animations */
+    .gsap-animation {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Loading State
+   -------------------------------------------------------------------------- */
+
+/* Optional: Add a loading class to prevent FOUC */
+body.loading {
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+/* --------------------------------------------------------------------------
+   Lazy Loading Images
+   -------------------------------------------------------------------------- */
+
+/* Images with data-src (not yet loaded) */
+img[data-src],
+img[data-srcset] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+/* Images that have loaded */
+img[data-src].loaded,
+img[data-srcset].loaded,
+img:not([data-src]):not([data-srcset]) {
+    opacity: 1;
+}
+
+/* Blur-up effect for lazy loaded images (optional) */
+img[data-src] {
+    filter: blur(10px);
+    transform: scale(1.05);
+}
+
+img[data-src].loaded {
+    filter: blur(0);
+    transform: scale(1);
+    transition: opacity 0.3s ease-in, filter 0.3s ease-in, transform 0.3s ease-in;
+}
+
+/* Picture element support */
+picture {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   ScrollTrigger Markers (Development Only)
+   Remove in production
+   -------------------------------------------------------------------------- */
+
+/* Uncomment for debugging ScrollTrigger positions */
+/*
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end,
+.gsap-marker-start,
+.gsap-marker-end {
+    z-index: 9999 !important;
+}
+*/
