@@ -1988,11 +1988,16 @@ h3 {
     /* Page hero mobile refinements */
     .page-hero {
         padding: 0.75rem;
+        min-height: 480px; /* Ensure adequate space on small screens */
     }
 
     .page-hero__background {
         inset: 0.75rem;
         border-radius: 16px;
+    }
+
+    .page-hero__container {
+        padding-top: 110px; /* Ensure clearance from navbar on small screens */
     }
 
     .page-hero h1 {
@@ -4774,12 +4779,12 @@ body.modal-open {
 
 @media (max-width: 768px) {
     .page-hero {
-        min-height: auto;
+        min-height: 500px; /* Ensure adequate space to prevent navbar overlap on short viewports */
     }
 
     .page-hero__container {
-        padding: 100px var(--container-padding) 50px;
-        min-height: auto;
+        padding: 120px var(--container-padding) 50px; /* Increased top padding for better clearance */
+        min-height: 400px; /* Minimum container height */
     }
 
     .page-hero h1 {
