@@ -35,37 +35,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav__inner">
-            <a href="index.html" class="nav__logo">
-                <img src="images/web-logo-quintessence-white.png" alt="Quintessence">
-            </a>
-            <ul class="nav__links">
-                <li><a href="produits.html">Produits</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="apropos.html" class="active">L'Atelier</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <a href="prescription.html" class="nav__cta">Prescription</a>
-            <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav__mobile-menu">
-                <div class="nav__mobile-links">
-                    <a href="index.html" class="nav__mobile-link">Accueil</a>
-                    <a href="apropos.html" class="nav__mobile-link">À propos</a>
-                    <a href="services.html" class="nav__mobile-link">Services</a>
-                    <a href="produits.html" class="nav__mobile-link">Produits</a>
-                    <a href="equipe.html" class="nav__mobile-link">Équipe</a>
-                    <a href="carrieres.html" class="nav__mobile-link">Carrières</a>
-                    <a href="academy.html" class="nav__mobile-link">Académie</a>
-                    <a href="contact.html" class="nav__mobile-link">Contact</a>
-                    <a href="prescription.html" class="nav__mobile-link nav__mobile-link--highlight">Prescription</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -212,69 +182,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer__inner">
-            <div class="footer__main">
-                <div class="footer__brand">
-                    <img src="images/q-footer-logo.png" alt="Quintessence" class="footer__logo">
-                    <p class="footer__tagline">L'excellence en prothèse dentaire</p>
-                </div>
-
-                <div class="footer__links">
-                    <div class="footer__col">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="produits.html">Produits</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="apropos.html">À propos</a></li>
-                            <li><a href="equipe.html">Équipe</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__col">
-                        <h4>Plus</h4>
-                        <ul>
-                            <li><a href="academy.html">Academy</a></li>
-                            <li><a href="carrieres.html">Carrières</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__col">
-                        <h4>Nous joindre</h4>
-                        <ul>
-                            <li>2700 rue Rachel E, Bureau 210</li>
-                            <li>Montréal, QC H2H 1S7</li>
-                            <li><a href="tel:5148873075">(514) 887-3075</a></li>
-                            <li><a href="mailto:info@quintessence-ad.com">info@quintessence-ad.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer__bottom">
-                <p>© 2026 Quintessence Atelier Dentaire. Tous droits réservés.</p>
-                <div class="footer__social">
-                    <a href="#" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="2" width="20" height="20" rx="5"/>
-                            <circle cx="12" cy="12" r="4"/>
-                            <circle cx="18" cy="6" r="1" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="2" width="20" height="20" rx="2"/>
-                            <path d="M8 11v5M8 8v.01M12 16v-5c0-1 1-2 2-2s2 1 2 2v5"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -283,6 +191,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
+    <!-- Component Loader (must load before script.js) -->
+    <script src="components.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
