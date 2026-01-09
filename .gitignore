@@ -1,0 +1,18 @@
+# Project files - keep local only
+/projects/
+/templates/
+*.md
+*.DS_Store
+/*.jpg
+/*.png
+/Le+portail+Zarini-2880w.jpg
+/imgi_11_573622894_2346976735756162_3066761426835360715_n.jpg
+/q-iconn.png
+/troncarbre.png
+/web-logo-quintessence-white.png
+/web-logo-quintessence.png
+/web-logo-quintessencev2.png
+/454499460_10161470532430729_8407117003921966114_n.jpg
+
+# BUT allow website images
+!/images/
