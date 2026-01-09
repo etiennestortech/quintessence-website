@@ -96,6 +96,24 @@ function initNavigation() {
             isMenuOpen = !isMenuOpen;
             navToggle.classList.toggle('active', isMenuOpen);
             document.body.classList.toggle('menu-open', isMenuOpen);
+
+            // Prevent scroll when menu is open
+            if (isMenuOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.nav__mobile-links a, .nav__mobile-cta');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            });
         });
     }
 }
