@@ -9,7 +9,7 @@
     /* Colors */
     --color-black: #0a0a0a;
     --color-dark: #141414;
-    --color-cream: #f5f2eb;
+    --color-cream: #ffffff;
     --color-white: #ffffff;
     --color-accent: #FE0224;
     --color-accent-hover: #e00020;
@@ -193,15 +193,15 @@ h3 {
 }
 
 .btn--primary {
-    background: var(--color-accent);
-    color: var(--color-white);
-    border: 1px solid var(--color-accent);
+    background: var(--color-white);
+    color: var(--color-dark);
+    border: 1px solid var(--color-white);
 }
 
 .btn--primary:hover {
-    background: var(--color-accent-hover);
-    color: var(--color-white);
-    border-color: var(--color-accent-hover);
+    background: var(--color-cream);
+    color: var(--color-dark);
+    border-color: var(--color-cream);
 }
 
 .btn--primary svg {
@@ -279,7 +279,7 @@ h3 {
 }
 
 .nav__logo img {
-    height: 56px;
+    height: 64px;
     width: auto;
     max-height: none;
     transition: opacity 0.3s ease;
@@ -395,18 +395,18 @@ h3 {
     height: 100%;
     background: url('images/troncarbre.png') center center no-repeat;
     background-size: 80% auto;
-    opacity: 0.15;
+    opacity: 0.22;
 }
 
 .hero__overlay {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 0%, rgba(20, 20, 20, 0.9) 70%),
+        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 0%, rgba(20, 20, 20, 0.75) 70%),
         linear-gradient(
             to right,
-            rgba(20, 20, 20, 0.7) 0%,
-            rgba(20, 20, 20, 0.4) 50%,
+            rgba(20, 20, 20, 0.6) 0%,
+            rgba(20, 20, 20, 0.3) 50%,
             rgba(20, 20, 20, 0.6) 100%
         );
     border-radius: 24px;
@@ -469,11 +469,11 @@ h3 {
 /* Hero Video - Bottom Right */
 .hero__video {
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     right: var(--container-padding);
     z-index: 3;
     width: 100%;
-    max-width: 340px;
+    max-width: 480px;
 }
 
 .hero__video-container {
@@ -1877,7 +1877,7 @@ h3 {
     }
 
     .nav__logo img {
-        height: 48px;
+        height: 54px;
     }
 
     .nav__links,
@@ -2064,7 +2064,7 @@ h3 {
     }
 
     .nav__logo img {
-        height: 44px;
+        height: 50px;
     }
 
     .hero__tagline span:not(.label) {
@@ -2467,11 +2467,11 @@ h3 {
 
 .visual-separator__image img {
     width: 100%;
-    height: 120%; /* Extra height for parallax movement */
+    height: 130%; /* Extra height for parallax movement */
     object-fit: cover;
     object-position: center;
     display: block;
-    transform: translateY(-10%); /* Start position offset */
+    transform: translateY(-15%); /* Start position offset */
     will-change: transform; /* Performance optimization */
 }
 
@@ -4462,9 +4462,9 @@ body.modal-open {
     width: 64px;
     height: 64px;
     margin: 0 auto 1.5rem;
-    background: rgba(254, 2, 36, 0.1);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 16px;
-    color: var(--color-accent);
+    color: var(--color-text-dark);
 }
 
 .academy-benefit h4 {

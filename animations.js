@@ -473,7 +473,7 @@ function animateVisualSeparator() {
 
     // Subtle parallax effect on the image
     gsap.to(image, {
-        yPercent: 15, // Move image down by 15% as you scroll
+        yPercent: 0, // Move image to neutral position as you scroll
         ease: 'none',
         scrollTrigger: {
             trigger: visualSeparator,

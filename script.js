@@ -188,7 +188,7 @@ function initSolutionsTabs() {
 }
 
 /* --------------------------------------------------------------------------
-   Video Modal
+   Video Modal with Autoplay
    -------------------------------------------------------------------------- */
 function initVideoModal() {
     const videoTrigger = document.querySelector('[data-video-id]');
@@ -199,23 +199,49 @@ function initVideoModal() {
 
     if (!videoTrigger || !modal) return;
 
-    // Open modal
+    const videoId = videoTrigger.getAttribute('data-video-id');
+
+    // Autoplay muted video inline on page load
+    const autoplayIframe = document.createElement('iframe');
+    autoplayIframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1`;
+    autoplayIframe.frameBorder = '0';
+    autoplayIframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    autoplayIframe.style.position = 'absolute';
+    autoplayIframe.style.top = '0';
+    autoplayIframe.style.left = '0';
+    autoplayIframe.style.width = '100%';
+    autoplayIframe.style.height = '100%';
+    autoplayIframe.style.objectFit = 'cover';
+
+    // Replace placeholder content with autoplay iframe
+    const placeholder = videoTrigger.querySelector('.hero__video-thumbnail');
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
+    videoTrigger.appendChild(autoplayIframe);
+
+    // Keep play button visible for fullscreen/sound interaction
+    const playBtn = videoTrigger.querySelector('.hero__play-btn');
+    if (playBtn) {
+        playBtn.style.position = 'relative';
+        playBtn.style.zIndex = '10';
+    }
+
+    // Open modal with sound on click
     videoTrigger.addEventListener('click', () => {
-        const videoId = videoTrigger.getAttribute('data-video-id');
-        
-        // Create Vimeo iframe
+        // Create Vimeo iframe with sound
         const iframe = document.createElement('iframe');
         iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
         iframe.frameBorder = '0';
         iframe.allow = 'autoplay; fullscreen; picture-in-picture';
         iframe.allowFullscreen = true;
-        
+
         modalPlayer.appendChild(iframe);
-        
+
         // Show modal
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-        
+
         // Pause Lenis
         if (lenis) lenis.stop();
     });
@@ -224,10 +250,10 @@ function initVideoModal() {
     function closeModal() {
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        
+
         // Remove iframe
         modalPlayer.innerHTML = '';
-        
+
         // Resume Lenis
         if (lenis) lenis.start();
     }
