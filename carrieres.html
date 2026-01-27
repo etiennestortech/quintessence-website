@@ -112,121 +112,17 @@
         </div>
     </section>
 
-    <!-- Open Positions -->
+    <!-- Application Form -->
     <section class="section section--cream">
         <div class="container">
-            <div class="section-header">
-                <span class="label">Postes disponibles</span>
-                <h2>Opportunités <span class="text-accent">actuelles</span></h2>
-            </div>
-
-            <div class="job-listings">
-                <div class="job-card">
-                    <div class="job-card__header">
-                        <div>
-                            <h3>Technologue Dentaire - CAD/CAM</h3>
-                            <span class="job-card__type">Temps plein</span>
-                        </div>
-                    </div>
-                    <p>Maîtrise des logiciels de CAO dentaire et passion pour la conception numérique de restaurations complexes.</p>
-                    <div class="job-card__details">
-                        <span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            2+ ans d'expérience
-                        </span>
-                        <span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            Montréal (Plateau)
-                        </span>
-                    </div>
-                    <button type="button" class="btn btn--outline" data-modal-open="applicationModal" data-position="techno-cad-cam" data-position-name="Technologue Dentaire - CAD/CAM">
-                        <span>Postuler</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
+            <div class="careers-apply">
+                <div class="careers-apply__header">
+                    <span class="label">Postuler</span>
+                    <h2>Faites partie de <span class="text-accent">l'équipe</span></h2>
+                    <p>Envoyez-nous votre candidature. Nous sommes toujours à la recherche de talents passionnés par l'excellence en prothèse dentaire.</p>
                 </div>
 
-                <div class="job-card">
-                    <div class="job-card__header">
-                        <div>
-                            <h3>Céramiste Senior</h3>
-                            <span class="job-card__type">Temps plein</span>
-                        </div>
-                    </div>
-                    <p>Artiste de la céramique dentaire, vous sublimerez chaque restauration par une stratification qui imite la vie.</p>
-                    <div class="job-card__details">
-                        <span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            5+ ans d'expérience
-                        </span>
-                        <span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            Montréal (Plateau)
-                        </span>
-                    </div>
-                    <button type="button" class="btn btn--outline" data-modal-open="applicationModal" data-position="ceramiste-senior" data-position-name="Céramiste Senior">
-                        <span>Postuler</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Spontaneous Application -->
-    <section class="cta cta--dark">
-        <div class="cta__inner">
-            <h2 class="cta__title">
-                Aucun poste ne correspond <span class="text-accent">à votre profil</span>?
-            </h2>
-            <p class="cta__subtitle">Envoyez-nous une candidature spontanée. Nous sommes toujours à la recherche de talents passionnés.</p>
-            <div class="cta__buttons">
-                <button type="button" class="btn btn--primary" data-modal-open="applicationModal" data-position="spontanee" data-position-name="Candidature spontanée">
-                    <span>Candidature spontanée</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div class="cta__decoration" aria-hidden="true">
-            <img src="images/q-icon.png" alt="">
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Application Modal -->
-    <div class="modal" id="applicationModal">
-        <div class="modal__backdrop" data-modal-close></div>
-        <div class="modal__container">
-            <div class="modal__header">
-                <h3 class="modal__title">Postuler</h3>
-                <button class="modal__close" data-modal-close aria-label="Fermer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 6L6 18M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal__body">
-                <div id="modalPositionBadge" class="modal__position-badge" style="display: none;"></div>
-                <form id="applicationForm">
+                <form class="careers-form">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="applicantName">Nom complet *</label>
@@ -237,43 +133,30 @@
                             <input type="email" id="applicantEmail" name="email" required>
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="applicantPhone">Téléphone *</label>
                             <input type="tel" id="applicantPhone" name="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="applicantPosition">Poste *</label>
-                            <select id="applicantPosition" name="position" required>
-                                <option value="">Sélectionnez un poste</option>
-                                <option value="techno-cad-cam">Technologue Dentaire - CAD/CAM</option>
-                                <option value="ceramiste-senior">Céramiste Senior</option>
-                                <option value="spontanee">Candidature spontanée</option>
-                            </select>
+                            <label for="applicantPosition">Poste d'intérêt</label>
+                            <input type="text" id="applicantPosition" name="position" placeholder="ex: Technologue CAD/CAM, Céramiste...">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="applicantResume">CV (PDF, DOC) *</label>
-                        <div class="file-upload">
-                            <div class="file-upload__zone" id="resumeDropZone">
-                                <div class="file-upload__icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                        <polyline points="17 8 12 3 7 8"/>
-                                        <line x1="12" y1="3" x2="12" y2="15"/>
-                                    </svg>
-                                </div>
-                                <p>Glissez votre CV ici ou cliquez pour parcourir</p>
-                                <span id="resumeFileName">PDF ou DOC, max 5 Mo</span>
-                            </div>
-                            <input type="file" id="applicantResume" name="resume" accept=".pdf,.doc,.docx" hidden required>
-                        </div>
+                        <input type="file" id="applicantResume" name="resume" accept=".pdf,.doc,.docx" required>
+                        <span class="form-help">Format accepté: PDF ou DOC, max 5 Mo</span>
                     </div>
+
                     <div class="form-group">
                         <label for="applicantMessage">Message / Lettre de motivation</label>
-                        <textarea id="applicantMessage" name="message" rows="4" placeholder="Parlez-nous de vous et de votre intérêt pour ce poste..."></textarea>
+                        <textarea id="applicantMessage" name="message" rows="6" placeholder="Parlez-nous de vous, de votre parcours et de votre intérêt pour Quintessence..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">
+
+                    <button type="submit" class="btn btn--dark btn--large">
                         <span>Envoyer ma candidature</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -282,19 +165,13 @@
                 </form>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-
-    <!-- GSAP + ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
     <!-- Component Loader (must load before script.js) -->
     <script src="components.js"></script>
-    <!-- GSAP Animations -->
-    <script src="animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

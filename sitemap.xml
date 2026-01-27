@@ -56,6 +56,13 @@
     </url>
 
     <url>
+        <loc>https://quintessence-ad.com/realisations.html</loc>
+        <lastmod>2026-01-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>https://quintessence-ad.com/contact.html</loc>
         <lastmod>2026-01-09</lastmod>
         <changefreq>yearly</changefreq>
