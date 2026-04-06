@@ -813,10 +813,17 @@ h3 {
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
 }
 
+.vision__image picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .vision__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
 }
 
 .vision__author {
