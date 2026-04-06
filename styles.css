@@ -736,6 +736,11 @@ h3 {
     background: linear-gradient(to left, var(--color-white) 0%, transparent 100%);
 }
 
+@keyframes carouselScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
 .action-marquee__track {
     display: flex;
     gap: 1rem;
@@ -905,13 +910,14 @@ h3 {
    Pillars Section - Bento Grid
    -------------------------------------------------------------------------- */
 .pillars {
-    background: #f7f5f2;
+    background: var(--color-white);
     padding: var(--section-padding) var(--container-padding);
 }
 
 .pillars__header {
     max-width: var(--container-max);
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
+    text-align: center;
 }
 
 .pillars .label {
@@ -1549,12 +1555,56 @@ h3 {
     transform: translateY(-4px);
 }
 
+.testimonial__text {
+    position: relative;
+    max-height: 9rem;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    flex: 1;
+}
+
+.testimonial__text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, var(--color-dark));
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial__text.is-expanded {
+    max-height: 60rem;
+}
+
+.testimonial__text.is-expanded::after {
+    opacity: 0;
+}
+
+.testimonial__toggle {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 0.5rem 0 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: opacity var(--transition-fast);
+}
+
+.testimonial__toggle:hover {
+    opacity: 0.75;
+}
+
 .testimonial p {
     font-size: 1rem;
     line-height: 1.7;
     color: var(--color-text-light);
-    margin-bottom: 2rem;
-    flex: 1;
+    margin-bottom: 0;
 }
 
 .testimonial p::before {
@@ -1801,7 +1851,7 @@ h3 {
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
     .pillars__grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .service {
