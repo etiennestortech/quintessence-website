@@ -1557,6 +1557,7 @@ h3 {
 .testimonials__title {
     color: var(--color-text-dark);
     white-space: nowrap;
+    margin-bottom: 1.5rem;
 }
 
 .testimonials__cta {
