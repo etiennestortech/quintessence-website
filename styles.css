@@ -905,7 +905,7 @@ h3 {
    Pillars Section - Bento Grid
    -------------------------------------------------------------------------- */
 .pillars {
-    background: var(--color-black);
+    background: #f7f5f2;
     padding: var(--section-padding) var(--container-padding);
 }
 
@@ -915,25 +915,24 @@ h3 {
 }
 
 .pillars .label {
-    color: var(--color-white);
+    color: var(--color-accent);
 }
 
 .pillars__title {
-    color: var(--color-white);
-    white-space: nowrap;
+    color: var(--color-text-dark);
 }
 
 .pillars__grid {
     max-width: var(--container-max);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 }
 
 .pillar {
-    background: var(--color-dark);
-    border: 1px solid var(--color-border-light);
+    background: var(--color-white);
+    border: 1px solid var(--color-border-dark);
     border-radius: 16px;
     padding: 2.5rem;
     position: relative;
@@ -943,16 +942,7 @@ h3 {
 
 .pillar:hover {
     transform: translateY(-4px);
-}
-
-.pillar--large {
-    grid-column: span 6;
-    grid-row: span 2;
-    padding: 3rem;
-}
-
-.pillar:not(.pillar--large) {
-    grid-column: span 6;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .pillar__icon {
@@ -968,12 +958,12 @@ h3 {
 }
 
 .pillar h3 {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     margin-bottom: 1rem;
 }
 
 .pillar p {
-    color: var(--color-text-muted);
+    color: var(--color-text-dark-muted);
     font-size: 1rem;
     line-height: 1.7;
 }
@@ -985,7 +975,7 @@ h3 {
     font-family: var(--font-display);
     font-size: 4rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(0, 0, 0, 0.04);
     line-height: 1;
 }
 
@@ -1034,8 +1024,8 @@ h3 {
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--color-text-muted);
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 720px;
+    margin: 0 auto 0.75rem;
 }
 
 /* 3-column grid */
@@ -1103,6 +1093,64 @@ h3 {
 @media (max-width: 768px) {
     .realisations__grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Portfolio Page Grid (realisations.html)
+   ========================================================================== */
+
+.portfolio-grid {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.portfolio-item__image {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #111;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item__image picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-item__image {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-item:hover .portfolio-item__image img {
+    transform: scale(1.04);
+}
+
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
     }
 }
 
@@ -1756,15 +1804,6 @@ h3 {
         grid-template-columns: 1fr 1fr;
     }
 
-    .pillar--large {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    .pillar:not(.pillar--large) {
-        grid-column: span 1;
-    }
-
     .service {
         grid-template-columns: 1fr auto;
     }
@@ -1959,8 +1998,7 @@ h3 {
         grid-template-columns: 1fr;
     }
 
-    .pillar--large,
-    .pillar:not(.pillar--large) {
+    .pillar {
         grid-column: span 1;
     }
 
@@ -2470,6 +2508,11 @@ h3 {
 
 .section--cream {
     background: var(--color-cream);
+    color: var(--color-text-dark);
+}
+
+.section--white {
+    background: var(--color-white);
     color: var(--color-text-dark);
 }
 
