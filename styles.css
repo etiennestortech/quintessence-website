@@ -1038,62 +1038,18 @@ h3 {
     margin: 0 auto;
 }
 
-/* Carousel container with fade edges */
-.realisations__carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding: 2rem 0;
-}
-
-/* Fade edges for polished look */
-.realisations__carousel::before,
-.realisations__carousel::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: clamp(80px, 15vw, 200px);
-    z-index: 10;
-    pointer-events: none;
-}
-
-.realisations__carousel::before {
-    left: 0;
-    background: linear-gradient(to right, var(--color-dark) 0%, transparent 100%);
-}
-
-.realisations__carousel::after {
-    right: 0;
-    background: linear-gradient(to left, var(--color-dark) 0%, transparent 100%);
-}
-
-/* Infinite scrolling track */
-.realisations__track {
-    display: flex;
+/* 3-column grid */
+.realisations__grid {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    animation: carouselScroll 40s linear infinite;
-    width: max-content;
 }
 
-@keyframes carouselScroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Pause on hover */
-.realisations__carousel:hover .realisations__track {
-    animation-play-state: paused;
-}
-
-/* Individual carousel items */
 .realisations__item {
-    flex-shrink: 0;
-    width: clamp(280px, 25vw, 380px);
+    /* nothing needed — grid handles sizing */
 }
 
 .realisations__image {
@@ -1101,79 +1057,53 @@ h3 {
     aspect-ratio: 4/3;
     border-radius: 8px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     transition: all var(--transition-medium);
+}
+
+.realisations__image picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.realisations__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
 }
 
 .realisations__image::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        180deg,
-        transparent 0%,
-        transparent 50%,
-        rgba(0, 0, 0, 0.6) 100%
-    );
+    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
     opacity: 0;
     transition: opacity var(--transition-medium);
     z-index: 1;
+    pointer-events: none;
 }
 
 .realisations__item:hover .realisations__image {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: rgba(254, 2, 36, 0.3);
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(254, 2, 36, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(254, 2, 36, 0.08);
+}
+
+.realisations__item:hover .realisations__image img {
+    transform: scale(1.04);
 }
 
 .realisations__item:hover .realisations__image::before {
     opacity: 1;
 }
 
-/* Placeholder styling */
-.realisations__placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
-        linear-gradient(315deg, rgba(254, 2, 36, 0.03) 0%, transparent 50%);
-}
-
-.realisations__placeholder::before {
-    content: '◇';
-    font-size: 2rem;
-    color: var(--color-accent);
-    opacity: 0.4;
-    transition: all var(--transition-medium);
-}
-
-.realisations__item:hover .realisations__placeholder::before {
-    opacity: 0.8;
-    transform: scale(1.2);
-}
-
-.realisations__placeholder span {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-text-muted);
-    position: relative;
-    z-index: 2;
-    transition: color var(--transition-fast);
-}
-
-.realisations__item:hover .realisations__placeholder span {
-    color: var(--color-white);
+@media (max-width: 768px) {
+    .realisations__grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -2188,10 +2118,6 @@ h3 {
     .hero__buttons .btn {
         width: 100%;
         justify-content: center;
-    }
-
-    .realisations__item {
-        width: 240px;
     }
 
     .realisations__track {
