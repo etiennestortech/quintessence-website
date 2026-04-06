@@ -444,7 +444,7 @@ h3 {
 
 .hero__tagline span:not(.label) {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2.75rem, 7vw, 7rem);
     font-weight: 400;
     font-style: italic;
     color: var(--color-white);
