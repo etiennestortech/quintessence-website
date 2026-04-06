@@ -1575,7 +1575,7 @@ h3 {
     left: 0;
     right: 0;
     height: 3rem;
-    background: linear-gradient(to bottom, transparent, var(--color-dark));
+    background: linear-gradient(to bottom, transparent, var(--color-white));
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
