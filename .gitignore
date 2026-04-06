@@ -13,3 +13,13 @@ optimize-images.js
 
 # BUT allow website images
 !/images/
+
+# Playwright test artifacts & temp screenshots
+.playwright-mcp/
+desktop-*.png
+mobile-*.png
+tablet-*.png
+vision-section.png
+
+# IDE
+.vscode/
