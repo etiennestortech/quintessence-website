@@ -990,24 +990,17 @@ h3 {
    Réalisations - Infinite Carousel Portfolio
    -------------------------------------------------------------------------- */
 .realisations {
-    background: var(--color-dark);
-    color: var(--color-white);
-    padding: var(--section-padding) 0;
-    position: relative;
-    overflow: hidden;
+    background: var(--color-cream);
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-/* Subtle ambient glow */
-.realisations::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 60%;
-    background: radial-gradient(ellipse at center, rgba(254, 2, 36, 0.04) 0%, transparent 70%);
-    pointer-events: none;
+.realisations__inner {
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 24px;
+    overflow: hidden;
+    padding: var(--section-padding) 0;
 }
 
 .realisations__header {
@@ -1015,8 +1008,6 @@ h3 {
     margin: 0 auto 4rem;
     padding: 0 var(--container-padding);
     text-align: center;
-    position: relative;
-    z-index: 2;
 }
 
 .realisations .label {
@@ -1517,7 +1508,7 @@ h3 {
    Testimonials Section
    -------------------------------------------------------------------------- */
 .testimonials {
-    background: var(--color-black);
+    background: #f2f2f0;
     padding: var(--section-padding) var(--container-padding);
 }
 
@@ -1532,12 +1523,19 @@ h3 {
 }
 
 .testimonials .label {
-    color: var(--color-white);
+    color: var(--color-accent);
 }
 
 .testimonials__title {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     white-space: nowrap;
+}
+
+.testimonials__cta {
+    max-width: var(--container-max);
+    margin: 3rem auto 0;
+    display: flex;
+    justify-content: center;
 }
 
 .testimonials__grid {
@@ -1549,8 +1547,8 @@ h3 {
 }
 
 .testimonial {
-    background: var(--color-dark);
-    border: 1px solid var(--color-border-light);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     padding: 2.5rem;
     display: flex;
@@ -1610,7 +1608,7 @@ h3 {
 .testimonial p {
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--color-text-light);
+    color: var(--color-text-dark-muted);
     margin-bottom: 0;
 }
 
@@ -1626,7 +1624,7 @@ h3 {
 
 .testimonial footer {
     padding-top: 1.5rem;
-    border-top: 1px solid var(--color-border-light);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .testimonial cite {
@@ -1635,13 +1633,13 @@ h3 {
     font-size: 1.125rem;
     font-weight: 500;
     font-style: normal;
-    color: var(--color-white);
+    color: var(--color-text-dark);
     margin-bottom: 0.25rem;
 }
 
 .testimonial footer span {
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-dark-muted);
 }
 
 /* --------------------------------------------------------------------------
