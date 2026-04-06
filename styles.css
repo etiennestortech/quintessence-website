@@ -926,6 +926,7 @@ h3 {
 
 .pillars__title {
     color: var(--color-text-dark);
+    font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
 .pillars__grid {
@@ -1523,6 +1524,11 @@ h3 {
 .testimonials__header {
     max-width: var(--container-max);
     margin: 0 auto 4rem;
+    padding: 0 var(--container-padding);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .testimonials .label {
@@ -2598,9 +2604,9 @@ h3 {
     width: 100%;
     height: 130%; /* Extra height for parallax movement */
     object-fit: cover;
-    object-position: center;
+    object-position: center 40%;
     display: block;
-    transform: translateY(-15%); /* Start position offset */
+    transform: translateY(-10%); /* Start position offset */
     will-change: transform; /* Performance optimization */
 }
 
