@@ -984,9 +984,8 @@ h3 {
    Réalisations - Infinite Carousel Portfolio
    -------------------------------------------------------------------------- */
 .realisations {
-    background: var(--color-cream);
-    padding: 1rem;
-    box-sizing: border-box;
+    background: var(--color-dark);
+    padding: var(--section-padding) var(--container-padding);
 }
 
 .realisations__inner {
