@@ -227,9 +227,9 @@ h3 {
 }
 
 .btn--dark:hover {
-    background: #333;
+    background: #2a2a2a;
     color: var(--color-white);
-    border-color: #333;
+    border-color: #2a2a2a;
 }
 
 .btn--large {
@@ -1021,6 +1021,11 @@ h3 {
     margin: 0 auto 0.75rem;
 }
 
+.realisations__cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
 /* 3-column grid */
 .realisations__grid {
     max-width: var(--container-max);
@@ -1107,7 +1112,7 @@ h3 {
     aspect-ratio: 4/3;
     border-radius: 6px;
     overflow: hidden;
-    background: #111;
+    background: var(--color-black);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -1547,7 +1552,6 @@ h3 {
 
 .testimonials__title {
     color: var(--color-text-dark);
-    white-space: nowrap;
     margin-bottom: 1.5rem;
 }
 
@@ -2142,10 +2146,6 @@ h3 {
         gap: 1.25rem !important;
     }
 
-    /* Testimonials whitespace fix */
-    .testimonials__title {
-        white-space: normal;
-    }
 
     .cta__title {
         white-space: normal;
