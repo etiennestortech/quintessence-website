@@ -148,7 +148,7 @@ h3 {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    color: var(--color-accent);
+    color: rgba(100, 100, 100, 0.75);
     margin-bottom: 1rem;
 }
 
@@ -920,9 +920,6 @@ h3 {
     text-align: center;
 }
 
-.pillars .label {
-    color: var(--color-accent);
-}
 
 .pillars__title {
     color: var(--color-text-dark);
@@ -1550,9 +1547,6 @@ h3 {
     align-items: center;
 }
 
-.testimonials .label {
-    color: var(--color-accent);
-}
 
 .testimonials__title {
     color: var(--color-text-dark);
@@ -1817,7 +1811,7 @@ h3 {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--color-accent);
+    color: rgba(150, 150, 150, 0.75);
     margin-bottom: 1.5rem;
 }
 
@@ -2600,9 +2594,6 @@ h3 {
     color: var(--color-text-dark);
 }
 
-.section--cream .label {
-    color: var(--color-accent);
-}
 
 .section--black {
     background: var(--color-black);
