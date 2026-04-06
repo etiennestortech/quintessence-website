@@ -748,9 +748,6 @@ h3 {
     width: max-content;
 }
 
-.action-marquee__carousel:hover .action-marquee__track {
-    animation-play-state: paused;
-}
 
 .action-marquee__item {
     flex-shrink: 0;
