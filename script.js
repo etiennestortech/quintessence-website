@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSolutionsTabs();
     initVideoModal();
     initApplicationModal();
+    initTestimonialToggles();
 });
 
 /* --------------------------------------------------------------------------
@@ -399,5 +400,26 @@ function initApplicationModal() {
         // For now, just show a success message
         alert('Merci pour votre candidature! Nous vous contacterons bientôt.');
         closeModal();
+    });
+}
+
+/* --------------------------------------------------------------------------
+   Testimonial Expand/Collapse
+   -------------------------------------------------------------------------- */
+function initTestimonialToggles() {
+    document.querySelectorAll('.testimonial__toggle').forEach(btn => {
+        const textEl = btn.previousElementSibling;
+
+        // Hide button if text fits without truncation
+        if (textEl.scrollHeight <= textEl.clientHeight) {
+            btn.style.display = 'none';
+            return;
+        }
+
+        btn.addEventListener('click', () => {
+            const expanded = textEl.classList.toggle('is-expanded');
+            btn.textContent = expanded ? 'Réduire' : 'Lire la suite';
+            btn.setAttribute('aria-expanded', expanded);
+        });
     });
 }
