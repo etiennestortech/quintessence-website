@@ -677,7 +677,7 @@ h3 {
 }
 
 .identity__video-btn:hover .hero__play-btn {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: scale(1.15);
     color: var(--color-accent);
 }
 
