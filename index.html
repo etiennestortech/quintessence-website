@@ -73,33 +73,6 @@
                 </div>
             </div>
 
-            <!-- Video positioned bottom-right -->
-            <div class="hero__video">
-                <div class="hero__video-container">
-                    <button class="hero__video-placeholder" data-video-id="1152971776" aria-label="Voir la vidéo de présentation">
-                        <picture>
-                            <source
-                                type="image/webp"
-                                data-srcset="images/placeholder-video-640w.webp 640w,
-                                             images/placeholder-video-768w.webp 768w,
-                                             images/placeholder-video.webp 827w"
-                                sizes="(max-width: 768px) 90vw, 400px">
-                            <img
-                                data-src="images/placeholder-video.jpg"
-                                alt="Vidéo de présentation"
-                                class="hero__video-thumbnail"
-                                loading="lazy"
-                                width="827"
-                                height="465">
-                        </picture>
-                        <div class="hero__play-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
-                    </button>
-                </div>
-            </div>
         </div>
 
         <div class="hero__scroll">
@@ -111,13 +84,41 @@
     <!-- Identity Section -->
     <section class="identity" id="apropos">
         <div class="identity__inner">
-            <div class="identity__content">
+            <div class="identity__header">
                 <span class="label">Notre identité</span>
                 <h2 class="identity__title">
                     Là où l'innovation<br>
                     <span class="text-accent">devient art</span>
                 </h2>
                 <div class="identity__line"></div>
+            </div>
+
+            <div class="identity__video">
+                <button class="identity__video-btn" data-video-id="1152971776" aria-label="Voir la vidéo de présentation">
+                    <picture>
+                        <source
+                            type="image/webp"
+                            data-srcset="images/placeholder-video-640w.webp 640w,
+                                         images/placeholder-video-768w.webp 768w,
+                                         images/placeholder-video.webp 827w"
+                            sizes="100vw">
+                        <img
+                            data-src="images/placeholder-video.jpg"
+                            alt="Vidéo de présentation Quintessence"
+                            class="hero__video-thumbnail"
+                            loading="lazy"
+                            width="1920"
+                            height="1080">
+                    </picture>
+                    <div class="hero__play-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+
+            <div class="identity__body">
                 <p>
                     Chez Quintessence Atelier Dentaire, chaque détail compte. Chaque patient est unique. Chaque restauration est pensée comme une pièce sur mesure, portée par une technologie de pointe et un savoir-faire maîtrisé.
                 </p>
@@ -127,24 +128,6 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-            </div>
-            <div class="identity__media">
-                <div class="identity__image">
-                    <picture>
-                        <source
-                            type="image/webp"
-                            data-srcset="images/atelier-team-480w.webp 480w,
-                                         images/atelier-team.webp 640w"
-                            sizes="(max-width: 768px) 100vw, 50vw">
-                        <img
-                            data-src="images/atelier-team.jpg"
-                            alt="L'équipe Quintessence en formation dans l'atelier"
-                            loading="lazy"
-                            width="640"
-                            height="1136">
-                    </picture>
-                </div>
-                <div class="identity__decoration"></div>
             </div>
         </div>
     </section>
