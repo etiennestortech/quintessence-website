@@ -181,7 +181,9 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
@@ -199,13 +201,16 @@ h3 {
 }
 
 .btn--primary:hover {
-    background: var(--color-cream);
-    color: var(--color-dark);
-    border-color: var(--color-cream);
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(255, 255, 255, 0.88);
 }
 
 .btn--primary svg {
     transition: transform var(--transition-fast);
+}
+
+.btn--primary:hover svg {
+    transform: translateX(5px);
 }
 
 .btn--outline {
@@ -220,16 +225,32 @@ h3 {
     border-color: var(--color-white);
 }
 
+.btn--outline svg {
+    transition: transform var(--transition-fast);
+}
+
+.btn--outline:hover svg {
+    transform: translateX(5px);
+}
+
 .btn--dark {
     background: var(--color-dark);
     color: var(--color-white);
     border: 1px solid var(--color-dark);
 }
 
+.btn--dark svg {
+    transition: transform var(--transition-fast);
+}
+
 .btn--dark:hover {
     background: #2a2a2a;
     color: var(--color-white);
     border-color: #2a2a2a;
+}
+
+.btn--dark:hover svg {
+    transform: translateX(5px);
 }
 
 .btn--large {
@@ -938,12 +959,11 @@ h3 {
     padding: 2.5rem;
     position: relative;
     overflow: hidden;
-    transition: all var(--transition-medium);
+    transition: border-color 0.5s ease;
 }
 
 .pillar:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .pillar__icon {
@@ -999,7 +1019,6 @@ h3 {
 .realisations__header {
     max-width: var(--container-max);
     margin: 0 auto 4rem;
-    padding: 0 var(--container-padding);
     text-align: center;
 }
 
@@ -1029,7 +1048,6 @@ h3 {
 .realisations__grid {
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 var(--container-padding);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -1074,9 +1092,8 @@ h3 {
 }
 
 .realisations__item:hover .realisations__image {
-    transform: translateY(-6px);
-    border-color: rgba(254, 2, 36, 0.3);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(254, 2, 36, 0.08);
+    transform: translateY(-3px);
+    border-color: rgba(254, 2, 36, 0.2);
 }
 
 .realisations__item:hover .realisations__image img {
@@ -1130,8 +1147,7 @@ h3 {
 }
 
 .portfolio-item:hover .portfolio-item__image {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
 }
 
 .portfolio-item:hover .portfolio-item__image img {
@@ -1262,14 +1278,13 @@ h3 {
     border: 1px solid var(--color-border-dark);
     border-radius: 16px;
     padding: 2rem;
-    transition: all var(--transition-medium);
+    transition: border-color 0.5s ease;
     display: flex;
     flex-direction: column;
 }
 
 .solution-card:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    transform: translateY(-4px);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .solution-card__icon {
@@ -1286,7 +1301,7 @@ h3 {
 }
 
 .solution-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 0.75rem;
     color: var(--color-text-dark);
 }
@@ -1375,14 +1390,14 @@ h3 {
     border: 1px solid var(--color-border-dark);
     border-radius: 16px;
     overflow: hidden;
-    transition: all var(--transition-medium);
+    transition: transform var(--transition-medium), border-color var(--transition-medium);
     display: flex;
     flex-direction: column;
 }
 
 .realization-card:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.18);
 }
 
 .realization-card__image {
@@ -1576,11 +1591,11 @@ h3 {
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    transition: all var(--transition-medium);
+    transition: border-color 0.5s ease;
 }
 
 .testimonial:hover {
-    transform: translateY(-4px);
+    border-color: rgba(0, 0, 0, 0.18);
 }
 
 .testimonial__text {
@@ -3620,7 +3635,7 @@ h3 {
 }
 
 .benefit-card:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
 }
 
 .benefit-card__icon {
@@ -3658,7 +3673,7 @@ h3 {
 }
 
 .job-card:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
 }
 
 .job-card__header {
@@ -4193,7 +4208,7 @@ body.modal-open {
 }
 
 .help-card:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.18);
 }
 
 .help-card h4 {
@@ -5029,7 +5044,7 @@ body.modal-open {
 }
 
 .benefit-card:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
 }
 
 .benefit-card__icon {
@@ -5293,7 +5308,7 @@ body.modal-open {
 }
 
 .help-card:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.18);
 }
 
 .help-card h4 {

@@ -7,24 +7,9 @@
    Performance Optimizations
    -------------------------------------------------------------------------- */
 
-/* Elements that will be animated - optimize rendering */
-.hero__tagline,
-.hero__description,
-.hero__buttons,
-.hero__video,
-.page-hero__left,
-.page-hero__description,
-.section-header,
-.solution-card,
-.pillar,
-.testimonial,
-.service-item,
-.timeline__item,
-.identity__media,
-.vision__quote,
-.cta {
-    /* GPU acceleration for transform animations */
-    will-change: transform, opacity;
+/* will-change only on the scrub quote — many chars animate opacity simultaneously */
+.vision__quote-text {
+    will-change: opacity;
 }
 
 /* Remove will-change after animations complete (handled by GSAP) */
@@ -46,13 +31,6 @@
     opacity: 1; /* Let GSAP handle initial opacity */
 }
 
-/* Smooth transitions for hover states */
-.solution-card,
-.pillar,
-.testimonial,
-.btn {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* --------------------------------------------------------------------------
    Text Split Styling - Preserve Line Breaks
