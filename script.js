@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initAnchorLinks();
     initSolutionsTabs();
+    initHeroBackgroundVideo();
     initVideoModal();
     initApplicationModal();
     initTestimonialToggles();
@@ -60,18 +61,23 @@ function initLenis() {
 function initNavigation() {
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav__toggle');
+    const navMobileMenu = document.querySelector('.nav__mobile-menu');
     let lastScrollY = 0;
     const heroHeight = window.innerHeight;
     let hasScrolledPastHero = false;
 
     function closeMenu() {
         navToggle?.classList.remove('active');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        navMobileMenu?.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
     }
 
     function openMenu() {
         navToggle?.classList.add('active');
+        navToggle?.setAttribute('aria-expanded', 'true');
+        navMobileMenu?.setAttribute('aria-hidden', 'false');
         document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
     }
@@ -189,83 +195,73 @@ function initSolutionsTabs() {
 }
 
 /* --------------------------------------------------------------------------
-   Video Modal with Autoplay
+   Hero background video + modal playback
    -------------------------------------------------------------------------- */
+function initHeroBackgroundVideo() {
+    const bgVideo = document.querySelector('.hero__bg-video');
+    const embedTarget = bgVideo?.querySelector('.hero__bg-video-embed');
+    const videoId = bgVideo?.getAttribute('data-video-id');
+
+    if (!bgVideo || !embedTarget || !videoId) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0`;
+    iframe.setAttribute('frameborder', '0');
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    iframe.title = 'Vidéo de présentation Quintessence';
+    embedTarget.appendChild(iframe);
+    bgVideo.closest('.hero')?.classList.add('hero--video-active');
+}
+
+function clearModalPlayer(modalPlayer) {
+    while (modalPlayer.firstChild) {
+        modalPlayer.removeChild(modalPlayer.firstChild);
+    }
+}
+
 function initVideoModal() {
-    const videoTrigger = document.querySelector('[data-video-id]');
     const modal = document.querySelector('.video-modal');
     const modalClose = document.querySelector('.video-modal__close');
     const modalOverlay = document.querySelector('.video-modal__overlay');
     const modalPlayer = document.querySelector('.video-modal__player');
+    const modalTriggers = document.querySelectorAll('[data-video-trigger]');
+    let lastVideoTrigger = null;
 
-    if (!videoTrigger || !modal) return;
+    if (!modal || modalTriggers.length === 0) return;
 
-    const videoId = videoTrigger.getAttribute('data-video-id');
-
-    // Autoplay muted video inline on page load
-    const autoplayIframe = document.createElement('iframe');
-    autoplayIframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1`;
-    autoplayIframe.frameBorder = '0';
-    autoplayIframe.allow = 'autoplay; fullscreen; picture-in-picture';
-    autoplayIframe.style.position = 'absolute';
-    autoplayIframe.style.top = '0';
-    autoplayIframe.style.left = '0';
-    autoplayIframe.style.width = '100%';
-    autoplayIframe.style.height = '100%';
-    autoplayIframe.style.objectFit = 'cover';
-
-    // Replace placeholder content with autoplay iframe
-    const placeholder = videoTrigger.querySelector('.hero__video-thumbnail');
-    if (placeholder) {
-        placeholder.style.display = 'none';
-    }
-    videoTrigger.appendChild(autoplayIframe);
-
-    // Keep play button visible for fullscreen/sound interaction
-    const playBtn = videoTrigger.querySelector('.hero__play-btn');
-    if (playBtn) {
-        playBtn.style.position = 'relative';
-        playBtn.style.zIndex = '10';
-    }
-
-    // Open modal with sound on click
-    videoTrigger.addEventListener('click', () => {
-        // Create Vimeo iframe with sound
+    function openModal(videoId, trigger) {
         const iframe = document.createElement('iframe');
         iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
-        iframe.frameBorder = '0';
+        iframe.setAttribute('frameborder', '0');
         iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-        iframe.allowFullscreen = true;
+        iframe.title = 'Vidéo de présentation Quintessence';
 
+        lastVideoTrigger = trigger;
         modalPlayer.appendChild(iframe);
-
-        // Show modal
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-
-        // Pause Lenis
         if (lenis) lenis.stop();
-    });
-
-    // Close modal function
-    function closeModal() {
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-
-        // Remove iframe
-        modalPlayer.innerHTML = '';
-
-        // Resume Lenis
-        if (lenis) lenis.start();
     }
 
-    // Close on button click
-    modalClose.addEventListener('click', closeModal);
+    function closeModal() {
+        lastVideoTrigger?.focus();
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        clearModalPlayer(modalPlayer);
+        if (lenis) lenis.start();
+        lastVideoTrigger = null;
+    }
 
-    // Close on overlay click
-    modalOverlay.addEventListener('click', closeModal);
+    modalTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const videoId = trigger.getAttribute('data-video-id');
+            if (videoId) openModal(videoId, trigger);
+        });
+    });
 
-    // Close on ESC key
+    modalClose?.addEventListener('click', closeModal);
+    modalOverlay?.addEventListener('click', closeModal);
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
             closeModal();

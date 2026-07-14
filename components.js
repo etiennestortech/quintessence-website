@@ -6,7 +6,7 @@ async function loadComponent(componentName, targetId) {
     if (!target) return false;
 
     try {
-        const response = await fetch(`components/${componentName}.html`);
+        const response = await fetch(`components/${componentName}.html?v=20260611`, { cache: 'no-store' });
         if (!response.ok) throw new Error(`${response.status}`);
 
         target.innerHTML = await response.text();
@@ -37,15 +37,18 @@ function setActiveNavLink() {
 
 // Load all components when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
-    await Promise.all([
-        loadComponent('navbar', 'navbar-placeholder'),
-        loadComponent('footer', 'footer-placeholder')
-    ]);
+    const loads = [loadComponent('footer', 'footer-placeholder')];
+    const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    if (navbarPlaceholder) {
+        loads.unshift(loadComponent('navbar', 'navbar-placeholder'));
+    }
+
+    await Promise.all(loads);
 
     setActiveNavLink();
 
     // Re-initialize navigation after navbar is loaded
-    if (typeof initNavigation === 'function') {
+    if (navbarPlaceholder && typeof initNavigation === 'function') {
         initNavigation();
     }
 });
