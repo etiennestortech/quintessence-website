@@ -31,13 +31,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20260611e">
     <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="homepage-reference.css?v=20260713r">
+    <link rel="stylesheet" href="homepage-reference.css?v=20260721d">
 </head>
 <body class="home-reference">
     <nav class="nav" aria-label="Navigation principale">
         <div class="nav__inner">
             <a href="index.html" class="nav__logo" aria-label="Quintessence — Accueil">
-                <img src="images/web-logo-quintessence-white.png" alt="Quintessence Atelier Dentaire">
+                <img src="images/web-logo-quintessence-white-alt.png" alt="Quintessence">
             </a>
             <ul class="nav__links">
                 <li><a href="apropos.html">L'Atelier</a></li>
@@ -84,8 +84,11 @@
                         <a href="apropos.html" class="btn btn--gold-outline"><span>Découvrir l'atelier</span><span aria-hidden="true">→</span></a>
                         <a href="services.html" class="btn btn--text-gold">Voir notre expertise</a>
                     </div>
+                    <button class="hero__video-trigger" type="button" data-video-trigger data-video-id="1152971776">
+                        <span class="hero__video-trigger-icon" aria-hidden="true"></span>
+                        <span>Voir la vidéo</span>
+                    </button>
                 </div>
-                <div class="hero__scroll" aria-hidden="true"><span>Défiler</span><span class="hero__scroll-line"></span></div>
             </div>
         </section>
 
@@ -152,12 +155,36 @@
                     </div>
                 </header>
                 <div class="fundamentals__grid">
-                    <article class="fundamental-card"><span class="fundamental-card__icon" aria-hidden="true">✦</span><h3>Art dentaire</h3><p>La nature demeure notre première source d'inspiration. Chaque restauration est conçue comme une création unique.</p></article>
-                    <article class="fundamental-card"><span class="fundamental-card__icon" aria-hidden="true">⌘</span><h3>Haute technologie</h3><p>Nous intégrons les outils numériques les plus avancés au service de la précision et de la prévisibilité.</p></article>
-                    <article class="fundamental-card"><span class="fundamental-card__icon" aria-hidden="true">◇</span><h3>Service personnalisé</h3><p>Chaque projet est différent. Nous travaillons en étroite collaboration avec le clinicien.</p></article>
-                    <article class="fundamental-card"><span class="fundamental-card__icon" aria-hidden="true">◎</span><h3>Équipe dévouée</h3><p>Notre force réside dans les femmes et les hommes qui composent Quintessence.</p></article>
+                    <article class="fundamental-card">
+                        <span class="fundamental-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><path d="M31.5 8.5c4.2-4.2 8.7-5.9 10.2-4.4 1.5 1.5-.2 6-4.4 10.2L23.2 28.4l-5.8-5.8L31.5 8.5Z"></path><path d="m17.4 22.6 5.8 5.8-4.8 3.3a14.8 14.8 0 0 0-5.5 7.2l-.7 2.2c-2.7-2.8-4.5-4.6-7.3-7.3l2.2-.7a14.8 14.8 0 0 0 7.2-5.5l3.1-5Z"></path><path d="M12.2 41.1c-2.5 1.2-5.2 1.2-7.6-.1 1.2-2.4 1.2-5.1.3-7.2"></path></svg>
+                        </span>
+                        <h3>Art dentaire</h3>
+                        <p>La nature demeure notre première source d'inspiration. Chaque restauration est conçue comme une création unique.</p>
+                    </article>
+                    <article class="fundamental-card">
+                        <span class="fundamental-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><rect x="7" y="7" width="34" height="25" rx="2"></rect><path d="M18 41h12M24 32v9"></path><path d="M19.5 13c-2.6 0-4.3 2-4.3 4.7 0 2.4 1.2 4.1 2.6 5.6.9 1 1.2 2.6 1.4 4 .2 1.1.7 1.8 1.5 1.8 1 0 1.2-1.1 1.4-2.3.2-.9.4-1.8 1.4-1.8s1.2.9 1.4 1.8c.2 1.2.4 2.3 1.4 2.3.8 0 1.3-.7 1.5-1.8.2-1.4.5-3 1.4-4 1.4-1.5 2.6-3.2 2.6-5.6 0-2.7-1.7-4.7-4.3-4.7-1.6 0-2.7.8-4 .8s-2.4-.8-4-.8Z"></path></svg>
+                        </span>
+                        <h3>Haute technologie</h3>
+                        <p>Nous intégrons les outils numériques les plus avancés au service de la précision et de la prévisibilité.</p>
+                    </article>
+                    <article class="fundamental-card">
+                        <span class="fundamental-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><path d="m5 18 6.4-4.7 7.2 4.9M43 18l-6.4-4.7-6.4 4.7"></path><path d="m11.4 13.3 7.1-4.1a6 6 0 0 1 6.4.2l1.4.9"></path><path d="m36.6 13.3-5.8-3.4a6 6 0 0 0-6.9.6l-6.2 5.7a3.2 3.2 0 0 0 4.2 4.8l4.2-3.1 10.5 8.9"></path><path d="m11.4 27.2 9.8 9.2a2.8 2.8 0 0 0 4-.2 2.8 2.8 0 0 0-.2-3.9l-3.4-3.1"></path><path d="m25 32.3 1.6 1.5a2.8 2.8 0 0 0 3.8-4.1l-4.1-3.8"></path><path d="m30.4 29.7.8.7a2.8 2.8 0 0 0 3.8-4.1l-4.2-3.7"></path><path d="m5 18 6.4 9.2M43 18l-6.4 8.8"></path></svg>
+                        </span>
+                        <h3>Service personnalisé</h3>
+                        <p>Chaque projet est différent. Nous travaillons en étroite collaboration avec le clinicien.</p>
+                    </article>
+                    <article class="fundamental-card">
+                        <span class="fundamental-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><circle cx="24" cy="13" r="6"></circle><circle cx="9.5" cy="17" r="4.5"></circle><circle cx="38.5" cy="17" r="4.5"></circle><path d="M12 42v-5.5C12 30.1 17.2 25 23.5 25h1C30.8 25 36 30.1 36 36.5V42H12Z"></path><path d="M12.8 27.7a9.1 9.1 0 0 0-3.3-.6C4.8 27.1 1 31 1 35.8V40h11M35.2 27.7a9.1 9.1 0 0 1 3.3-.6c4.7 0 8.5 3.9 8.5 8.7V40H36"></path></svg>
+                        </span>
+                        <h3>Équipe dévouée</h3>
+                        <p>Notre force réside dans les femmes et les hommes qui composent Quintessence.</p>
+                    </article>
                 </div>
-                <blockquote class="reference-quote"><span aria-hidden="true">“</span><p>L'excellence naît lorsque l'art, la technologie et l'humain avancent dans la même direction.</p></blockquote>
+                <blockquote class="reference-quote"><span aria-hidden="true"></span><p>L'excellence naît lorsque l'art, la technologie et <em>l'humain</em> avancent dans la même direction.</p></blockquote>
             </div>
         </section>
 
@@ -221,7 +248,7 @@
                     <figure><img src="images/realisation-1.jpg" alt="Harmonie d'une restauration" loading="lazy"><figcaption>Harmonie</figcaption></figure>
                     <figure><img src="images/portfolio-56.jpg" alt="Résultat d'apparence naturelle" loading="lazy"><figcaption>Naturel</figcaption></figure>
                 </div>
-                <blockquote class="reference-quote"><span aria-hidden="true">“</span><p>Ce sont les détails qui transforment une restauration en création.</p></blockquote>
+                <blockquote class="reference-quote"><span aria-hidden="true"></span><p>Ce sont les détails qui transforment une restauration en <em>création.</em></p></blockquote>
             </div>
         </section>
 
@@ -231,12 +258,12 @@
                     <div><span class="label label--gold">Le numérique au service du naturel</span><div class="section-rule section-rule--center"></div><h2>La technologie disparaît.<br>Le naturel <em>demeure.</em></h2><p>Derrière chaque restauration se cache un flux de travail numérique conçu pour servir l'esthétique, jamais pour la remplacer.</p></div>
                 </header>
                 <div class="technology-grid">
-                    <article><img src="images/service-analyse-faciale.jpg" alt="Analyse faciale numérique" loading="lazy"><div><span>01</span><h3>Face Hunter</h3><p>Comprendre le visage avant de concevoir le sourire.</p></div></article>
-                    <article><img src="images/action-3d.jpg" alt="Conception numérique tridimensionnelle" loading="lazy"><div><span>02</span><h3>Plane Finder</h3><p>Transformer les références naturelles en données exploitables.</p></div></article>
-                    <article><img src="images/service-icam-2.jpg" alt="Système de photogrammétrie iCAM" loading="lazy"><div><span>03</span><h3>iCAM</h3><p>Capturer la position implantaire avec une précision absolue.</p></div></article>
-                    <article><img src="images/service-prise-couleur.jpg" alt="Prise de couleur clinique" loading="lazy"><div><span>04</span><h3>eLAB</h3><p>Communiquer la couleur avec exactitude.</p></div></article>
+                    <article><img src="images/service-analyse-faciale.jpg" alt="Analyse faciale numérique" loading="lazy"><div><span class="technology-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M15 5H9a4 4 0 0 0-4 4v6M33 5h6a4 4 0 0 1 4 4v6M15 43H9a4 4 0 0 1-4-4v-6M33 43h6a4 4 0 0 0 4-4v-6"></path><path d="M16 18c0-5 3.2-8.5 8-8.5s8 3.5 8 8.5v5c0 6-3.6 11-8 11s-8-5-8-11v-5Z"></path><path d="M20.5 20.5h.01M27.5 20.5h.01M21 27c1.8 1.3 4.2 1.3 6 0"></path></svg></span><h3>FACE HUNTER</h3><p>Comprendre le visage avant de concevoir le sourire.</p></div></article>
+                    <article><img src="images/action-3d.jpg" alt="Conception numérique tridimensionnelle" loading="lazy"><div><span class="technology-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m24 5 16 9v20l-16 9-16-9V14l16-9Z"></path><path d="m8 14 16 9 16-9M24 23v20M16 9.5l16 9M32 9.5l-16 9"></path></svg></span><h3>PLANE FINDER</h3><p>Transformer les références naturelles en données exploitables.</p></div></article>
+                    <article><img src="images/service-icam-2.jpg" alt="Système de photogrammétrie iCAM" loading="lazy"><div><span class="technology-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="13"></circle><circle cx="24" cy="24" r="4"></circle><path d="M24 4v8M24 36v8M4 24h8M36 24h8"></path></svg></span><h3>iCAM</h3><p>Capturer la position implantaire avec une précision absolue.</p></div></article>
+                    <article><img src="images/service-prise-couleur.jpg" alt="Prise de couleur clinique" loading="lazy"><div><span class="technology-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M31.5 8.5c4.2-4.2 8.7-5.9 10.2-4.4 1.5 1.5-.2 6-4.4 10.2L23.2 28.4l-5.8-5.8L31.5 8.5Z"></path><path d="m17.4 22.6 5.8 5.8-4.8 3.3a14.8 14.8 0 0 0-5.5 7.2l-.7 2.2c-2.7-2.8-4.5-4.6-7.3-7.3l2.2-.7a14.8 14.8 0 0 0 7.2-5.5l3.1-5Z"></path></svg></span><h3>eLAB</h3><p>Communiquer la couleur avec exactitude.</p></div></article>
                 </div>
-                <blockquote class="reference-quote"><span aria-hidden="true">“</span><p>Le numérique ne remplace pas l'œil du technologue. Il lui permet d'aller plus loin.</p></blockquote>
+                <blockquote class="reference-quote"><span aria-hidden="true"></span><p>Le numérique ne remplace pas l'œil du technologue. Il lui permet d'aller <em>plus loin.</em></p></blockquote>
             </div>
         </section>
 
@@ -296,7 +323,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <div class="video-modal" aria-hidden="true">
+    <div class="video-modal" role="dialog" aria-modal="true" aria-label="Vidéo de présentation Quintessence" aria-hidden="true">
         <div class="video-modal__overlay"></div>
         <div class="video-modal__content">
             <button class="video-modal__close" aria-label="Fermer la vidéo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>

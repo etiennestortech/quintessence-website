@@ -124,7 +124,7 @@ function animateHero() {
       .from('.hero__tagline span', { autoAlpha: 0, y: 36, stagger: 0.12, duration: 0.95 }, 0.4)
       .from('.hero__lede', { autoAlpha: 0, y: 18, duration: 0.75 }, 0.75)
       .from('.hero__cta-row > *', { autoAlpha: 0, y: 16, stagger: 0.1, duration: 0.65 }, 0.95)
-      .from('.hero__scroll', { autoAlpha: 0, y: -12, duration: 0.7 }, 1.35);
+      .from('.hero__video-trigger', { autoAlpha: 0, y: 12, duration: 0.65 }, 1.2);
 }
 
 /* --------------------------------------------------------------------------

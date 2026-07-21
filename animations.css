@@ -26,8 +26,7 @@
 .hero__tagline span:not(.label),
 .hero__description,
 .hero__buttons .btn,
-.hero__video,
-.hero__scroll {
+.hero__video {
     opacity: 1; /* Let GSAP handle initial opacity */
 }
 
