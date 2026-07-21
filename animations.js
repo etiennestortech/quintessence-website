@@ -89,6 +89,7 @@ function initAnimations() {
         animateHero();
         animatePageHero();
         animateIdentity();
+        animatePhilosophy();
         animateSectionHeaders();
         animateRealisationsGrid();
         animatePillars();
@@ -107,29 +108,23 @@ function initAnimations() {
    Hero — cinematic entrance + parallax
    -------------------------------------------------------------------------- */
 function animateHero() {
-    if (!document.querySelector('.hero')) return;
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
 
-    gsap.set('.hero__bg-placeholder', { scale: 1.1 });
-
+    const backgroundVideo = hero.querySelector('.hero__bg-video');
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    tl.to('.hero__bg-placeholder', { scale: 1, duration: 2.4, ease: 'power2.out' }, 0)
-      .from('.hero__tagline .label',          { autoAlpha: 0, y: 16, duration: 0.7 }, 0.5)
-      .from('.hero__tagline span:not(.label)', { autoAlpha: 0, y: 60, stagger: 0.18, duration: 1.1 }, 0.75)
-      .from('.hero__buttons .btn',             { autoAlpha: 0, y: 20, duration: 0.75 }, 1.3)
-      .from('.hero__scroll',                   { autoAlpha: 0, y: -18, duration: 0.8 }, 1.65);
+    if (backgroundVideo) gsap.set(backgroundVideo, { autoAlpha: 0 });
 
-    // Parallax — scrub, no once (runs continuously while in range)
-    gsap.to('.hero__bg-placeholder', {
-        yPercent: 30,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.2,
-        }
-    });
+    if (backgroundVideo) {
+        tl.to(backgroundVideo, { autoAlpha: 1, duration: 1.35, ease: 'power2.inOut' }, 0);
+    }
+
+    tl.from('.hero__eyebrow', { autoAlpha: 0, y: 14, duration: 0.65 }, 0.2)
+      .from('.hero__tagline span', { autoAlpha: 0, y: 36, stagger: 0.12, duration: 0.95 }, 0.4)
+      .from('.hero__lede', { autoAlpha: 0, y: 18, duration: 0.75 }, 0.75)
+      .from('.hero__cta-row > *', { autoAlpha: 0, y: 16, stagger: 0.1, duration: 0.65 }, 0.95)
+      .from('.hero__scroll', { autoAlpha: 0, y: -12, duration: 0.7 }, 1.35);
 }
 
 /* --------------------------------------------------------------------------
@@ -154,41 +149,42 @@ function animatePageHero() {
 function animateIdentity() {
     if (!document.querySelector('.identity')) return;
 
-    const headerTl = gsap.timeline({
-        scrollTrigger: { trigger: '.identity__header', start: 'top 82%', once: true },
+    const contentTl = gsap.timeline({
+        scrollTrigger: { trigger: '.identity__content', start: 'top 82%', once: true },
         defaults: { ease: 'power3.out' },
     });
 
-    headerTl
-      .from('.identity__header .label', { autoAlpha: 0, x: -22, duration: 0.6 })
-      .from('.identity__title',          { autoAlpha: 0, y: 45, duration: 1 }, '-=0.3')
-      .from('.identity__line',           { scaleX: 0, transformOrigin: 'left center', duration: 0.8, ease: 'power2.inOut' }, '-=0.5');
+    contentTl
+      .from('.identity__content .label', { autoAlpha: 0, x: -22, duration: 0.6 })
+      .from('.identity__content .section-rule', { scaleX: 0, transformOrigin: 'left center', duration: 0.8, ease: 'power2.inOut' }, '-=0.35')
+      .from('.identity__title', { autoAlpha: 0, y: 40, duration: 0.95 }, '-=0.45')
+      .from('.identity__content p', { autoAlpha: 0, y: 24, stagger: 0.15, duration: 0.8 }, '-=0.55')
+      .from('.identity .stat', { autoAlpha: 0, y: 18, stagger: 0.1, duration: 0.7 }, '-=0.45')
+      .from('.identity__content .btn', { autoAlpha: 0, y: 16, duration: 0.7 }, '-=0.35');
 
-    gsap.from('.identity__video-btn', {
+    gsap.from('.identity__media', {
         autoAlpha: 0,
-        scale: 0.97,
-        duration: 1.2,
+        x: 40,
+        duration: 1.1,
         ease: 'power2.out',
-        scrollTrigger: { trigger: '.identity__video', start: 'top 82%', once: true },
+        scrollTrigger: { trigger: '.identity__media', start: 'top 82%', once: true },
+    });
+}
+
+function animatePhilosophy() {
+    if (!document.querySelector('.philosophy')) return;
+
+    const tl = gsap.timeline({
+        scrollTrigger: { trigger: '.philosophy__split', start: 'top 82%', once: true },
+        defaults: { ease: 'power3.out' },
     });
 
-    const paras = gsap.utils.toArray('.identity__body p');
-    if (paras.length) {
-        gsap.from(paras, {
-            autoAlpha: 0,
-            y: 28,
-            stagger: 0.2,
-            duration: 0.85,
-            scrollTrigger: { trigger: '.identity__body', start: 'top 82%', once: true },
-        });
-    }
-
-    gsap.from('.identity__body .btn', {
-        autoAlpha: 0,
-        y: 18,
-        duration: 0.75,
-        scrollTrigger: { trigger: '.identity__body', start: 'top 76%', once: true },
-    });
+    tl.from('.philosophy__media', { autoAlpha: 0, x: -30, duration: 1 })
+      .from('.philosophy__content .label', { autoAlpha: 0, y: 16, duration: 0.6 }, '-=0.8')
+      .from('.philosophy__content .section-rule', { scaleX: 0, transformOrigin: 'left center', duration: 0.7, ease: 'power2.inOut' }, '-=0.45')
+      .from('.philosophy__title', { autoAlpha: 0, y: 36, duration: 0.9 }, '-=0.5')
+      .from('.philosophy__content p', { autoAlpha: 0, y: 20, duration: 0.75 }, '-=0.55')
+      .from('.philosophy__value', { autoAlpha: 0, y: 16, stagger: 0.08, duration: 0.65 }, '-=0.4');
 }
 
 /* --------------------------------------------------------------------------
@@ -332,13 +328,16 @@ function animateTestimonials() {
         }),
     });
 
-    gsap.from('.testimonials__cta', {
-        autoAlpha: 0,
-        y: 22,
-        duration: 0.75,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '.testimonials__cta', start: 'top 90%', once: true },
-    });
+    const closing = document.querySelector('.testimonials__closing');
+    if (closing) {
+        gsap.from(closing, {
+            autoAlpha: 0,
+            y: 22,
+            duration: 0.75,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: closing, start: 'top 90%', once: true },
+        });
+    }
 }
 
 /* --------------------------------------------------------------------------
