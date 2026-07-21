@@ -1,15 +1,15 @@
 /* Homepage reconstruction based on the approved editorial reference. */
 
 body.home-reference {
-    --home-ink: #151410;
-    --home-black: #11100e;
-    --home-warm: #f4f0e8;
-    --home-paper: #f8f5ef;
-    --home-gold: #a88752;
-    --home-gold-light: #c2a16c;
-    --home-red: #d92335;
-    --home-line: rgba(37, 32, 24, 0.16);
-    --home-muted: #6f6a61;
+    --home-ink: var(--ds-ink);
+    --home-black: var(--ds-black);
+    --home-warm: var(--ds-warm);
+    --home-paper: var(--ds-paper);
+    --home-gold: var(--ds-gold);
+    --home-gold-light: var(--ds-gold-light);
+    --home-red: var(--ds-red);
+    --home-line: var(--ds-line);
+    --home-muted: var(--ds-muted);
     margin: 0;
     overflow-x: hidden;
     color: var(--home-ink);

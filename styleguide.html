@@ -7,8 +7,9 @@
     <title>Style Guide | Quintessence Atelier Dentaire</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="design-system.css?v=20260721a">
     <style>
         /* Style Guide Specific Styles */
         .sg-section {
@@ -229,7 +230,7 @@
         }
     </style>
 </head>
-<body>
+<body class="site-page page-styleguide">
     <!-- Style Guide Navigation -->
     <nav class="sg-nav">
         <span class="sg-nav__title">Style Guide</span>
@@ -265,33 +266,33 @@
             <div class="sg-grid">
                 <div class="sg-color">
                     <div class="sg-color__swatch" style="background: var(--color-black);"></div>
-                    <span class="sg-color__name">Black</span>
-                    <span class="sg-color__value">--color-black: #0a0a0a</span>
+                    <span class="sg-color__name">Noir de marque</span>
+                    <span class="sg-color__value">--ds-black: #11100e</span>
                 </div>
                 <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-dark);"></div>
-                    <span class="sg-color__name">Dark</span>
-                    <span class="sg-color__value">--color-dark: #141414</span>
+                    <div class="sg-color__swatch" style="background: var(--ds-ink);"></div>
+                    <span class="sg-color__name">Encre</span>
+                    <span class="sg-color__value">--ds-ink: #151410</span>
                 </div>
                 <div class="sg-color">
                     <div class="sg-color__swatch" style="background: var(--color-cream);"></div>
-                    <span class="sg-color__name">Cream</span>
-                    <span class="sg-color__value">--color-cream: #f5f2eb</span>
+                    <span class="sg-color__name">Crème</span>
+                    <span class="sg-color__value">--ds-warm: #f4f0e8</span>
                 </div>
                 <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-white);"></div>
-                    <span class="sg-color__name">White</span>
-                    <span class="sg-color__value">--color-white: #ffffff</span>
+                    <div class="sg-color__swatch" style="background: var(--ds-paper);"></div>
+                    <span class="sg-color__name">Papier</span>
+                    <span class="sg-color__value">--ds-paper: #f8f5ef</span>
                 </div>
                 <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-accent);"></div>
-                    <span class="sg-color__name">Accent (Rouge)</span>
-                    <span class="sg-color__value">--color-accent: #FE0224</span>
+                    <div class="sg-color__swatch" style="background: var(--ds-gold);"></div>
+                    <span class="sg-color__name">Or éditorial</span>
+                    <span class="sg-color__value">--ds-gold: #a88752</span>
                 </div>
                 <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-accent-hover);"></div>
-                    <span class="sg-color__name">Accent Hover</span>
-                    <span class="sg-color__value">--color-accent-hover: #e00020</span>
+                    <div class="sg-color__swatch" style="background: var(--ds-red);"></div>
+                    <span class="sg-color__name">Rouge de marque</span>
+                    <span class="sg-color__value">--ds-red: #d92335</span>
                 </div>
             </div>
         </div>
@@ -301,8 +302,8 @@
             <div class="sg-grid">
                 <div class="sg-color">
                     <div class="sg-color__swatch" style="background: var(--color-text-dark);"></div>
-                    <span class="sg-color__name">Text Dark</span>
-                    <span class="sg-color__value">--color-text-dark: #1a1a1a</span>
+                    <span class="sg-color__name">Texte foncé</span>
+                    <span class="sg-color__value">--ds-ink: #151410</span>
                 </div>
                 <div class="sg-color">
                     <div class="sg-color__swatch" style="background: #141414;"><span style="color: var(--color-text-light); padding: 1rem; display: block;">Aa</span></div>
@@ -333,18 +334,18 @@
                 <h3 class="sg-subsection__title">Titres (sur fond sombre)</h3>
 
                 <div class="sg-typography-sample">
-                    <h1>H1 - La nature est unique</h1>
-                    <small>clamp(2.75rem, 8vw, 6.5rem) · Cormorant Garamond Italic</small>
+                    <h1 style="font-style: normal; text-transform: uppercase;">H1 - LA NATURE EST UNIQUE</h1>
+                    <small>--ds-display-xl · Cormorant Garamond Roman · uppercase pour les héros</small>
                 </div>
 
                 <div class="sg-typography-sample">
                     <h2>H2 - L'excellence au service de chaque <span class="text-accent">sourire</span></h2>
-                    <small>clamp(2.25rem, 5vw, 4.5rem) · Cormorant Garamond Italic</small>
+                    <small>--ds-display-lg · Cormorant Garamond Italic</small>
                 </div>
 
                 <div class="sg-typography-sample">
                     <h3>H3 - Nos services personnalisés</h3>
-                    <small>clamp(1.375rem, 2vw, 1.875rem) · Cormorant Garamond Italic 500</small>
+                    <small>--ds-display-md · Cormorant Garamond Italic</small>
                 </div>
 
                 <div class="sg-typography-sample">
@@ -354,7 +355,7 @@
             </div>
 
             <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Labels & Corps de texte</h3>
+                <h3 class="sg-subsection__title">Labels &amp; Corps de texte</h3>
 
                 <div class="sg-typography-sample">
                     <span class="label">Label / Catégorie</span>
@@ -381,7 +382,7 @@
                 </div>
 
                 <div class="sg-typography-sample">
-                    <p style="color: var(--color-text-dark); max-width: 600px;">Corps de texte sur fond crème. Le texte utilise la couleur --color-text-dark (#1a1a1a) pour un contraste optimal.</p>
+                    <p style="color: var(--color-text-dark); max-width: 600px;">Corps de texte sur fond crème. Le texte utilise le rôle --ds-ink (#151410) pour un contraste optimal.</p>
                 </div>
             </div>
         </div>
@@ -430,7 +431,7 @@
     <section class="sg-section sg-section--cream">
         <div class="sg-section__inner">
             <div class="sg-subsection">
-                <h3 class="sg-subsection__title" style="color: var(--color-accent);">Boutons (fond crème)</h3>
+                <h3 class="sg-subsection__title" style="color: var(--ds-gold);">Boutons (fond crème)</h3>
                 <div class="sg-button-row">
                     <a href="#" class="btn btn--dark">
                         <span>Bouton dark</span>
@@ -458,17 +459,17 @@
             <div style="display: grid; gap: 1rem;">
                 <div class="sg-component-demo" style="background: var(--color-dark); color: var(--color-white); padding: 2rem;">
                     <p><strong>.section</strong> ou <strong>.section--dark</strong></p>
-                    <p class="sg-note" style="color: var(--color-text-light);">Fond sombre (#141414), texte clair</p>
+                    <p class="sg-note" style="color: var(--color-text-light);">Fond sombre (#11100e), texte clair</p>
                 </div>
 
                 <div class="sg-component-demo" style="background: var(--color-cream); color: var(--color-text-dark); padding: 2rem;">
                     <p><strong>.section--cream</strong></p>
-                    <p class="sg-note">Fond crème (#f5f2eb), texte sombre</p>
+                    <p class="sg-note">Fond crème (#f4f0e8), texte sombre</p>
                 </div>
 
                 <div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
                     <p><strong>.section--black</strong></p>
-                    <p class="sg-note" style="color: var(--color-text-light);">Fond noir (#0a0a0a), texte clair</p>
+                    <p class="sg-note" style="color: var(--color-text-light);">Fond noir (#11100e), texte clair</p>
                 </div>
             </div>
         </div>
@@ -612,29 +613,29 @@
             <h2 class="sg-title">Cartes</h2>
 
             <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Comportement au survol</h3>
-                <p style="margin-bottom: 1.5rem;">Toutes les cartes utilisent un effet de survol subtil : légère élévation (<span class="sg-code">translateY(-4px)</span>) sans changement de bordure.</p>
+                <h3 class="sg-subsection__title">Comportement et structure</h3>
+                <p style="margin-bottom: 1.5rem;">Les cartes éditoriales restent stables au survol. La hiérarchie vient des lignes, des espacements et de la typographie plutôt que d'une élévation générique.</p>
 
                 <div style="display: grid; gap: 0.75rem; max-width: 600px;">
                     <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
                         <span>.pillar</span>
-                        <span class="sg-code">transform: translateY(-4px)</span>
+                        <span class="sg-code">bordure + rythme</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
                         <span>.testimonial</span>
-                        <span class="sg-code">transform: translateY(-4px)</span>
+                        <span class="sg-code">bordure + rythme</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
                         <span>.solution-card</span>
-                        <span class="sg-code">transform: translateY(-4px) + shadow</span>
+                        <span class="sg-code">aucune ombre</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
                         <span>.benefit-card, .job-card, .format-card, .help-card</span>
-                        <span class="sg-code">box-shadow</span>
+                        <span class="sg-code">aucune élévation</span>
                     </div>
                 </div>
 
-                <p class="sg-note" style="margin-top: 1.5rem; color: var(--color-text-muted);">Note : Les bordures rouges au survol ont été retirées pour un effet plus subtil et élégant.</p>
+                <p class="sg-note" style="margin-top: 1.5rem; color: var(--color-text-muted);">Les portraits font exception par leur forme en arche, reprise directement de la page d'accueil approuvée.</p>
             </div>
 
             <div class="sg-subsection" style="margin-top: 4rem;">
@@ -687,22 +688,22 @@
 
     <!-- Spacing -->
     <section class="sg-section">
-        <h2 class="sg-title">Espacements & Variables</h2>
+        <h2 class="sg-title">Espacements &amp; Variables</h2>
 
         <div class="sg-subsection">
             <h3 class="sg-subsection__title">Variables CSS principales</h3>
             <div style="display: grid; gap: 0.75rem; max-width: 600px;">
                 <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--section-padding</span>
-                    <span class="sg-code">clamp(80px, 12vh, 160px)</span>
+                    <span>--ds-section-y</span>
+                    <span class="sg-code">clamp(88px, 8.5vw, 145px)</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--container-padding</span>
-                    <span class="sg-code">clamp(20px, 5vw, 80px)</span>
+                    <span>--ds-shell</span>
+                    <span class="sg-code">max 1690px</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--container-max</span>
-                    <span class="sg-code">1400px</span>
+                    <span>--ds-grid-gap</span>
+                    <span class="sg-code">clamp(28px, 4.5vw, 76px)</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
                     <span>--transition-fast</span>

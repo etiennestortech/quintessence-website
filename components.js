@@ -6,7 +6,7 @@ async function loadComponent(componentName, targetId) {
     if (!target) return false;
 
     try {
-        const response = await fetch(`components/${componentName}.html?v=20260611`, { cache: 'no-store' });
+        const response = await fetch(`components/${componentName}.html?v=20260721`, { cache: 'no-store' });
         if (!response.ok) throw new Error(`${response.status}`);
 
         target.innerHTML = await response.text();
@@ -20,17 +20,10 @@ async function loadComponent(componentName, targetId) {
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    // Desktop nav
-    document.querySelectorAll('.nav__links a').forEach(link => {
+    document.querySelectorAll('.nav__links a, .nav__mobile-links a, .nav__cta, .nav__mobile-cta').forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
-        }
-    });
-
-    // Mobile nav
-    document.querySelectorAll('.nav__mobile-links a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
         }
     });
 }
