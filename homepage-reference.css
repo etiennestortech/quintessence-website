@@ -325,6 +325,17 @@ body.home-reference .hero__cta-row .btn--text-gold {
     color: #fff;
 }
 
+body.home-reference .hero__cta-row .btn--text-gold {
+    width: fit-content;
+    max-width: 100%;
+    justify-content: flex-start;
+    overflow: visible;
+}
+
+body.home-reference .hero__cta-row .btn--text-gold::after {
+    display: none;
+}
+
 body.home-reference .hero__cta-row .btn--gold-outline:hover {
     color: var(--home-black);
 }
@@ -772,14 +783,10 @@ body.home-reference .vision__copy h2 {
     margin-top: 0;
 }
 
-body.home-reference .vision__copy blockquote {
-    max-width: 515px;
+body.home-reference .vision__copy .vision__quote {
     margin: 36px 0 0;
-    padding: 22px 0 0 28px;
-    border-left: 1px solid var(--home-gold);
-    color: var(--home-gold);
-    font-size: 1.22rem;
-    font-style: italic;
+    min-height: 0;
+    padding: 34px 0 0;
 }
 
 body.home-reference .vision__founders {
@@ -1053,7 +1060,7 @@ body.home-reference .technology-grid article > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 208px;
+    min-height: 185px;
     padding: 25px 20px 24px;
     border-left: 1px solid var(--home-line);
     text-align: center;
@@ -1107,16 +1114,6 @@ body.home-reference .technology-grid p {
     color: var(--home-muted);
     font-size: 0.72rem;
     line-height: 1.6;
-}
-
-body.home-reference .technology-grid article > div::after {
-    align-self: flex-start;
-    margin-top: auto;
-    padding-top: 12px;
-    color: var(--home-red);
-    font-size: 1.15rem;
-    line-height: 1;
-    content: "→";
 }
 
 /* Same-day restoration */
@@ -1315,14 +1312,7 @@ body.home-reference .coordination__benefits p {
 
 body.home-reference .same-day__closing,
 body.home-reference .testimonials__closing {
-    max-width: 1120px;
     margin: clamp(55px, 5vw, 85px) auto 0;
-    padding: 30px clamp(25px, 5vw, 85px) 0;
-    border-top: 1px solid var(--home-line);
-    color: #4d4942;
-    font-size: clamp(1.35rem, 2vw, 2.2rem);
-    line-height: 1.3;
-    text-align: center;
 }
 
 /* Testimonials */
@@ -1456,14 +1446,6 @@ body.home-reference .testimonial footer span {
     letter-spacing: 0.11em;
     line-height: 1.45;
     text-transform: uppercase;
-}
-
-body.home-reference .testimonials__closing {
-    max-width: 900px;
-}
-
-body.home-reference .testimonials__closing em {
-    color: var(--home-gold);
 }
 
 /* Existing footer refinement */
@@ -1659,16 +1641,18 @@ body.home-reference .footer {
         min-height: 430px;
     }
 
-    body.home-reference .identity__media {
+    body.home-reference .identity__content,
+    body.home-reference .philosophy__content {
         grid-row: 1;
+    }
+
+    body.home-reference .identity__media,
+    body.home-reference .philosophy__media {
+        grid-row: 2;
     }
 
     body.home-reference .philosophy__media {
         min-height: 510px;
-    }
-
-    body.home-reference .philosophy__content {
-        grid-row: 2;
     }
 
     body.home-reference .reference-header {
