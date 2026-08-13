@@ -145,7 +145,7 @@ body.site-page .nav__links a,
 body.site-page .nav__cta,
 body.site-page .nav__lang {
     color: rgba(255, 255, 255, 0.78);
-    font-size: 0.62rem;
+    font-size: clamp(0.72rem, 0.85vw, 0.8rem);
     font-weight: 400;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -270,6 +270,10 @@ body.site-page .page-hero__description {
 /* Section rhythm and headings */
 body.site-page .section {
     padding: var(--ds-section-y) 0;
+}
+
+body.site-page .section--no-padding {
+    padding: 0;
 }
 
 body.site-page .section--cream {
@@ -434,8 +438,7 @@ body.site-page .product__list li::before {
     color: var(--ds-gold);
 }
 
-/* Cards */
-body.site-page .team-grid,
+/* Cards — hairline editorial grids for text cards */
 body.site-page .benefits-grid,
 body.site-page .values-grid,
 body.site-page .academy-benefits,
@@ -445,6 +448,13 @@ body.site-page .arch-grid {
     gap: 1px;
     background: var(--ds-line);
     border: 1px solid var(--ds-line);
+}
+
+/* Team portraits need breathing room like the homepage founders */
+body.site-page .team-grid {
+    gap: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.75rem);
+    background: transparent;
+    border: 0;
 }
 
 body.site-page .team-member,
@@ -467,6 +477,7 @@ body.site-page .section--black .benefit-card,
 body.site-page .section--black .value-item,
 body.site-page .section--black .academy-benefit,
 body.site-page .section--black .format-card,
+body.site-page .section--black .help-card,
 body.site-page .section--black .arch-item,
 body.site-page .section--black .job-card,
 body.site-page .section--black .event-card {
@@ -479,6 +490,7 @@ body.site-page .section--black .benefit-card h4,
 body.site-page .section--black .value-item h4,
 body.site-page .section--black .academy-benefit h4,
 body.site-page .section--black .format-card h4,
+body.site-page .section--black .help-card h4,
 body.site-page .section--black .arch-item h5,
 body.site-page .section--black .job-card h3,
 body.site-page .section--black .event-card h3 {
@@ -489,10 +501,24 @@ body.site-page .section--black .benefit-card p,
 body.site-page .section--black .value-item p,
 body.site-page .section--black .academy-benefit p,
 body.site-page .section--black .format-card p,
+body.site-page .section--black .help-card p,
 body.site-page .section--black .arch-item p,
 body.site-page .section--black .job-card p,
 body.site-page .section--black .event-card p {
     color: rgba(255, 255, 255, 0.62);
+}
+
+body.site-page .section--black .help-card p a {
+    color: var(--ds-white);
+}
+
+body.site-page .section--black .help-card__hours {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+body.site-page .section--black .help-options {
+    background: var(--ds-line-dark);
+    border-color: var(--ds-line-dark);
 }
 
 body.site-page .team-member:hover,
@@ -518,51 +544,158 @@ body.site-page .value-item__icon,
 body.site-page .academy-benefit__icon,
 body.site-page .format-card__icon,
 body.site-page .help-card__icon,
-body.site-page .contact-info__icon {
+body.site-page .contact-info__icon,
+body.site-page .solution-card__icon {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    margin-bottom: 1.25rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
     color: var(--ds-gold);
+    background: transparent !important;
+    box-shadow: none;
 }
 
-/* Portrait cards use the rounded arch language approved on the homepage. */
+body.site-page .section--black .benefit-card__icon,
+body.site-page .section--black .value-item__icon,
+body.site-page .section--black .academy-benefit__icon,
+body.site-page .section--black .format-card__icon,
+body.site-page .section--black .solution-card__icon {
+    color: var(--ds-gold-light);
+}
+
+body.site-page .value-item__icon svg,
+body.site-page .benefit-card__icon svg,
+body.site-page .academy-benefit__icon svg,
+body.site-page .format-card__icon svg,
+body.site-page .help-card__icon svg,
+body.site-page .solution-card__icon svg {
+    width: 2rem;
+    height: 2rem;
+    stroke: currentColor;
+}
+
+/* Team portraits — same circular language as homepage founders */
 body.site-page .team-member {
-    padding: 0 0 clamp(26px, 2.8vw, 42px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    background: transparent;
+}
+
+body.site-page .section--cream .team-member {
+    background: transparent;
 }
 
 body.site-page .team-member__photo {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
-    margin: 0 0 1.5rem;
+    width: min(100%, 220px);
+    height: min(100%, 220px);
+    aspect-ratio: 1;
+    margin: 0 auto 1.35rem;
     overflow: hidden;
     border: 0;
-    border-radius: 50% 50% 0 0;
+    border-radius: 50%;
     background: #e9e3d9;
+    box-shadow: 0 8px 28px rgba(21, 20, 16, 0.08);
+}
+
+body.site-page .team-member__photo picture {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 body.site-page .team-member__photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 18%;
 }
 
 body.site-page .team-member__info {
-    padding-inline: 22px;
+    padding-inline: 12px;
 }
 
 body.site-page .team-member h4 {
     color: var(--ds-ink);
-    font-size: clamp(1.65rem, 2.2vw, 2.25rem);
+    font-size: clamp(1.55rem, 2vw, 2.05rem);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 0;
+}
+
+body.site-page .team-member h4::after {
+    display: block;
+    width: 34px;
+    height: 1px;
+    margin: 12px auto 12px;
+    content: "";
+    background: var(--ds-gold);
 }
 
 body.site-page .team-member__role {
+    display: none;
+}
+
+body.site-page .team-member__title {
+    color: var(--ds-gold);
+    font-size: clamp(0.66rem, 0.75vw, 0.76rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+/* Compact text card when no portrait is available */
+body.site-page .team-member--text {
+    display: grid;
+    place-content: center;
+    min-height: clamp(190px, 18vw, 250px);
+    padding: clamp(34px, 4vw, 56px) clamp(24px, 3vw, 44px);
+    background: var(--ds-paper);
+    border: 1px solid var(--ds-line);
+}
+
+body.site-page .team-member--text .team-member__photo {
+    display: none;
+}
+
+body.site-page .team-member--text::before {
+    width: 36px;
+    height: 1px;
+    margin: 0 auto 22px;
+    content: "";
+    background: var(--ds-gold);
+}
+
+body.site-page .team-member--text .team-member__info {
+    padding: 0;
+}
+
+body.site-page .team-member--text h4::after {
+    display: none;
+}
+
+body.site-page .team-member--text .team-member__role {
+    display: block;
     color: var(--ds-gold);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.13em;
     text-transform: uppercase;
+    margin-bottom: 0.35rem;
 }
 
-body.site-page .team-member__title {
+body.site-page .team-member--text .team-member__title {
     color: var(--ds-muted);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.875rem;
 }
 
 body.site-page .media-placeholder,
@@ -576,6 +709,44 @@ body.site-page .academy-stat {
     border: 1px solid var(--ds-line-dark);
     background: transparent;
     color: var(--ds-gold-light);
+}
+
+body.site-page .section--black .format-card__detail,
+body.site-page .section--black .academy-stat__number {
+    color: var(--ds-white);
+}
+
+body.site-page .section--black .next-event__content {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+body.site-page .section--black .next-event__content h3 {
+    color: var(--ds-white) !important;
+    font-size: var(--ds-display-md);
+}
+
+body.site-page .section--black .next-event__content > p {
+    color: rgba(255, 255, 255, 0.68) !important;
+}
+
+body.site-page .section--black .event-card__date,
+body.site-page .section--black .event-card__price,
+body.site-page .section--black .event-card__spots {
+    color: rgba(255, 255, 255, 0.78) !important;
+}
+
+body.site-page .section--black .event-card__date svg,
+body.site-page .section--black .event-card__price svg,
+body.site-page .section--black .event-card__spots svg {
+    color: var(--ds-gold-light) !important;
+}
+
+body.site-page .section--black .next-event__details {
+    border-color: var(--ds-line-dark);
+}
+
+body.site-page .next-event__image img {
+    border-radius: 0 !important;
 }
 
 body.site-page .portfolio-grid {
@@ -708,7 +879,8 @@ body.site-page .form-section__number {
 }
 
 body.site-page .map-container {
-    border-block: 1px solid var(--ds-line-dark);
+    border-block: 0;
+    height: clamp(420px, 62vh, 720px);
 }
 
 /* Reusable divider quote */
@@ -820,7 +992,7 @@ body.site-page .footer__art {
     body.site-page .nav__links a,
     body.site-page .nav__cta,
     body.site-page .nav__lang {
-        font-size: 0.54rem;
+        font-size: 0.68rem;
     }
 }
 

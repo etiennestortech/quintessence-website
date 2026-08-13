@@ -1422,8 +1422,8 @@ h3 {
     width: 64px;
     height: 64px;
     margin-bottom: 1.5rem;
-    color: var(--color-accent);
-    opacity: 0.8;
+    color: var(--color-gold, #a88752);
+    opacity: 0.9;
 }
 
 .solution-card__icon svg {
@@ -2846,12 +2846,12 @@ h3 {
 }
 
 .section--cream .team-member__photo {
-    background: var(--color-cream);
-    border-color: var(--color-border-dark);
+    background: #e9e3d9;
+    border-color: transparent;
 }
 
 .section--cream .team-member:hover .team-member__photo {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .section--cream .benefit-card p,
@@ -3047,9 +3047,9 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-white);
-    border-radius: 12px;
-    color: var(--color-accent);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
     flex-shrink: 0;
 }
 
@@ -3400,6 +3400,12 @@ h3 {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.service__media picture {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -3770,7 +3776,7 @@ h3 {
 
 .benefit-card__icon {
     font-size: 2rem;
-    color: var(--color-accent);
+    color: var(--color-gold, #a88752);
     margin-bottom: 1.5rem;
 }
 
@@ -4431,14 +4437,14 @@ body.modal-open {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(254, 2, 36, 0.1);
-    border-radius: 12px;
-    color: var(--color-accent);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
 }
 
 .section--cream .contact-info__icon {
-    background: rgba(254, 2, 36, 0.1);
-    color: var(--color-accent);
+    background: transparent;
+    color: var(--color-gold, #a88752);
 }
 
 .contact-info__item > div {
@@ -4636,9 +4642,9 @@ body.modal-open {
     width: 64px;
     height: 64px;
     margin: 0 auto 1.5rem;
-    background: rgba(254, 2, 36, 0.1);
-    border-radius: 16px;
-    color: var(--color-accent);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
 }
 
 .value-item h4 {
@@ -4756,9 +4762,9 @@ body.modal-open {
     width: 64px;
     height: 64px;
     margin: 0 auto 1.5rem;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 16px;
-    color: var(--color-text-dark);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
 }
 
 .academy-benefit h4 {
@@ -4801,9 +4807,9 @@ body.modal-open {
     width: 64px;
     height: 64px;
     margin: 0 auto 1.5rem;
-    background: rgba(254, 2, 36, 0.1);
-    border-radius: 16px;
-    color: var(--color-accent);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
 }
 
 /* Events Grid */
@@ -4840,18 +4846,21 @@ body.modal-open {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    color: rgba(255, 255, 255, 0.78);
 }
 
 .next-event__content h3 {
     font-size: 2rem;
     line-height: 1.2;
     margin: 0;
+    color: var(--color-white);
 }
 
 .next-event__content p {
     font-size: 1.125rem;
     line-height: 1.6;
     margin: 0;
+    color: rgba(255, 255, 255, 0.68);
 }
 
 .next-event__details {
@@ -4913,12 +4922,14 @@ body.modal-open {
    -------------------------------------------------------------------------- */
 .map-container {
     width: 100%;
-    height: 400px;
+    height: clamp(420px, 62vh, 720px);
 }
 
 .map-container iframe {
+    display: block;
     width: 100%;
     height: 100%;
+    border: 0;
 }
 
 .section--no-padding {
@@ -4951,9 +4962,9 @@ body.modal-open {
     width: 64px;
     height: 64px;
     margin: 0 auto 1.5rem;
-    background: rgba(254, 2, 36, 0.1);
-    border-radius: 16px;
-    color: var(--color-accent);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
 }
 
 /* --------------------------------------------------------------------------
@@ -5184,9 +5195,9 @@ body.modal-open {
     width: 64px;
     height: 64px;
     margin: 0 auto 1.5rem;
-    background: rgba(254, 2, 36, 0.1);
-    border-radius: 16px;
-    color: var(--color-accent);
+    background: transparent;
+    border-radius: 0;
+    color: var(--color-gold, #a88752);
 }
 
 .benefit-card h4 {
@@ -5394,7 +5405,7 @@ body.modal-open {
 
 .event-card__date {
     font-size: 0.875rem;
-    color: var(--color-text-dark-muted);
+    color: var(--color-text-muted);
     margin-bottom: 0.75rem;
 }
 

@@ -164,7 +164,7 @@ body.home-reference .nav__links a,
 body.home-reference .nav__cta,
 body.home-reference .nav__lang {
     color: rgba(255, 255, 255, 0.78);
-    font-size: 0.62rem;
+    font-size: clamp(0.72rem, 0.85vw, 0.8rem);
     font-weight: 400;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -1460,7 +1460,7 @@ body.home-reference .footer {
     body.home-reference .nav__links a,
     body.home-reference .nav__cta,
     body.home-reference .nav__lang {
-        font-size: 0.54rem;
+        font-size: 0.68rem;
     }
 
     body.home-reference .hero__tagline {
