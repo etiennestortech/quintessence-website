@@ -25,8 +25,8 @@
     --color-border-dark: rgba(0, 0, 0, 0.1);
 
     /* Typography - Elegant Serif + Clean Sans */
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Bodoni Moda', Georgia, serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Spacing */
     --section-padding: clamp(80px, 12vh, 160px);

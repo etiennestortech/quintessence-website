@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Style Guide | Quintessence Atelier Dentaire</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="design-system.css?v=20260813g">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Style Guide | Quintessence Atelier Dentaire</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400;1,600&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=20261026-visual6" rel="stylesheet"/>
+<link href="design-system.css?v=20261026-type14" rel="stylesheet"/>
+<style>
         /* Style Guide Specific Styles */
         .sg-section {
             padding: var(--section-padding) var(--container-padding);
@@ -229,254 +230,226 @@
             gap: 1.5rem;
         }
     </style>
-</head>
+<link href="client-pages.css?v=20261026-blend19" rel="stylesheet"/></head>
 <body class="site-page page-styleguide">
-    <!-- Style Guide Navigation -->
-    <nav class="sg-nav">
-        <span class="sg-nav__title">Style Guide</span>
-        <div class="sg-nav__links">
-            <a href="#colors">Couleurs</a>
-            <a href="#typography">Typographie</a>
-            <a href="#buttons">Boutons</a>
-            <a href="#sections">Sections</a>
-            <a href="#forms">Formulaires</a>
-            <a href="#components">Composants</a>
-            <a href="#cards">Cartes</a>
-            <a href="index.html">Retour au site</a>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="sg-hero">
-        <div class="sg-hero__inner">
-            <span class="label">Design System</span>
-            <h1>Quintessence <span class="text-accent">Style Guide</span></h1>
-            <p style="max-width: 600px; margin-top: 1.5rem; opacity: 0.8;">
+<!-- Style Guide Navigation -->
+<nav class="sg-nav">
+<span class="sg-nav__title">Style Guide</span>
+<div class="sg-nav__links">
+<a href="#colors">Couleurs</a>
+<a href="#typography">Typographie</a>
+<a href="#buttons">Boutons</a>
+<a href="#sections">Sections</a>
+<a href="#forms">Formulaires</a>
+<a href="#components">Composants</a>
+<a href="index.html">Retour au site</a>
+</div>
+</nav>
+<!-- Hero -->
+<section class="sg-hero">
+<div class="sg-hero__inner">
+<span class="label">Design System</span>
+<h1>Quintessence <span class="text-accent">Style Guide</span></h1>
+<p style="max-width: 600px; margin-top: 1.5rem; opacity: 0.8;">
                 Ce guide documente les tokens de design, composants et patterns utilisés sur le site Quintessence Atelier Dentaire.
             </p>
-        </div>
-    </section>
-
-    <!-- Colors -->
-    <section id="colors" class="sg-section">
-        <h2 class="sg-title">Couleurs</h2>
-
-        <div class="sg-subsection">
-            <h3 class="sg-subsection__title">Couleurs principales</h3>
-            <div class="sg-grid">
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-black);"></div>
-                    <span class="sg-color__name">Noir de marque</span>
-                    <span class="sg-color__value">--ds-black: #11100e</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--ds-ink);"></div>
-                    <span class="sg-color__name">Encre</span>
-                    <span class="sg-color__value">--ds-ink: #151410</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-cream);"></div>
-                    <span class="sg-color__name">Crème</span>
-                    <span class="sg-color__value">--ds-warm: #f4f0e8</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--ds-paper);"></div>
-                    <span class="sg-color__name">Papier</span>
-                    <span class="sg-color__value">--ds-paper: #f8f5ef</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--ds-gold);"></div>
-                    <span class="sg-color__name">Or éditorial</span>
-                    <span class="sg-color__value">--ds-gold: #a88752</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--ds-red);"></div>
-                    <span class="sg-color__name">Rouge de marque</span>
-                    <span class="sg-color__value">--ds-red: #d92335</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="sg-subsection">
-            <h3 class="sg-subsection__title">Couleurs de texte</h3>
-            <div class="sg-grid">
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: var(--color-text-dark);"></div>
-                    <span class="sg-color__name">Texte foncé</span>
-                    <span class="sg-color__value">--ds-ink: #151410</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: #141414;"><span style="color: var(--color-text-light); padding: 1rem; display: block;">Aa</span></div>
-                    <span class="sg-color__name">Text Light</span>
-                    <span class="sg-color__value">--color-text-light: rgba(255,255,255,0.85)</span>
-                </div>
-                <div class="sg-color">
-                    <div class="sg-color__swatch" style="background: #141414;"><span style="color: var(--color-text-muted); padding: 1rem; display: block;">Aa</span></div>
-                    <span class="sg-color__name">Text Muted</span>
-                    <span class="sg-color__value">--color-text-muted: rgba(255,255,255,0.6)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Typography -->
-    <section id="typography" class="sg-section sg-section--dark">
-        <div class="sg-section__inner">
-            <h2 class="sg-title">Typographie</h2>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Polices</h3>
-                <p style="margin-bottom: 1rem;"><strong>Display:</strong> Cormorant Garamond (serif, italic)</p>
-                <p><strong>Body:</strong> DM Sans (sans-serif)</p>
-            </div>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Titres (sur fond sombre)</h3>
-
-                <div class="sg-typography-sample">
-                    <h1 style="font-style: normal; text-transform: uppercase;">H1 - LA NATURE EST UNIQUE</h1>
-                    <small>--ds-display-xl · Cormorant Garamond Roman · uppercase pour les héros</small>
-                </div>
-
-                <div class="sg-typography-sample">
-                    <h2>H2 - L'excellence au service de chaque <span class="text-accent">sourire</span></h2>
-                    <small>--ds-display-lg · Cormorant Garamond Italic</small>
-                </div>
-
-                <div class="sg-typography-sample">
-                    <h3>H3 - Nos services personnalisés</h3>
-                    <small>--ds-display-md · Cormorant Garamond Italic</small>
-                </div>
-
-                <div class="sg-typography-sample">
-                    <h4>H4 - Couronnes et Ponts</h4>
-                    <small>1.5rem · Cormorant Garamond Italic</small>
-                </div>
-            </div>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Labels &amp; Corps de texte</h3>
-
-                <div class="sg-typography-sample">
-                    <span class="label">Label / Catégorie</span>
-                    <small>0.6875rem · DM Sans · Uppercase · Letter-spacing: 0.25em</small>
-                </div>
-
-                <div class="sg-typography-sample">
-                    <p style="max-width: 600px;">Corps de texte standard. Nous concevons et fabriquons chaque restauration dentaire comme une création unique, à la rencontre de l'ingénierie numérique et de l'esthétique dentaire la plus raffinée.</p>
-                    <small>1rem · DM Sans · Line-height: 1.6</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Typography on Cream -->
-    <section class="sg-section sg-section--cream">
-        <div class="sg-section__inner">
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Titres (sur fond crème)</h3>
-
-                <div class="sg-typography-sample">
-                    <h2 style="color: var(--color-text-dark);">H2 - Un pôle de savoir et de <span class="text-accent">transmission</span></h2>
-                    <small style="color: var(--color-text-dark);">Les titres sur fond crème utilisent --color-text-dark</small>
-                </div>
-
-                <div class="sg-typography-sample">
-                    <p style="color: var(--color-text-dark); max-width: 600px;">Corps de texte sur fond crème. Le texte utilise le rôle --ds-ink (#151410) pour un contraste optimal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Buttons -->
-    <section id="buttons" class="sg-section sg-section--dark">
-        <div class="sg-section__inner">
-            <h2 class="sg-title">Boutons</h2>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Boutons primaires (fond sombre)</h3>
-                <div class="sg-button-row">
-                    <a href="#" class="btn btn--primary">
-                        <span>Bouton primaire</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="btn btn--primary btn--large">
-                        <span>Primaire Large</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
-                <p class="sg-note">Classes: <span class="sg-code">.btn .btn--primary</span> / <span class="sg-code">.btn .btn--primary .btn--large</span></p>
-            </div>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Boutons outline (fond sombre)</h3>
-                <div class="sg-button-row">
-                    <a href="#" class="btn btn--outline">
-                        <span>Bouton outline</span>
-                    </a>
-                    <a href="#" class="btn btn--outline btn--large">
-                        <span>Outline Large</span>
-                    </a>
-                </div>
-                <p class="sg-note">Classes: <span class="sg-code">.btn .btn--outline</span></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Buttons on Cream -->
-    <section class="sg-section sg-section--cream">
-        <div class="sg-section__inner">
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title" style="color: var(--ds-gold);">Boutons (fond crème)</h3>
-                <div class="sg-button-row">
-                    <a href="#" class="btn btn--dark">
-                        <span>Bouton dark</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="btn btn--outline-dark">
-                        <span>Outline dark</span>
-                    </a>
-                </div>
-                <p class="sg-note" style="color: var(--color-text-dark);">Classes: <span class="sg-code">.btn .btn--dark</span> / <span class="sg-code">.btn .btn--outline-dark</span></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sections -->
-    <section id="sections" class="sg-section">
-        <h2 class="sg-title">Sections</h2>
-
-        <div class="sg-subsection">
-            <h3 class="sg-subsection__title">Types de sections</h3>
-            <p style="margin-bottom: 2rem;">Trois types de sections sont disponibles pour structurer le contenu :</p>
-
-            <div style="display: grid; gap: 1rem;">
-                <div class="sg-component-demo" style="background: var(--color-dark); color: var(--color-white); padding: 2rem;">
-                    <p><strong>.section</strong> ou <strong>.section--dark</strong></p>
-                    <p class="sg-note" style="color: var(--color-text-light);">Fond sombre (#11100e), texte clair</p>
-                </div>
-
-                <div class="sg-component-demo" style="background: var(--color-cream); color: var(--color-text-dark); padding: 2rem;">
-                    <p><strong>.section--cream</strong></p>
-                    <p class="sg-note">Fond crème (#f4f0e8), texte sombre</p>
-                </div>
-
-                <div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
-                    <p><strong>.section--black</strong></p>
-                    <p class="sg-note" style="color: var(--color-text-light);">Fond noir (#11100e), texte clair</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="sg-subsection">
-            <h3 class="sg-subsection__title">Structure d'une section</h3>
-            <pre style="background: var(--color-dark); color: var(--color-text-light); padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.8125rem;">
+</div>
+</section>
+<!-- Colors -->
+<section class="sg-section" id="colors">
+<h2 class="sg-title">Couleurs</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Couleurs principales</h3>
+<div class="sg-grid">
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--color-black);"></div>
+<span class="sg-color__name">Noir de marque</span>
+<span class="sg-color__value">--ds-black: #11100e</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--ds-ink);"></div>
+<span class="sg-color__name">Encre</span>
+<span class="sg-color__value">--ds-ink: #151410</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--color-cream);"></div>
+<span class="sg-color__name">Crème</span>
+<span class="sg-color__value">--ds-warm: #f4f0e8</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--ds-paper);"></div>
+<span class="sg-color__name">Papier</span>
+<span class="sg-color__value">--ds-paper: #f8f5ef</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--ds-gold);"></div>
+<span class="sg-color__name">Or éditorial</span>
+<span class="sg-color__value">--ds-gold: #a88752</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--ds-red);"></div>
+<span class="sg-color__name">Rouge de marque</span>
+<span class="sg-color__value">--ds-red: #d92335</span>
+</div>
+</div>
+</div>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Couleurs de texte</h3>
+<div class="sg-grid">
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: var(--color-text-dark);"></div>
+<span class="sg-color__name">Texte foncé</span>
+<span class="sg-color__value">--ds-ink: #151410</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: #141414;"><span style="color: var(--color-text-light); padding: 1rem; display: block;">Aa</span></div>
+<span class="sg-color__name">Text Light</span>
+<span class="sg-color__value">--color-text-light: rgba(255,255,255,0.85)</span>
+</div>
+<div class="sg-color">
+<div class="sg-color__swatch" style="background: #141414;"><span style="color: var(--color-text-muted); padding: 1rem; display: block;">Aa</span></div>
+<span class="sg-color__name">Text Muted</span>
+<span class="sg-color__value">--color-text-muted: rgba(255,255,255,0.6)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Typography -->
+<section class="sg-section sg-section--dark" id="typography">
+<div class="sg-section__inner">
+<h2 class="sg-title">Typographie</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Polices</h3>
+<p style="margin-bottom: 1rem;"><strong>Display:</strong> Cormorant Garamond (serif, italic)</p>
+<p><strong>Body:</strong> DM Sans (sans-serif)</p>
+</div>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Titres (sur fond sombre)</h3>
+<div class="sg-typography-sample">
+<h1 style="font-style: normal; text-transform: uppercase;">H1 - LA NATURE EST UNIQUE</h1>
+<small>--ds-display-xl · Cormorant Garamond Roman · uppercase pour les héros</small>
+</div>
+<div class="sg-typography-sample">
+<h2>H2 - L'excellence au service de chaque <span class="text-accent">sourire</span></h2>
+<small>--ds-display-lg · Cormorant Garamond Italic</small>
+</div>
+<div class="sg-typography-sample">
+<h3>H3 - Nos services personnalisés</h3>
+<small>--ds-display-md · Cormorant Garamond Italic</small>
+</div>
+<div class="sg-typography-sample">
+<h4>H4 - Couronnes et Ponts</h4>
+<small>1.5rem · Cormorant Garamond Italic</small>
+</div>
+</div>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Labels &amp; Corps de texte</h3>
+<div class="sg-typography-sample">
+<span class="label">Label / Catégorie</span>
+<small>0.6875rem · DM Sans · Uppercase · Letter-spacing: 0.25em</small>
+</div>
+<div class="sg-typography-sample">
+<p style="max-width: 600px;">Corps de texte standard. Nous concevons et fabriquons chaque restauration dentaire comme une création unique, à la rencontre de l'ingénierie numérique et de l'esthétique dentaire la plus raffinée.</p>
+<small>1rem · DM Sans · Line-height: 1.6</small>
+</div>
+</div>
+</div>
+</section>
+<!-- Typography on Cream -->
+<section class="sg-section sg-section--cream">
+<div class="sg-section__inner">
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Titres (sur fond crème)</h3>
+<div class="sg-typography-sample">
+<h2 style="color: var(--color-text-dark);">H2 - Un pôle de savoir et de <span class="text-accent">transmission</span></h2>
+<small style="color: var(--color-text-dark);">Les titres sur fond crème utilisent --color-text-dark</small>
+</div>
+<div class="sg-typography-sample">
+<p style="color: var(--color-text-dark); max-width: 600px;">Corps de texte sur fond crème. Le texte utilise le rôle --ds-ink (#151410) pour un contraste optimal.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Buttons -->
+<section class="sg-section sg-section--dark" id="buttons">
+<div class="sg-section__inner">
+<h2 class="sg-title">Boutons</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Boutons primaires (fond sombre)</h3>
+<div class="sg-button-row">
+<a class="btn btn--primary" href="#">
+<span>Bouton primaire</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M5 12h14M12 5l7 7-7 7"></path>
+</svg>
+</a>
+<a class="btn btn--primary btn--large" href="#">
+<span>Primaire Large</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M5 12h14M12 5l7 7-7 7"></path>
+</svg>
+</a>
+</div>
+<p class="sg-note">Classes: <span class="sg-code">.btn .btn--primary</span> / <span class="sg-code">.btn .btn--primary .btn--large</span></p>
+</div>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Boutons outline (fond sombre)</h3>
+<div class="sg-button-row">
+<a class="btn btn--outline" href="#">
+<span>Bouton outline</span>
+</a>
+<a class="btn btn--outline btn--large" href="#">
+<span>Outline Large</span>
+</a>
+</div>
+<p class="sg-note">Classes: <span class="sg-code">.btn .btn--outline</span></p>
+</div>
+</div>
+</section>
+<!-- Buttons on Cream -->
+<section class="sg-section sg-section--cream">
+<div class="sg-section__inner">
+<div class="sg-subsection">
+<h3 class="sg-subsection__title" style="color: var(--ds-gold);">Boutons (fond crème)</h3>
+<div class="sg-button-row">
+<a class="btn btn--dark" href="#">
+<span>Bouton dark</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M5 12h14M12 5l7 7-7 7"></path>
+</svg>
+</a>
+<a class="btn btn--outline-dark" href="#">
+<span>Outline dark</span>
+</a>
+</div>
+<p class="sg-note" style="color: var(--color-text-dark);">Classes: <span class="sg-code">.btn .btn--dark</span> / <span class="sg-code">.btn .btn--outline-dark</span></p>
+</div>
+</div>
+</section>
+<!-- Sections -->
+<section class="sg-section" id="sections">
+<h2 class="sg-title">Sections</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Types de sections</h3>
+<p style="margin-bottom: 2rem;">Trois types de sections sont disponibles pour structurer le contenu :</p>
+<div style="display: grid; gap: 1rem;">
+<div class="sg-component-demo" style="background: var(--color-dark); color: var(--color-white); padding: 2rem;">
+<p><strong>.section</strong> ou <strong>.section--dark</strong></p>
+<p class="sg-note" style="color: var(--color-text-light);">Fond sombre (#11100e), texte clair</p>
+</div>
+<div class="sg-component-demo" style="background: var(--color-cream); color: var(--color-text-dark); padding: 2rem;">
+<p><strong>.section--cream</strong></p>
+<p class="sg-note">Fond crème (#f4f0e8), texte sombre</p>
+</div>
+<div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
+<p><strong>.section--black</strong></p>
+<p class="sg-note" style="color: var(--color-text-light);">Fond noir (#11100e), texte clair</p>
+</div>
+</div>
+</div>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Structure d'une section</h3>
+<pre style="background: var(--color-dark); color: var(--color-text-light); padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.8125rem;">
 &lt;section class="section section--cream"&gt;
     &lt;div class="container"&gt;
         &lt;div class="section-header"&gt;
@@ -486,26 +459,22 @@
         &lt;!-- Contenu --&gt;
     &lt;/div&gt;
 &lt;/section&gt;</pre>
-        </div>
-
-        <div class="sg-subsection">
-            <h3 class="sg-subsection__title">Page Hero</h3>
-            <p style="margin-bottom: 1.5rem;">Le composant Page Hero est utilisé comme en-tête pour les pages intérieures (hors accueil). Deux variantes disponibles :</p>
-
-            <div style="display: grid; gap: 1rem; margin-bottom: 2rem;">
-                <div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
-                    <p><strong>.page-hero</strong> (défaut)</p>
-                    <p class="sg-note" style="color: var(--color-text-light);">Titre à gauche, description à droite. Utilisé pour la majorité des pages.</p>
-                </div>
-
-                <div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
-                    <p><strong>.page-hero.page-hero--centered</strong></p>
-                    <p class="sg-note" style="color: var(--color-text-light);">Contenu centré. Idéal pour des pages plus narratives (ex: À propos).</p>
-                </div>
-            </div>
-
-            <h4 style="font-size: 0.875rem; margin-bottom: 1rem;">Structure Page Hero centré</h4>
-            <pre style="background: var(--color-dark); color: var(--color-text-light); padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.8125rem;">
+</div>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Page Hero</h3>
+<p style="margin-bottom: 1.5rem;">Le composant Page Hero est utilisé comme en-tête pour les pages intérieures (hors accueil). Deux variantes disponibles :</p>
+<div style="display: grid; gap: 1rem; margin-bottom: 2rem;">
+<div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
+<p><strong>.page-hero</strong> (défaut)</p>
+<p class="sg-note" style="color: var(--color-text-light);">Titre à gauche, description à droite. Utilisé pour la majorité des pages.</p>
+</div>
+<div class="sg-component-demo" style="background: var(--color-black); color: var(--color-white); padding: 2rem;">
+<p><strong>.page-hero.page-hero--centered</strong></p>
+<p class="sg-note" style="color: var(--color-text-light);">Contenu centré. Idéal pour des pages plus narratives (ex: À propos).</p>
+</div>
+</div>
+<h4 style="font-size: 0.875rem; margin-bottom: 1rem;">Structure Page Hero centré</h4>
+<pre style="background: var(--color-dark); color: var(--color-text-light); padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.8125rem;">
 &lt;section class="page-hero page-hero--centered"&gt;
     &lt;div class="page-hero__background"&gt;&lt;/div&gt;
     &lt;div class="page-hero__container"&gt;
@@ -516,215 +485,196 @@
         &lt;p class="page-hero__description"&gt;Description de la page...&lt;/p&gt;
     &lt;/div&gt;
 &lt;/section&gt;</pre>
-        </div>
-    </section>
-
-    <!-- Forms -->
-    <section id="forms" class="sg-section sg-section--cream section--cream">
-        <div class="sg-section__inner">
-            <h2 class="sg-title" style="color: var(--color-text-dark); border-color: var(--color-border-dark);">Formulaires</h2>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Champs de formulaire (fond crème)</h3>
-                <div class="sg-form-grid">
-                    <div class="form-group">
-                        <label for="demo-name">Nom complet</label>
-                        <input type="text" id="demo-name" placeholder="Jean Dupont">
-                    </div>
-                    <div class="form-group">
-                        <label for="demo-email">Courriel</label>
-                        <input type="email" id="demo-email" placeholder="jean@exemple.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="demo-select">Sélection</label>
-                        <select id="demo-select">
-                            <option value="">Choisir une option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="demo-message">Message</label>
-                        <textarea id="demo-message" rows="4" placeholder="Votre message..."></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Components -->
-    <section id="components" class="sg-section sg-section--dark">
-        <div class="sg-section__inner">
-            <h2 class="sg-title">Composants</h2>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">CTA (Call to Action)</h3>
-                <p style="margin-bottom: 1.5rem;">Deux variantes : fond crème (défaut) et fond sombre (.cta--dark)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Demo - Default -->
-    <section class="cta">
-        <div class="cta__inner">
-            <h2 class="cta__title">
+</div>
+</section>
+<!-- Forms -->
+<section class="sg-section sg-section--cream section--cream" id="forms">
+<div class="sg-section__inner">
+<h2 class="sg-title" style="color: var(--color-text-dark); border-color: var(--color-border-dark);">Formulaires</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Champs de formulaire (fond crème)</h3>
+<div class="sg-form-grid">
+<div class="form-group">
+<label for="demo-name">Nom complet</label>
+<input id="demo-name" placeholder="Jean Dupont" type="text"/>
+</div>
+<div class="form-group">
+<label for="demo-email">Courriel</label>
+<input id="demo-email" placeholder="jean@exemple.com" type="email"/>
+</div>
+<div class="form-group">
+<label for="demo-select">Sélection</label>
+<select id="demo-select">
+<option value="">Choisir une option</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+</select>
+</div>
+<div class="form-group">
+<label for="demo-message">Message</label>
+<textarea id="demo-message" placeholder="Votre message..." rows="4"></textarea>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Components -->
+<section class="sg-section sg-section--dark" id="components">
+<div class="sg-section__inner">
+<h2 class="sg-title">Composants</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">CTA (Call to Action)</h3>
+<p style="margin-bottom: 1.5rem;">Deux variantes : fond crème (défaut) et fond sombre (.cta--dark)</p>
+</div>
+</div>
+</section>
+<!-- CTA Demo - Default -->
+<section class="cta">
+<div class="cta__inner">
+<h2 class="cta__title">
                 Prêt à offrir <span class="text-accent">l'excellence</span> à vos patients?
             </h2>
-            <div class="cta__buttons">
-                <a href="#" class="btn btn--primary">
-                    <span>Action principale</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#" class="btn btn--outline">
-                    <span>Action secondaire</span>
-                </a>
-            </div>
-        </div>
-        <div class="cta__decoration" aria-hidden="true">
-            <img src="images/q-icon.png" alt="">
-        </div>
-    </section>
-
-    <!-- CTA Demo - Dark -->
-    <section class="cta cta--dark">
-        <div class="cta__inner">
-            <h2 class="cta__title">
+<div class="cta__buttons">
+<a class="btn btn--primary" href="#">
+<span>Action principale</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M5 12h14M12 5l7 7-7 7"></path>
+</svg>
+</a>
+<a class="btn btn--outline" href="#">
+<span>Action secondaire</span>
+</a>
+</div>
+</div>
+<div aria-hidden="true" class="cta__decoration">
+<img alt="" src="images/q-icon.png"/>
+</div>
+</section>
+<!-- CTA Demo - Dark -->
+<section class="cta cta--dark">
+<div class="cta__inner">
+<h2 class="cta__title">
                 Des questions sur <span class="text-accent">nos services</span>?
             </h2>
-            <div class="cta__buttons">
-                <a href="#" class="btn btn--primary">
-                    <span>Nous contacter</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <div class="cta__decoration" aria-hidden="true">
-            <img src="images/q-icon.png" alt="">
-        </div>
-    </section>
-
-    <!-- Cards -->
-    <section class="sg-section sg-section--dark">
-        <div class="sg-section__inner">
-            <h2 class="sg-title">Cartes</h2>
-
-            <div class="sg-subsection">
-                <h3 class="sg-subsection__title">Comportement et structure</h3>
-                <p style="margin-bottom: 1.5rem;">Les cartes éditoriales restent stables au survol. La hiérarchie vient des lignes, des espacements et de la typographie plutôt que d'une élévation générique.</p>
-
-                <div style="display: grid; gap: 0.75rem; max-width: 600px;">
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
-                        <span>.pillar</span>
-                        <span class="sg-code">bordure + rythme</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
-                        <span>.testimonial</span>
-                        <span class="sg-code">bordure + rythme</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
-                        <span>.solution-card</span>
-                        <span class="sg-code">aucune ombre</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
-                        <span>.benefit-card, .job-card, .format-card, .help-card</span>
-                        <span class="sg-code">aucune élévation</span>
-                    </div>
-                </div>
-
-                <p class="sg-note" style="margin-top: 1.5rem; color: var(--color-text-muted);">Les portraits font exception par leur forme en arche, reprise directement de la page d'accueil approuvée.</p>
-            </div>
-
-            <div class="sg-subsection" style="margin-top: 4rem;">
-                <h3 class="sg-subsection__title">Cartes d'emploi (Job Cards)</h3>
-                <p style="margin-bottom: 2rem; color: var(--color-text-light);">Les cartes d'emploi s'adaptent au contexte : fond sombre avec texte blanc sur sections sombres, fond blanc avec texte sombre sur sections crème.</p>
-
-                <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 800px;">
-                    <!-- Job Card Example -->
-                    <div class="job-card">
-                        <div class="job-card__header">
-                            <h3>Technologue Dentaire - CAD/CAM</h3>
-                            <span class="job-card__type">Temps Plein</span>
-                        </div>
-                        <p>Maîtrise des logiciels de CAO dentaire et passion pour la conception numérique de restaurations complexes.</p>
-                        <div class="job-card__details">
-                            <span>📍 <strong>Montréal, QC</strong></span>
-                            <span>💼 <strong>Permanent</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Job Cards on Cream Background -->
-    <section class="sg-section sg-section--cream section--cream">
-        <div class="sg-section__inner">
-            <h2 class="sg-title" style="color: var(--color-text-dark);">Cartes d'emploi sur fond crème</h2>
-
-            <div class="sg-subsection">
-                <p style="margin-bottom: 2rem; color: var(--color-text-dark-muted);">Sur les sections crème, les cartes ont un fond blanc avec texte sombre pour maintenir le contraste.</p>
-
-                <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 800px;">
-                    <!-- Job Card Example on Cream -->
-                    <div class="job-card">
-                        <div class="job-card__header">
-                            <h3>Céramiste Senior</h3>
-                            <span class="job-card__type">Temps Plein</span>
-                        </div>
-                        <p>Artiste de la céramique dentaire, vous sublimerez chaque restauration par une stratification qui imite la vie.</p>
-                        <div class="job-card__details">
-                            <span>📍 <strong>Montréal, QC</strong></span>
-                            <span>💼 <strong>Permanent</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Spacing -->
-    <section class="sg-section">
-        <h2 class="sg-title">Espacements &amp; Variables</h2>
-
-        <div class="sg-subsection">
-            <h3 class="sg-subsection__title">Variables CSS principales</h3>
-            <div style="display: grid; gap: 0.75rem; max-width: 600px;">
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--ds-section-y</span>
-                    <span class="sg-code">clamp(88px, 8.5vw, 145px)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--ds-shell</span>
-                    <span class="sg-code">max 1690px</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--ds-grid-gap</span>
-                    <span class="sg-code">clamp(28px, 4.5vw, 76px)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--transition-fast</span>
-                    <span class="sg-code">0.2s ease-out</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
-                    <span>--transition-medium</span>
-                    <span class="sg-code">0.4s ease-out-expo</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer placeholder for style guide -->
-    <footer style="background: var(--color-black); color: var(--color-text-muted); padding: 2rem; text-align: center;">
-        <p>Style Guide - Quintessence Atelier Dentaire</p>
-        <p style="margin-top: 0.5rem;"><a href="index.html" style="color: var(--color-accent);">Retour au site</a></p>
-    </footer>
-
-    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-    <script>
+<div class="cta__buttons">
+<a class="btn btn--primary" href="#">
+<span>Nous contacter</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M5 12h14M12 5l7 7-7 7"></path>
+</svg>
+</a>
+</div>
+</div>
+<div aria-hidden="true" class="cta__decoration">
+<img alt="" src="images/q-icon.png"/>
+</div>
+</section>
+<!-- Cards -->
+<section class="sg-section sg-section--dark">
+<div class="sg-section__inner">
+<h2 class="sg-title">Cartes</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Comportement et structure</h3>
+<p style="margin-bottom: 1.5rem;">Les cartes éditoriales restent stables au survol. La hiérarchie vient des lignes, des espacements et de la typographie plutôt que d'une élévation générique.</p>
+<div style="display: grid; gap: 0.75rem; max-width: 600px;">
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
+<span>.pillar</span>
+<span class="sg-code">bordure + rythme</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
+<span>.testimonial</span>
+<span class="sg-code">bordure + rythme</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
+<span>.solution-card</span>
+<span class="sg-code">aucune ombre</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 4px;">
+<span>.benefit-card, .job-card, .format-card, .help-card</span>
+<span class="sg-code">aucune élévation</span>
+</div>
+</div>
+<p class="sg-note" style="margin-top: 1.5rem; color: var(--color-text-muted);">Les portraits font exception par leur forme en arche, reprise directement de la page d'accueil approuvée.</p>
+</div>
+<div class="sg-subsection" style="margin-top: 4rem;">
+<h3 class="sg-subsection__title">Cartes d'emploi (Job Cards)</h3>
+<p style="margin-bottom: 2rem; color: var(--color-text-light);">Les cartes d'emploi s'adaptent au contexte : fond sombre avec texte blanc sur sections sombres, fond blanc avec texte sombre sur sections crème.</p>
+<div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 800px;">
+<!-- Job Card Example -->
+<div class="job-card">
+<div class="job-card__header">
+<h3>Technologue Dentaire - CAD/CAM</h3>
+<span class="job-card__type">Temps Plein</span>
+</div>
+<p>Maîtrise des logiciels de CAO dentaire et passion pour la conception numérique de restaurations complexes.</p>
+<div class="job-card__details">
+<span>📍 <strong>Montréal, QC</strong></span>
+<span>💼 <strong>Permanent</strong></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Job Cards on Cream Background -->
+<section class="sg-section sg-section--cream section--cream">
+<div class="sg-section__inner">
+<h2 class="sg-title" style="color: var(--color-text-dark);">Cartes d'emploi sur fond crème</h2>
+<div class="sg-subsection">
+<p style="margin-bottom: 2rem; color: var(--color-text-dark-muted);">Sur les sections crème, les cartes ont un fond blanc avec texte sombre pour maintenir le contraste.</p>
+<div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 800px;">
+<!-- Job Card Example on Cream -->
+<div class="job-card">
+<div class="job-card__header">
+<h3>Céramiste Senior</h3>
+<span class="job-card__type">Temps Plein</span>
+</div>
+<p>Artiste de la céramique dentaire, vous sublimerez chaque restauration par une stratification qui imite la vie.</p>
+<div class="job-card__details">
+<span>📍 <strong>Montréal, QC</strong></span>
+<span>💼 <strong>Permanent</strong></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spacing -->
+<section class="sg-section">
+<h2 class="sg-title">Espacements &amp; Variables</h2>
+<div class="sg-subsection">
+<h3 class="sg-subsection__title">Variables CSS principales</h3>
+<div style="display: grid; gap: 0.75rem; max-width: 600px;">
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
+<span>--ds-section-y</span>
+<span class="sg-code">clamp(88px, 8.5vw, 145px)</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
+<span>--ds-shell</span>
+<span class="sg-code">max 1690px</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
+<span>--ds-grid-gap</span>
+<span class="sg-code">clamp(28px, 4.5vw, 76px)</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
+<span>--transition-fast</span>
+<span class="sg-code">0.2s ease-out</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(0,0,0,0.03); border-radius: 4px;">
+<span>--transition-medium</span>
+<span class="sg-code">0.4s ease-out-expo</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer placeholder for style guide -->
+<footer style="background: var(--color-black); color: var(--color-text-muted); padding: 2rem; text-align: center;">
+<p>Style Guide - Quintessence Atelier Dentaire</p>
+<p style="margin-top: 0.5rem;"><a href="index.html" style="color: var(--color-accent);">Retour au site</a></p>
+</footer>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
         // Simple smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

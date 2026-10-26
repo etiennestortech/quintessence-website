@@ -6,11 +6,14 @@
 let lenis;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // The hero must also work when the optional scrolling libraries are unavailable.
+    initHeroBackgroundVideo();
+
     // Initialize Lenis smooth scroll first
     initLenis();
 
     // Initialize GSAP animations after Lenis
-    if (typeof initAnimations === 'function') {
+    if (typeof initAnimations === 'function' && window.gsap && window.ScrollTrigger) {
         initAnimations();
     }
 
@@ -18,16 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initAnchorLinks();
     initSolutionsTabs();
-    initHeroBackgroundVideo();
     initVideoModal();
     initApplicationModal();
     initTestimonialToggles();
+    initGallery();
+    initDesignPreviews();
 });
 
 /* --------------------------------------------------------------------------
    Lenis Smooth Scroll + GSAP Integration
    -------------------------------------------------------------------------- */
 function initLenis() {
+    if (!window.Lenis || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     // Create Lenis instance
     lenis = new Lenis({
         duration: 1.2,
@@ -41,13 +46,17 @@ function initLenis() {
     });
 
     // Integrate Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
+    if (window.gsap && window.ScrollTrigger) {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+    } else {
+        function frame(time) {
+            lenis.raf(time);
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    }
 
     // Optional: Add scroll direction class to body
     lenis.on('scroll', ({ direction }) => {
@@ -62,6 +71,8 @@ function initNavigation() {
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav__toggle');
     const navMobileMenu = document.querySelector('.nav__mobile-menu');
+    if (!nav || nav.dataset.navigationReady) return;
+    nav.dataset.navigationReady = 'true';
     let lastScrollY = 0;
     const heroHeight = window.innerHeight;
     let hasScrolledPastHero = false;
@@ -72,6 +83,8 @@ function initNavigation() {
         navMobileMenu?.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
+        navMobileMenu.inert = true;
+        if (lenis) lenis.start();
     }
 
     function openMenu() {
@@ -80,11 +93,35 @@ function initNavigation() {
         navMobileMenu?.setAttribute('aria-hidden', 'false');
         document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
+        navMobileMenu.inert = false;
+        if (lenis) lenis.stop();
     }
 
     function isMenuOpen() {
         return document.body.classList.contains('menu-open');
     }
+
+    navMobileMenu.inert = true;
+    document.addEventListener('keydown', (event) => {
+        if (!isMenuOpen()) return;
+        if (event.key === 'Escape') {
+            closeMenu();
+            navToggle.focus();
+        }
+        if (event.key === 'Tab') {
+            const controls = [navToggle, ...navMobileMenu.querySelectorAll('a[href]')];
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault(); last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault(); first.focus();
+            }
+        }
+    });
+    window.addEventListener('resize', () => {
+        if (isMenuOpen() && getComputedStyle(navToggle).display === 'none') closeMenu();
+    });
 
     // Scroll behavior - show nav on scroll up, hide on scroll down
     window.addEventListener('scroll', () => {
@@ -153,10 +190,11 @@ function initAnchorLinks() {
                 e.preventDefault();
 
                 // Use Lenis for smooth scroll to target
-                lenis?.scrollTo(target, {
-                    offset: -80, // Account for fixed nav
-                    duration: 1.2,
-                });
+                if (lenis) {
+                    lenis.scrollTo(target, { offset: -95, duration: 1.2 });
+                } else {
+                    target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+                }
 
                 // Close mobile menu if open
                 document.body.classList.remove('menu-open');
@@ -204,13 +242,93 @@ function initHeroBackgroundVideo() {
 
     if (!bgVideo || !embedTarget || !videoId) return;
 
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0`;
-    iframe.setAttribute('frameborder', '0');
-    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-    iframe.title = 'Vidéo de présentation Quintessence';
-    embedTarget.appendChild(iframe);
-    bgVideo.closest('.hero')?.classList.add('hero--video-active');
+    const hero = bgVideo.closest('.hero');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const introSeconds = 8;
+    let player;
+    let finished = false;
+    let playbackDeadline;
+
+    hero.dataset.heroState = 'tree';
+    if (reducedMotion.matches || document.hidden) return;
+
+    hero.dataset.heroState = 'loading';
+
+    function finishIntro() {
+        if (finished) return;
+        finished = true;
+        clearTimeout(loadDeadline);
+        clearTimeout(playbackDeadline);
+        hero.classList.remove('hero--video-active');
+        hero.dataset.heroState = 'tree';
+        document.removeEventListener('visibilitychange', onVisibilityChange);
+        reducedMotion.removeEventListener('change', onMotionChange);
+        hero.removeEventListener('hero:finish', finishIntro);
+
+        player?.pause().catch(() => {});
+        // Let the video dissolve away before removing its iframe and network activity.
+        window.setTimeout(() => {
+            if (player) player.destroy().catch(() => embedTarget.replaceChildren());
+            else embedTarget.replaceChildren();
+        }, reducedMotion.matches ? 0 : 1000);
+    }
+
+    function onVisibilityChange() {
+        if (document.hidden) finishIntro();
+    }
+
+    function onMotionChange(event) {
+        if (event.matches) finishIntro();
+    }
+
+    const loadDeadline = window.setTimeout(finishIntro, 15000);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    reducedMotion.addEventListener('change', onMotionChange);
+    hero.addEventListener('hero:finish', finishIntro);
+
+    function startPlayer() {
+        if (finished) return;
+        if (!window.Vimeo?.Player) {
+            finishIntro();
+            return;
+        }
+
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=0&muted=1&autopause=0&playsinline=1&dnt=1`;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('tabindex', '-1');
+        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+        iframe.title = 'Vidéo de présentation Quintessence';
+        embedTarget.appendChild(iframe);
+        player = new Vimeo.Player(iframe);
+
+        player.on('playing', () => {
+            if (finished) return;
+            clearTimeout(loadDeadline);
+            hero.classList.add('hero--video-active');
+            hero.dataset.heroState = 'playing';
+            // A stalled stream must not leave a frozen video covering the tree forever.
+            clearTimeout(playbackDeadline);
+            playbackDeadline = window.setTimeout(finishIntro, 12000);
+        });
+        player.on('timeupdate', ({ seconds }) => {
+            if (seconds >= introSeconds) finishIntro();
+        });
+        player.on('ended', finishIntro);
+        player.on('error', finishIntro);
+        player.ready().then(() => {
+            if (!finished) return player.play();
+        }).catch(finishIntro);
+    }
+
+    if (window.Vimeo?.Player) startPlayer();
+    else {
+        const sdk = document.createElement('script');
+        sdk.src = 'https://player.vimeo.com/api/player.js';
+        sdk.onload = startPlayer;
+        sdk.onerror = finishIntro;
+        document.head.appendChild(sdk);
+    }
 }
 
 function clearModalPlayer(modalPlayer) {
@@ -230,6 +348,7 @@ function initVideoModal() {
     if (!modal || modalTriggers.length === 0) return;
 
     function openModal(videoId, trigger) {
+        document.querySelector('.hero')?.dispatchEvent(new Event('hero:finish'));
         const iframe = document.createElement('iframe');
         iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
         iframe.setAttribute('frameborder', '0');
@@ -239,18 +358,24 @@ function initVideoModal() {
         lastVideoTrigger = trigger;
         modalPlayer.appendChild(iframe);
         modal.setAttribute('aria-hidden', 'false');
+        modal.showModal();
+        modalClose?.focus();
         document.body.style.overflow = 'hidden';
         if (lenis) lenis.stop();
     }
 
     function closeModal() {
-        lastVideoTrigger?.focus();
+        modal.close();
+    }
+
+    modal.addEventListener('close', () => {
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         clearModalPlayer(modalPlayer);
         if (lenis) lenis.start();
+        lastVideoTrigger?.focus({ preventScroll: true });
         lastVideoTrigger = null;
-    }
+    });
 
     modalTriggers.forEach((trigger) => {
         trigger.addEventListener('click', () => {
@@ -417,5 +542,106 @@ function initTestimonialToggles() {
             btn.textContent = expanded ? 'Réduire' : 'Lire la suite';
             btn.setAttribute('aria-expanded', expanded);
         });
+    });
+}
+
+/* Portfolio: progressively revealed selection and a native, keyboard-accessible viewer. */
+function initGallery() {
+    const items = [...document.querySelectorAll('.portfolio-item')];
+    const triggers = [...document.querySelectorAll('[data-gallery-open]')];
+    const dialog = document.querySelector('.gallery-dialog');
+    if (!dialog || !triggers.length) return;
+    const more = document.querySelector('[data-gallery-more]');
+    const count = document.querySelector('.gallery-count');
+    const image = dialog.querySelector('.gallery-dialog__image');
+    const caption = dialog.querySelector('.gallery-dialog__caption');
+    let visible = 0;
+    let selected = 0;
+    let lastTrigger;
+
+    function reveal() {
+        visible = Math.min(visible + 18, items.length);
+        items.forEach((item, index) => { item.hidden = index >= visible; });
+        if (more) more.hidden = visible >= items.length;
+        if (count) count.textContent = `${visible} réalisations sur ${items.length}`;
+    }
+    function show(index) {
+        selected = (index + triggers.length) % triggers.length;
+        image.src = triggers[selected].dataset.image;
+        image.alt = triggers[selected].querySelector('img').alt;
+        caption.textContent = `${String(selected + 1).padStart(2, '0')} / ${triggers.length} — Quintessence Atelier Dentaire`;
+    }
+    triggers.forEach((trigger, index) => trigger.addEventListener('click', () => {
+        lastTrigger = trigger;
+        show(index);
+        dialog.showModal();
+        if (lenis) lenis.stop();
+        document.body.style.overflow = 'hidden';
+    }));
+    dialog.querySelector('.gallery-dialog__close').addEventListener('click', () => dialog.close());
+    dialog.querySelector('[data-gallery-prev]').addEventListener('click', () => show(selected - 1));
+    dialog.querySelector('[data-gallery-next]').addEventListener('click', () => show(selected + 1));
+    dialog.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault(); show(selected + (event.key === 'ArrowLeft' ? -1 : 1));
+        }
+    });
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => {
+        image.removeAttribute('src');
+        document.body.style.overflow = '';
+        if (lenis) lenis.start();
+        lastTrigger?.focus({ preventScroll: true });
+    });
+    more?.addEventListener('click', reveal);
+    reveal();
+}
+
+/* Design preview only: no contact, CV or patient data leaves the browser. */
+function initDesignPreviews() {
+    document.querySelectorAll('[data-design-preview]').forEach((form) => {
+        form.querySelector('[data-preview-submit]')?.addEventListener('click', () => {
+            for (const field of form.querySelectorAll('input, select, textarea')) {
+                if (!field.reportValidity()) return;
+            }
+            const status = form.querySelector('.form-preview-status');
+            status.textContent = 'L’envoi en ligne n’est pas disponible pour le moment. Vous pouvez joindre notre équipe au 514 887-3075 ou à info@quintessence-ad.com.';
+        });
+    });
+    const zone = document.querySelector('.file-upload__zone');
+    const input = document.getElementById('files');
+    const list = document.querySelector('.file-preview-list');
+    if (!zone || !input || !list) return;
+    function showFiles() {
+        list.replaceChildren();
+        [...input.files].forEach((file) => {
+            const item = document.createElement('li');
+            item.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(1)} Mo`;
+            list.appendChild(item);
+        });
+    }
+    zone.addEventListener('click', () => input.click());
+    zone.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); input.click(); }
+    });
+    input.addEventListener('change', showFiles);
+    zone.addEventListener('dragover', (event) => { event.preventDefault(); zone.classList.add('dragover'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+    zone.addEventListener('drop', (event) => {
+        event.preventDefault(); zone.classList.remove('dragover');
+        const allowed = /\.(stl|ply|obj|dcm|dicom|zip)$/i;
+        const transfer = new DataTransfer();
+        for (const file of event.dataTransfer.files) {
+            if (!allowed.test(file.name)) {
+                list.replaceChildren();
+                const message = document.createElement('li');
+                message.textContent = 'Choisissez des fichiers STL, PLY, OBJ, DCM, DICOM ou ZIP.';
+                list.appendChild(message);
+                return;
+            }
+            transfer.items.add(file);
+        }
+        input.files = transfer.files;
+        showFiles();
     });
 }

@@ -8,22 +8,22 @@
 
 :root {
     /* Brand color roles */
-    --ds-ink: #151410;
-    --ds-black: #11100e;
-    --ds-warm: #f4f0e8;
-    --ds-paper: #f8f5ef;
+    --ds-ink: #171717;
+    --ds-black: #171717;
+    --ds-warm: #F9F7F3;
+    --ds-paper: #F9F7F3;
     --ds-white: #ffffff;
-    --ds-gold: #a88752;
-    --ds-gold-light: #c2a16c;
-    --ds-red: #d92335;
-    --ds-muted: #6f6a61;
+    --ds-gold: #AD7638;
+    --ds-gold-light: #AD7638;
+    --ds-red: #EF4549;
+    --ds-muted: #4B4947;
     --ds-line: rgba(37, 32, 24, 0.16);
     --ds-line-dark: rgba(255, 255, 255, 0.12);
 
     /* Typography */
-    --ds-font-display: "Cormorant Garamond", Georgia, serif;
-    --ds-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-    --ds-display-xl: clamp(3.2rem, 7vw, 6.7rem);
+    --ds-font-display: "Bodoni Moda", Georgia, serif;
+    --ds-font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+    --ds-display-xl: clamp(2.25rem, 3.8vw, 3.75rem);
     --ds-display-lg: clamp(2.6rem, 5vw, 4.8rem);
     --ds-display-md: clamp(1.9rem, 3vw, 3rem);
     --ds-body-lg: clamp(1rem, 1.2vw, 1.15rem);
@@ -66,7 +66,7 @@ body.site-page {
     color: var(--ds-ink);
     background: var(--ds-paper);
     font-family: var(--ds-font-body);
-    font-weight: 300;
+    font-weight: 400;
 }
 
 body.site-page h1,
@@ -191,7 +191,7 @@ body.site-page .nav__lang [aria-current="page"] {
 
 /* Editorial page hero */
 body.site-page .page-hero {
-    min-height: clamp(560px, 68svh, 720px);
+    min-height: clamp(440px, 54svh, 580px);
     max-height: none;
     height: auto;
     padding: 0;
@@ -220,9 +220,9 @@ body.site-page .page-hero__background::after {
 body.site-page .page-hero__container {
     width: var(--ds-shell);
     max-width: none;
-    min-height: clamp(560px, 68svh, 720px);
+    min-height: clamp(440px, 54svh, 580px);
     height: auto;
-    padding: calc(var(--ds-nav-height) + clamp(70px, 8vw, 130px)) 0 clamp(64px, 7vw, 110px);
+    padding: calc(var(--ds-nav-height) + clamp(44px, 4vw, 70px)) 0 clamp(48px, 4vw, 70px);
 }
 
 body.site-page .page-hero__left {
@@ -248,7 +248,7 @@ body.site-page .page-hero h1 {
     color: var(--ds-white);
     font-size: var(--ds-display-xl);
     font-style: normal;
-    line-height: 0.94;
+    line-height: 1.08;
     letter-spacing: -0.025em;
     text-transform: uppercase;
     text-wrap: balance;
@@ -263,7 +263,7 @@ body.site-page .page-hero__description {
     max-width: 390px;
     color: rgba(255, 255, 255, 0.62);
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.75;
 }
 
@@ -1070,7 +1070,7 @@ body.site-page .footer__art {
 
     body.site-page .page-hero h1 {
         margin: 0;
-        font-size: clamp(2.75rem, 13vw, 4.15rem);
+        font-size: clamp(2rem, 4.5vw, 3rem);
         line-height: 0.96;
     }
 

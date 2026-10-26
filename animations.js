@@ -111,14 +111,7 @@ function animateHero() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
 
-    const backgroundVideo = hero.querySelector('.hero__bg-video');
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    if (backgroundVideo) gsap.set(backgroundVideo, { autoAlpha: 0 });
-
-    if (backgroundVideo) {
-        tl.to(backgroundVideo, { autoAlpha: 1, duration: 1.35, ease: 'power2.inOut' }, 0);
-    }
 
     tl.from('.hero__eyebrow', { autoAlpha: 0, y: 14, duration: 0.65 }, 0.2)
       .from('.hero__tagline span', { autoAlpha: 0, y: 36, stagger: 0.12, duration: 0.95 }, 0.4)

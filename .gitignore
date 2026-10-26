@@ -23,3 +23,12 @@ vision-section.png
 
 # IDE
 .vscode/
+
+# Local client source references and design-review artifacts
+/.client-mockup.pdf
+/.mockup-preview/
+/assessment-home-desktop.png
+/hero-2026-10-26/
+/docs/finish-line/
+/.codex/
+/.cursor/
