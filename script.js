@@ -8,6 +8,7 @@ let lenis;
 document.addEventListener('DOMContentLoaded', () => {
     // The hero must also work when the optional scrolling libraries are unavailable.
     initHeroBackgroundVideo();
+    initHeroChapters();
 
     // Initialize Lenis smooth scroll first
     initLenis();
@@ -244,91 +245,132 @@ function initHeroBackgroundVideo() {
 
     const hero = bgVideo.closest('.hero');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const introSeconds = 8;
+    const holdMs = 3400;
     let player;
-    let finished = false;
-    let playbackDeadline;
+    let started = false;
+    let playing = false;
+    let suspended = false;
+    let holdTimer;
+    let loadDeadline;
 
-    hero.dataset.heroState = 'tree';
-    if (reducedMotion.matches || document.hidden) return;
+    hero.dataset.heroState = 'intro';
+    if (reducedMotion.matches) return;
 
-    hero.dataset.heroState = 'loading';
-
-    function finishIntro() {
-        if (finished) return;
-        finished = true;
-        clearTimeout(loadDeadline);
-        clearTimeout(playbackDeadline);
+    function restoreIntro() {
+        playing = false;
         hero.classList.remove('hero--video-active');
-        hero.dataset.heroState = 'tree';
-        document.removeEventListener('visibilitychange', onVisibilityChange);
-        reducedMotion.removeEventListener('change', onMotionChange);
-        hero.removeEventListener('hero:finish', finishIntro);
-
-        player?.pause().catch(() => {});
-        // Let the video dissolve away before removing its iframe and network activity.
-        window.setTimeout(() => {
-            if (player) player.destroy().catch(() => embedTarget.replaceChildren());
-            else embedTarget.replaceChildren();
-        }, reducedMotion.matches ? 0 : 1000);
+        hero.dataset.heroState = 'intro';
     }
 
-    function onVisibilityChange() {
-        if (document.hidden) finishIntro();
+    function dropVideo() {
+        clearTimeout(holdTimer);
+        clearTimeout(loadDeadline);
+        const current = player;
+        player = null;
+        restoreIntro();
+        if (current) current.destroy().catch(() => embedTarget.replaceChildren());
+        else embedTarget.replaceChildren();
     }
 
     function onMotionChange(event) {
-        if (event.matches) finishIntro();
+        if (event.matches) dropVideo();
     }
 
-    const loadDeadline = window.setTimeout(finishIntro, 15000);
-    document.addEventListener('visibilitychange', onVisibilityChange);
-    reducedMotion.addEventListener('change', onMotionChange);
-    hero.addEventListener('hero:finish', finishIntro);
+    function onVisibilityChange() {
+        if (!player) return;
+        if (document.hidden) player.pause().catch(() => {});
+        else if (playing) player.play().catch(() => {});
+    }
 
-    function startPlayer() {
-        if (finished) return;
-        if (!window.Vimeo?.Player) {
-            finishIntro();
-            return;
+    function beginVideo() {
+        if (started || reducedMotion.matches || document.hidden) return;
+        started = true;
+        hero.dataset.heroState = 'loading';
+        loadDeadline = window.setTimeout(dropVideo, 15000);
+
+        function startPlayer() {
+            if (!started || reducedMotion.matches) return;
+            if (!window.Vimeo?.Player) {
+                dropVideo();
+                return;
+            }
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0&playsinline=1&dnt=1`;
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('tabindex', '-1');
+            iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+            iframe.title = 'Vidéo de présentation Quintessence';
+            embedTarget.appendChild(iframe);
+            player = new Vimeo.Player(iframe);
+
+            player.on('playing', () => {
+                if (!started) return;
+                clearTimeout(loadDeadline);
+                playing = true;
+                hero.classList.add('hero--video-active');
+                hero.dataset.heroState = 'playing';
+                if (suspended) player.pause().catch(() => {});
+            });
+            player.on('error', dropVideo);
+            player.ready().then(() => {
+                if (started) return player.play();
+            }).catch(dropVideo);
         }
 
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=0&muted=1&autopause=0&playsinline=1&dnt=1`;
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('tabindex', '-1');
-        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-        iframe.title = 'Vidéo de présentation Quintessence';
-        embedTarget.appendChild(iframe);
-        player = new Vimeo.Player(iframe);
-
-        player.on('playing', () => {
-            if (finished) return;
-            clearTimeout(loadDeadline);
-            hero.classList.add('hero--video-active');
-            hero.dataset.heroState = 'playing';
-            // A stalled stream must not leave a frozen video covering the tree forever.
-            clearTimeout(playbackDeadline);
-            playbackDeadline = window.setTimeout(finishIntro, 12000);
-        });
-        player.on('timeupdate', ({ seconds }) => {
-            if (seconds >= introSeconds) finishIntro();
-        });
-        player.on('ended', finishIntro);
-        player.on('error', finishIntro);
-        player.ready().then(() => {
-            if (!finished) return player.play();
-        }).catch(finishIntro);
+        if (window.Vimeo?.Player) startPlayer();
+        else {
+            const sdk = document.createElement('script');
+            sdk.src = 'https://player.vimeo.com/api/player.js';
+            sdk.onload = startPlayer;
+            sdk.onerror = dropVideo;
+            document.head.appendChild(sdk);
+        }
     }
 
-    if (window.Vimeo?.Player) startPlayer();
-    else {
-        const sdk = document.createElement('script');
-        sdk.src = 'https://player.vimeo.com/api/player.js';
-        sdk.onload = startPlayer;
-        sdk.onerror = finishIntro;
-        document.head.appendChild(sdk);
+    holdTimer = window.setTimeout(beginVideo, holdMs);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    reducedMotion.addEventListener('change', onMotionChange);
+
+    hero.addEventListener('hero:pause', () => {
+        suspended = true;
+        clearTimeout(holdTimer);
+        player?.pause().catch(() => {});
+    });
+    hero.addEventListener('hero:resume', () => {
+        suspended = false;
+        if (playing) player?.play().catch(() => {});
+        else if (!started && !reducedMotion.matches && !document.hidden) {
+            holdTimer = window.setTimeout(beginVideo, 700);
+        }
+    });
+}
+
+function initHeroChapters() {
+    const chapters = document.querySelector('.hero__chapters');
+    if (!chapters) return;
+
+    const links = [...chapters.querySelectorAll('a')];
+    const sections = links
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+    if (sections.length === 0) return;
+
+    function setCurrent(id) {
+        links.forEach((link) => {
+            if (link.getAttribute('href') === `#${id}`) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+        });
     }
+
+    const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setCurrent(visible.target.id);
+    }, { rootMargin: '-35% 0px -45% 0px', threshold: [0.1, 0.35, 0.6] });
+
+    sections.forEach((section) => observer.observe(section));
 }
 
 function clearModalPlayer(modalPlayer) {
@@ -348,7 +390,7 @@ function initVideoModal() {
     if (!modal || modalTriggers.length === 0) return;
 
     function openModal(videoId, trigger) {
-        document.querySelector('.hero')?.dispatchEvent(new Event('hero:finish'));
+        document.querySelector('.hero')?.dispatchEvent(new Event('hero:pause'));
         const iframe = document.createElement('iframe');
         iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
         iframe.setAttribute('frameborder', '0');
@@ -371,6 +413,7 @@ function initVideoModal() {
     modal.addEventListener('close', () => {
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        document.querySelector('.hero')?.dispatchEvent(new Event('hero:resume'));
         clearModalPlayer(modalPlayer);
         if (lenis) lenis.start();
         lastVideoTrigger?.focus({ preventScroll: true });

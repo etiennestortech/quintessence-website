@@ -223,12 +223,13 @@ body.home-reference .hero__tree {
     inset: 0;
     overflow: hidden;
     background: radial-gradient(ellipse at 76% 64%, #262015 0, #100e0a 31%, #090907 64%);
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
+    transition: opacity 1400ms ease;
 }
 
-body.home-reference .hero[data-hero-state="tree"] .hero__tree {
-    opacity: 1;
+body.home-reference .hero[data-hero-state="playing"] .hero__tree {
+    opacity: 0;
 }
 
 body.home-reference .hero__tree img {
@@ -242,13 +243,13 @@ body.home-reference .hero__bg-video {
     inset: 0;
     overflow: hidden;
     background: #090907 url("images/hero-video-poster.jpg") center / cover no-repeat;
-    opacity: 1;
-    transition: opacity 900ms ease-in-out;
+    opacity: 0;
+    transition: opacity 1400ms ease;
     pointer-events: none;
 }
 
-body.home-reference .hero[data-hero-state="tree"] .hero__bg-video {
-    opacity: 0;
+body.home-reference .hero[data-hero-state="playing"] .hero__bg-video {
+    opacity: 1;
 }
 
 body.home-reference .hero__bg-video-embed {
@@ -257,7 +258,7 @@ body.home-reference .hero__bg-video-embed {
 }
 
 body.home-reference .hero--video-active .hero__bg-video-embed,
-body.home-reference .hero[data-hero-state="tree"] .hero__bg-video-embed {
+body.home-reference .hero[data-hero-state="playing"] .hero__bg-video-embed {
     opacity: 1;
 }
 
@@ -1857,6 +1858,101 @@ body.home-reference .footer {
     body.home-reference .detail-gallery figure:last-child {
         grid-column: auto;
         aspect-ratio: 1;
+    }
+}
+
+body.home-reference .hero__chapters {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    right: clamp(16px, 2vw, 34px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.48);
+    transform: translateY(-42%);
+}
+
+body.home-reference .hero__chapters a {
+    color: inherit;
+    font-family: "Bodoni Moda", serif;
+    font-size: 0.95rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+body.home-reference .hero__chapters a[aria-current="true"] {
+    color: var(--home-gold-light);
+}
+
+body.home-reference .hero__chapters a:hover,
+body.home-reference .hero__chapters a:focus-visible {
+    color: #fff;
+}
+
+body.home-reference .hero__chapters-line {
+    width: 1px;
+    height: 78px;
+    margin-top: 4px;
+    background: rgba(255, 255, 255, 0.38);
+    align-self: center;
+}
+
+body.home-reference .hero__scroll {
+    position: absolute;
+    z-index: 4;
+    bottom: 28px;
+    left: 62%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+body.home-reference .hero__scroll-icon {
+    position: relative;
+    width: 22px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 12px;
+}
+
+body.home-reference .hero__scroll-icon::before {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 3px;
+    height: 7px;
+    border-radius: 2px;
+    background: currentColor;
+    content: "";
+    transform: translateX(-50%);
+    animation: hero-scroll 1.6s ease-in-out infinite;
+}
+
+@keyframes hero-scroll {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    70% { transform: translateX(-50%) translateY(8px); opacity: 0.2; }
+}
+
+@media (max-width: 900px) {
+    body.home-reference .hero__chapters {
+        display: none;
+    }
+
+    body.home-reference .hero__scroll {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 

@@ -22,7 +22,7 @@
 <link href="images/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="images/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="images/q-icon.png" rel="apple-touch-icon"/>
-<link as="image" fetchpriority="high" href="images/hero-video-poster.jpg" rel="preload"/>
+<link as="image" fetchpriority="high" href="images/hero-tree.webp" rel="preload"/>
 <title>Quintessence Atelier Dentaire | L'excellence en prothèse dentaire</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -30,8 +30,8 @@
 <link href="styles.css?v=20261026-visual6" rel="stylesheet"/>
 <link href="design-system.css?v=20261026-type14" rel="stylesheet"/>
 <link href="animations.css?v=20261026-visual6" rel="stylesheet"/>
-<link href="homepage-reference.css?v=20261026-type14" rel="stylesheet"/>
-<link href="client-pages.css?v=20261026-blend19" rel="stylesheet"/></head>
+<link href="homepage-reference.css?v=20261102-title" rel="stylesheet"/>
+<link href="client-pages.css?v=20261102-feedback2" rel="stylesheet"/></head>
 <body class="home-reference">
 <nav aria-label="Navigation principale" class="nav">
 <div class="nav__inner">
@@ -63,7 +63,7 @@
 </div>
 </nav>
 <main>
-<section class="hero" id="hero">
+<section class="hero" data-hero-state="intro" id="hero">
 <div aria-hidden="true" class="hero__tree">
 <img alt="" height="933" sizes="100vw" src="images/hero-tree.webp" srcset="images/hero-tree-800w.webp 800w, images/hero-tree.webp 1680w" width="1680"/>
 </div>
@@ -89,6 +89,17 @@
 </button>
 </div>
 </div>
+<nav aria-label="Chapitres de la page" class="hero__chapters">
+<a aria-current="true" href="#detail"><span>01</span></a>
+<a href="#technologie"><span>02</span></a>
+<a href="#sourire-meme-jour"><span>03</span></a>
+<a href="#equipe-collective"><span>04</span></a>
+<span aria-hidden="true" class="hero__chapters-line"></span>
+</nav>
+<a class="hero__scroll" href="#apropos">
+<span aria-hidden="true" class="hero__scroll-icon"></span>
+<span>Défiler</span>
+</a>
 </section><section class="identity section--warm" id="apropos">
 <div class="identity__split">
 <div class="identity__content">
@@ -261,7 +272,7 @@
 </div>
 <blockquote class="reference-quote same-day__closing"><span aria-hidden="true"></span><p>Derrière chaque mise en charge immédiate se cache une <em>préparation minutieuse</em>, une technologie maîtrisée et une équipe engagée.</p></blockquote>
 </div>
-</section><section class="collective-section" id="equipe-collective"><div class="collective-section__media"><span class="label">04 · Une équipe dévouée</span><img alt="L’équipe au travail dans l’atelier Quintessence" class="" loading="lazy" sizes="(max-width: 767px) 100vw, 100vw" src="images/equipe-collective.webp" srcset="images/equipe-collective-800w.webp 800w, images/equipe-collective.webp 1680w"/></div><div class="collective-section__caption"><h2>Une expertise collective</h2><p>Des talents complémentaires. Une passion commune. Une même exigence.</p><a class="text-link" href="equipe.html">Rencontrer l’équipe <span aria-hidden="true">→</span></a></div></section><section class="vision section--warm" id="vision">
+</section><section class="collective-section" id="equipe-collective"><div class="collective-section__media"><span class="label">04 · Une équipe dévouée</span><img alt="L’équipe au travail dans l’atelier Quintessence" class="" loading="lazy" sizes="(max-width: 767px) 100vw, 100vw" src="images/equipe-collective.webp" srcset="images/equipe-collective-800w.webp 800w, images/equipe-collective.webp 1680w"/></div><div class="collective-section__caption"><h2>Une expertise collective</h2><p>Des talents complémentaires. Une passion commune. Une même exigence.</p><div class="collective-section__actions"><a class="text-link" href="equipe.html">Rencontrer l’équipe <span aria-hidden="true">→</span></a><a class="btn btn--dark" href="carrieres.html">Postuler <span aria-hidden="true">→</span></a></div></div></section><section class="vision section--warm" id="vision">
 <div class="reference-shell">
 <div class="vision__layout">
 <div class="vision__copy">
@@ -333,6 +344,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="components.js?v=20261026-visual6"></script>
 <script src="animations.js?v=20261026-visual6"></script>
-<script src="script.js?v=20261026-visual6"></script>
+<script src="script.js?v=20261102-feedback2"></script>
 </body>
 </html>
