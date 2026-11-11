@@ -244,78 +244,57 @@ function initHeroBackgroundVideo() {
     if (!bgVideo || !embedTarget || !videoId) return;
 
     const hero = bgVideo.closest('.hero');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const holdMs = 3400;
     let player;
     let started = false;
     let playing = false;
     let suspended = false;
-    let holdTimer;
-    let loadDeadline;
+    let revealTimer;
+    const revealAt = Date.now() + holdMs;
+    const gestureEvents = ['pointerup', 'touchend', 'click'];
 
     hero.dataset.heroState = 'intro';
-    if (reducedMotion.matches) return;
 
-    function restoreIntro() {
-        playing = false;
-        hero.classList.remove('hero--video-active');
-        hero.dataset.heroState = 'intro';
+    function reveal() {
+        if (suspended || !playing) return;
+        clearTimeout(revealTimer);
+        hero.classList.add('hero--video-active');
+        hero.dataset.heroState = 'playing';
+        gestureEvents.forEach((type) => document.removeEventListener(type, onGesture, true));
     }
 
-    function dropVideo() {
-        clearTimeout(holdTimer);
-        clearTimeout(loadDeadline);
-        const current = player;
-        player = null;
-        restoreIntro();
-        if (current) current.destroy().catch(() => embedTarget.replaceChildren());
-        else embedTarget.replaceChildren();
+    function scheduleReveal() {
+        clearTimeout(revealTimer);
+        revealTimer = window.setTimeout(reveal, Math.max(0, revealAt - Date.now()));
     }
 
-    function onMotionChange(event) {
-        if (event.matches) dropVideo();
-    }
-
-    function onVisibilityChange() {
-        if (!player) return;
-        if (document.hidden) player.pause().catch(() => {});
-        else if (playing) player.play().catch(() => {});
-    }
-
-    function beginVideo() {
-        if (started || reducedMotion.matches || document.hidden) return;
+    function ensurePlayer() {
+        if (started || document.hidden) return;
         started = true;
-        hero.dataset.heroState = 'loading';
-        loadDeadline = window.setTimeout(dropVideo, 15000);
 
         function startPlayer() {
-            if (!started || reducedMotion.matches) return;
-            if (!window.Vimeo?.Player) {
-                dropVideo();
-                return;
-            }
+            if (!window.Vimeo?.Player || player) return;
 
             const iframe = document.createElement('iframe');
             iframe.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0&playsinline=1&dnt=1`;
             iframe.setAttribute('frameborder', '0');
             iframe.setAttribute('tabindex', '-1');
-            iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+            iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
             iframe.title = 'Vidéo de présentation Quintessence';
             embedTarget.appendChild(iframe);
             player = new Vimeo.Player(iframe);
 
             player.on('playing', () => {
-                if (!started) return;
-                clearTimeout(loadDeadline);
                 playing = true;
-                hero.classList.add('hero--video-active');
-                hero.dataset.heroState = 'playing';
-                if (suspended) player.pause().catch(() => {});
+                if (suspended) {
+                    player.pause().catch(() => {});
+                    return;
+                }
+                scheduleReveal();
             });
-            player.on('error', dropVideo);
             player.ready().then(() => {
-                if (started) return player.play();
-            }).catch(dropVideo);
+                if (!suspended) return player.play();
+            }).catch(() => {});
         }
 
         if (window.Vimeo?.Player) startPlayer();
@@ -323,26 +302,39 @@ function initHeroBackgroundVideo() {
             const sdk = document.createElement('script');
             sdk.src = 'https://player.vimeo.com/api/player.js';
             sdk.onload = startPlayer;
-            sdk.onerror = dropVideo;
             document.head.appendChild(sdk);
         }
     }
 
-    holdTimer = window.setTimeout(beginVideo, holdMs);
+    function onGesture() {
+        if (suspended || document.hidden) return;
+        if (!player) ensurePlayer();
+        player?.play().catch(() => {});
+    }
+
+    function onVisibilityChange() {
+        if (document.hidden) {
+            player?.pause().catch(() => {});
+            return;
+        }
+        if (!player) ensurePlayer();
+        else if (!suspended) player.play().catch(() => {});
+    }
+
+    gestureEvents.forEach((type) => document.addEventListener(type, onGesture, true));
     document.addEventListener('visibilitychange', onVisibilityChange);
-    reducedMotion.addEventListener('change', onMotionChange);
+    if (!document.hidden) ensurePlayer();
 
     hero.addEventListener('hero:pause', () => {
         suspended = true;
-        clearTimeout(holdTimer);
+        clearTimeout(revealTimer);
         player?.pause().catch(() => {});
     });
     hero.addEventListener('hero:resume', () => {
         suspended = false;
-        if (playing) player?.play().catch(() => {});
-        else if (!started && !reducedMotion.matches && !document.hidden) {
-            holdTimer = window.setTimeout(beginVideo, 700);
-        }
+        if (!player) ensurePlayer();
+        else player.play().catch(() => {});
+        if (playing) scheduleReveal();
     });
 }
 

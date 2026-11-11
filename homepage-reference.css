@@ -219,7 +219,7 @@ body.home-reference .hero::before {
 
 body.home-reference .hero__tree {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     inset: 0;
     overflow: hidden;
     background: radial-gradient(ellipse at 76% 64%, #262015 0, #100e0a 31%, #090907 64%);
@@ -243,23 +243,8 @@ body.home-reference .hero__bg-video {
     inset: 0;
     overflow: hidden;
     background: #090907 url("images/hero-video-poster.jpg") center / cover no-repeat;
-    opacity: 0;
-    transition: opacity 1400ms ease;
+    opacity: 1;
     pointer-events: none;
-}
-
-body.home-reference .hero[data-hero-state="playing"] .hero__bg-video {
-    opacity: 1;
-}
-
-body.home-reference .hero__bg-video-embed {
-    opacity: 0;
-    transition: opacity 250ms ease;
-}
-
-body.home-reference .hero--video-active .hero__bg-video-embed,
-body.home-reference .hero[data-hero-state="playing"] .hero__bg-video-embed {
-    opacity: 1;
 }
 
 @media (max-width: 767px) {
@@ -277,12 +262,13 @@ body.home-reference .hero__bg-video-embed iframe {
     min-height: 100%;
     border: 0;
     transform: translate(-50%, -50%);
+    opacity: 1;
     pointer-events: none;
 }
 
 body.home-reference .hero__video-scrim {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     inset: 0;
     background:
         linear-gradient(90deg, rgba(6, 6, 5, 0.88) 0%, rgba(6, 6, 5, 0.7) 42%, rgba(6, 6, 5, 0.34) 72%, rgba(6, 6, 5, 0.52) 100%),
