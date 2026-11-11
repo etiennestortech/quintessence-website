@@ -103,8 +103,15 @@ body.site-page .nav {
     height: var(--ds-nav-height);
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(17, 16, 14, 0.32);
-    backdrop-filter: blur(6px);
+    background: rgba(17, 16, 14, 0.24);
+    backdrop-filter: blur(5px);
+}
+
+/* Bright photographic heroes, like the atelier panorama, need a darker bar. */
+body.page-apropos .nav {
+    background: rgba(17, 16, 14, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
 }
 
 body.site-page .nav.nav--fixed {
@@ -127,7 +134,7 @@ body.site-page .nav__inner {
 }
 
 body.site-page .nav__logo {
-    min-width: 0;
+    min-width: max-content;
 }
 
 body.site-page .nav__logo img {
@@ -137,8 +144,12 @@ body.site-page .nav__logo img {
 }
 
 body.site-page .nav__links {
+    display: flex;
     gap: clamp(17px, 1.8vw, 35px);
-    justify-self: end;
+    align-items: center;
+    justify-self: center;
+    min-width: max-content;
+    white-space: nowrap;
 }
 
 body.site-page .nav__links a,
@@ -166,17 +177,19 @@ body.site-page .nav__cta {
     display: inline-flex;
     gap: 14px;
     align-items: center;
+    min-width: max-content;
     min-height: 39px;
     padding: 0 18px;
     border: 1px solid rgba(194, 161, 108, 0.8);
     border-radius: 0;
     color: var(--ds-gold-light) !important;
+    white-space: nowrap;
 }
 
 body.site-page .nav__cta:hover {
     border-color: var(--ds-gold-light);
     background: var(--ds-gold-light);
-    color: var(--ds-black) !important;
+    color: #fff !important;
 }
 
 body.site-page .nav__lang {
@@ -369,10 +382,11 @@ body.site-page .btn--dark {
 }
 
 body.site-page .btn--primary:hover,
-body.site-page .btn--dark:hover {
-    border-color: var(--ds-gold-light);
-    background: var(--ds-gold-light);
-    color: var(--ds-black);
+body.site-page .btn--dark:hover,
+body.site-page .btn--gold-outline:hover {
+    border-color: var(--ds-gold);
+    background: var(--ds-gold);
+    color: #fff;
 }
 
 body.site-page .btn--outline {
@@ -839,7 +853,7 @@ body.site-page .prescription-form,
 body.site-page .careers-form {
     border: 1px solid var(--ds-line);
     border-radius: 0;
-    background: var(--ds-paper);
+    background: var(--ds-white);
     box-shadow: none;
 }
 
@@ -849,6 +863,10 @@ body.site-page .form-group textarea,
 body.site-page .file-upload__zone {
     border-radius: 0;
     background: transparent;
+}
+
+body.site-page input[type="date"] {
+    cursor: pointer;
 }
 
 body.site-page .form-group input:focus,
@@ -861,6 +879,14 @@ body.site-page .file-upload__zone.dragover {
 }
 
 body.site-page .contact-info__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+    padding: 12px;
     border: 1px solid var(--ds-line);
     border-radius: 50%;
     background: transparent;
@@ -876,6 +902,51 @@ body.site-page .form-section__number {
     font-family: var(--ds-font-body);
     font-size: 0.72rem;
     font-weight: 500;
+}
+
+/* Prescription: 16px inside a group, one quiet break between groups. */
+body.site-page .prescription-form {
+    padding: 2.25rem 2.5rem;
+}
+
+body.site-page .prescription-form .form-section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+body.site-page .prescription-form .form-section + .form-section {
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--ds-line);
+}
+
+body.site-page .prescription-form .form-section__header,
+body.site-page .prescription-form .form-row,
+body.site-page .prescription-form .form-group,
+body.site-page .prescription-form .form-disclaimer {
+    margin-bottom: 1rem;
+}
+
+body.site-page .prescription-form .form-row .form-group,
+body.site-page .prescription-form .form-section > :last-child {
+    margin-bottom: 0;
+}
+
+body.site-page .prescription-form .form-row {
+    gap: 1rem 1.25rem;
+}
+
+body.site-page .prescription-form .form-group label {
+    margin-bottom: 0.375rem;
+}
+
+body.site-page .prescription-form .checkbox-group {
+    gap: 0.75rem;
+}
+
+body.site-page .prescription-form .form-section--submit {
+    text-align: left;
 }
 
 body.site-page .map-container {
@@ -899,12 +970,24 @@ body.site-page .reference-quote {
 
 body.site-page .reference-quote::before,
 body.site-page .reference-quote::after {
+    grid-row: 1;
+    width: 100%;
     height: 1px;
     content: "";
-    background: var(--ds-line);
+    background: rgba(168, 135, 82, 0.45);
+}
+
+body.site-page .reference-quote::before {
+    grid-column: 1;
+}
+
+body.site-page .reference-quote::after {
+    grid-column: 3;
 }
 
 body.site-page .reference-quote > span {
+    grid-row: 1;
+    grid-column: 2;
     width: 54px;
     height: 54px;
     background: var(--ds-red);
@@ -913,11 +996,13 @@ body.site-page .reference-quote > span {
 }
 
 body.site-page .reference-quote p {
+    grid-row: 2;
     grid-column: 1 / -1;
     max-width: 820px;
     margin: 0 auto;
     font: 500 clamp(1.65rem, 2.25vw, 2.35rem) / 1.15 var(--ds-font-display);
     text-wrap: balance;
+    justify-self: center;
 }
 
 /* CTA and footer */
@@ -996,10 +1081,8 @@ body.site-page .footer__art {
     }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1120px) {
     :root {
-        --ds-shell: min(100% - 40px, 680px);
-        --ds-section-y: 76px;
         --ds-nav-height: 72px;
     }
 
@@ -1046,6 +1129,14 @@ body.site-page .footer__art {
         border-color: var(--ds-gold);
         border-radius: 0;
         color: var(--ds-gold-light);
+    }
+}
+
+@media (max-width: 820px) {
+    :root {
+        --ds-shell: min(100% - 40px, 680px);
+        --ds-section-y: 76px;
+        --ds-nav-height: 72px;
     }
 
     body.site-page .page-hero,

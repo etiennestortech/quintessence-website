@@ -293,7 +293,7 @@ h3 {
 
 .btn--gold-outline:hover {
     background: var(--color-gold);
-    color: var(--color-black);
+    color: #fff;
     border-color: var(--color-gold);
 }
 

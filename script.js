@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonialToggles();
     initGallery();
     initDesignPreviews();
+    initDateFields();
 });
 
 /* --------------------------------------------------------------------------
@@ -630,6 +631,22 @@ function initGallery() {
     });
     more?.addEventListener('click', reveal);
     reveal();
+}
+
+/* Chromium only opens the calendar from its icon. Open it from the rest of the field too. */
+function initDateFields() {
+    document.querySelectorAll('input[type="date"]').forEach((input) => {
+        input.addEventListener('click', (event) => {
+            if (typeof input.showPicker !== 'function') return;
+            const clickedNativeIcon = input.clientWidth - event.offsetX < 40;
+            if (clickedNativeIcon) return;
+            try {
+                input.showPicker();
+            } catch (error) {
+                // The picker is already open, or this browser blocked it.
+            }
+        });
+    });
 }
 
 /* Design preview only: no contact, CV or patient data leaves the browser. */
